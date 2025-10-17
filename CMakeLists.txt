@@ -77,9 +77,9 @@ set(PLACE_5 "Emily Place Reserve")
 
 
 set(CH7_PLACE_1 ${PLACE_5})
-set(CH7_OSMID_1 ${OSMID_5})
+set(CH7_ID_1 ${OSMID_5})
 set(CH7_PLACE_2 ${PLACE_1})
-set(CH7_OSMID_2 ${OSMID_1})
+set(CH7_ID_2 ${OSMID_1})
 
 set(POINT1_LAT "-36.850329")
 set(POINT1_LON "174.763094")
