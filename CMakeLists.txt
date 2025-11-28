@@ -45,7 +45,7 @@ option(PGR_WORKSHOP_VERBOSE_DEBUG
 #---------------------------------------------
 # CONFIGURATION
 #---------------------------------------------
-set(PGR_WORKSHOP_CITY_FILE "auckland_NZ")
+set(PGR_WORKSHOP_CITY_FILE "AUCKLAND_NZ")
 
 # https://github.com/OSGeo/OSGeoLive/blob/master/bin/install_osm.sh
 # around line 117
