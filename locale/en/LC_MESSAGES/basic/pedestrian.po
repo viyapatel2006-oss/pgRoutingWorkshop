@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 19:49+0000\n"
+"POT-Creation-Date: 2025-11-28 19:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -339,19 +339,19 @@ msgid "Inspecting the results, looking for totals (edge = -1):"
 msgstr ""
 
 #: ../../build/docs/scripts/basic/pedestrian/note_1.txt:3
-msgid "From 10840 to vertex 10928 takes 9.82 minutes (seq = 134)"
+msgid "From 10832 to vertex 11046 takes 9.82 minutes (seq = 134)"
 msgstr ""
 
 #: ../../build/docs/scripts/basic/pedestrian/note_1.txt:5
-msgid "From 10840 to vertex 12777 takes 10.85 minutes (seq = 185)"
+msgid "From 10832 to vertex 14824 takes 10.85 minutes (seq = 185)"
 msgstr ""
 
 #: ../../build/docs/scripts/basic/pedestrian/note_1.txt:7
-msgid "From 936 to vertex 10928 takes 9.20 minutes (seq = 50)"
+msgid "From 593 to vertex 11046 takes 9.07 minutes (seq = 50)"
 msgstr ""
 
 #: ../../build/docs/scripts/basic/pedestrian/note_1.txt:9
-msgid "From 936 to vertex 12777 takes 9.04 minutes (seq = 85)"
+msgid "From 593 to vertex 14824 takes 9.04 minutes (seq = 85)"
 msgstr ""
 
 #: ../../build/docs/basic/pedestrian.rst:248

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-30 17:36+0000\n"
+"POT-Creation-Date: 2025-11-28 19:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,7 +129,7 @@ msgid "the osm2pgrouting default ``mapconfig.xml`` configuration file is used"
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:115
-msgid "and the ``~/Desktop/workshop/auckland_NZ.osm`` data"
+msgid "and the ``~/Desktop/workshop/AUCKLAND_NZ.osm`` data"
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:116
