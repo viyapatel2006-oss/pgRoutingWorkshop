@@ -6,21 +6,21 @@
 #
 # Translators:
 # Ko Nagase <geosanak@gmail.com>, 2021
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-16 17:44+0000\n"
-"PO-Revision-Date: 2021-10-10 17:39+0000\n"
-"Last-Translator: Ko Nagase <geosanak@gmail.com>, 2021\n"
+"PO-Revision-Date: 2025-12-16 19:34+0000\n"
+"Last-Translator: Celia Virginia Vergara Castillo <vicky@erosion.dev>\n"
+"Language-Team: Japanese <https://weblate.osgeo.org/projects/"
+"pgrouting-workshop/general-intro-overview/ja/>\n"
 "Language: ja\n"
-"Language-Team: Japanese "
-"(https://app.transifex.com/pgrouting/teams/1219/ja/)\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4.3\n"
 "Generated-By: Babel 2.16.0\n"
 
 #: ../../build/docs/general-intro/overview.rst:11
@@ -38,7 +38,7 @@ msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:23
 msgid "Chapter Contents"
-msgstr ""
+msgstr "章の目次"
 
 #: ../../build/docs/general-intro/overview.rst:26
 msgid "pgRouting Overview"
@@ -240,4 +240,3 @@ msgstr ""
 #: ../../build/docs/general-intro/overview.rst:117
 msgid "https://www.openstreetmap.org"
 msgstr ""
-
