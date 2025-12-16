@@ -227,7 +227,7 @@ Count the number of rows that need to be filled up.
 
   .. literalinclude:: ../scripts/basic/graphs/fill_columns_2.txt
 
-Not expecting to be done due to the fact that some vertices are dead ends.
+Do not expect this count to be the same as the total number of rows in the vertices table, because some nodes are dead ends: some vertices will only be sources and others only targets, so not all rows can be updated.
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
   :language: sql
