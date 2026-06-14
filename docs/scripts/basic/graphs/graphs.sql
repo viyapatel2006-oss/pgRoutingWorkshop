@@ -135,7 +135,7 @@ SELECT
   length_m / 2.0 AS cost, length_m / 2.0 AS reverse_cost,
   name, length_m AS length, the_geom AS geom
 FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
-WHERE  tag_value IN ('pedestrian', 'steps','footway','path','cycleway'); -- line 18
+WHERE  tag_value IN ('residential','pedestrian', 'steps','footway','path','cycleway'); -- line 18
 
 \o create_walk_net2.txt
 
