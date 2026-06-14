@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 21:10-0600\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,32 +18,33 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../build/docs/general-intro/osgeolive.rst:11
 msgid "OSGeoLive Installation"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:13
-msgid "All required tools are available on `OSGeoLive <http://live.osgeo.org>`__."
+msgid ""
+"All required tools are available on `OSGeoLive <http://live.osgeo.org>`__."
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:15
 msgid ""
-"`OSGeoLive Quickstart for Running in a Virtual Machine "
-"<https://live.osgeo.org/en/quickstart/virtualization_quickstart.html>`__"
+"`OSGeoLive Quickstart for Running in a Virtual Machine <https://live.osgeo."
+"org/en/quickstart/virtualization_quickstart.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:17
 msgid ""
-"`Creating an OSGeoLive Bootable USB flash drive "
-"<https://live.osgeo.org/en/quickstart/usb_quickstart.html>`__"
+"`Creating an OSGeoLive Bootable USB flash drive <https://live.osgeo.org/en/"
+"quickstart/usb_quickstart.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:20
 msgid ""
-"Before attending a workshop event, make sure your you can use `OSGeoLive`"
-" with either method or :doc:`../appendix/appendix-2` on your computer."
+"Before attending a workshop event, make sure your you can use `OSGeoLive` "
+"with either method or :doc:`../appendix/appendix-2` on your computer."
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:24
@@ -60,9 +61,9 @@ msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:31
 msgid ""
-"This is a general description on how to install VirtualBox. Complete "
-"details about installation can be found on the `VirtualBox "
-"<https://www.virtualbox.org/>`__ documentation."
+"This is a general description on how to install VirtualBox. Complete details "
+"about installation can be found on the `VirtualBox <https://www.virtualbox."
+"org/>`__ documentation."
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:36
@@ -85,8 +86,8 @@ msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:58
 msgid ""
-"More detailed and up to date information can be found `here "
-"<https://www.virtualbox.org/wiki/Linux_Downloads>`__"
+"More detailed and up to date information can be found `here <https://www."
+"virtualbox.org/wiki/Linux_Downloads>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:62
@@ -100,8 +101,8 @@ msgstr ""
 #: ../../build/docs/general-intro/osgeolive.rst:67
 msgid ""
 "This installation method corresponds for the ``iso`` distribution of "
-"OSGeoLive. For other installations visit `OSgeoLive "
-"<https://osgeo.github.io/OSGeoLive-doc/en/index.html>`__"
+"OSGeoLive. For other installations visit `OSgeoLive <https://osgeo.github.io/"
+"OSGeoLive-doc/en/index.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:72
@@ -135,23 +136,23 @@ msgid "Click on ``New`` and fill with the following information"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:94
-msgid "**Name** OSGeoLive 17"
+msgid "**Name**: OSGeoLive 17"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:95
-msgid "**Type** Linux"
+msgid "**Type**: Linux"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:96
-msgid "**Version** Ubuntu (64-bit)"
+msgid "**Version**: Ubuntu (64-bit)"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:97
-msgid "**Memory size** 4096"
+msgid "**Memory size**: 4096"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:98
-msgid "**Hard disk** Create a virtual hard disk now"
+msgid "**Hard disk**: Create a virtual hard disk now"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:102
@@ -159,19 +160,19 @@ msgid "Click on ``Create`` and fill with the following information"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:104
-msgid "**File location** Choose a suitable location for the Virtual Hard Disk"
+msgid "**File location**: Choose a suitable location for the Virtual Hard Disk"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:105
-msgid "**File size** 10.0GB"
+msgid "**File size**: 10.0GB"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:106
-msgid "**Hard disk file type** VDI (VirtualBox Disk image)"
+msgid "**Hard disk file type**: VDI (VirtualBox Disk image)"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:107
-msgid "**Storage on physical hard disk** Dynamically allocated"
+msgid "**Storage on physical hard disk**: Dynamically allocated"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:112
@@ -196,15 +197,17 @@ msgid "IDE Secondary Device 0"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:117
-msgid "[Optical Drive] empty"
+msgid "[Optical Drive] Empty"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:121
-msgid "Choose ``Storage`` from the virtual box traits and clink on ``Empty``"
+msgid "Choose ``Storage`` from the virtual box traits and click on ``Empty``"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:125
-msgid "Click on the small disk icon and select **Choose/Create a Virtual Disk**"
+msgid ""
+"Click on the small disk icon and select ``Choose/Create a Virtual Optical "
+"Disk``"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:129
@@ -212,7 +215,7 @@ msgid "Navigate to the location where the ISO was installed"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:133
-msgid "Instead of empty, now it has the ISO installed"
+msgid "Instead of ``Empty`` now it has the ISO installed"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:137
@@ -229,8 +232,8 @@ msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:148
 msgid ""
-"Click on ``Start`` button, and click on ``capture``, to capture the mouse"
-" movements"
+"Click on ``Start`` button and then on ``capture`` button to capture the "
+"mouse movements"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:153
@@ -260,4 +263,3 @@ msgstr ""
 #: ../../build/docs/general-intro/osgeolive.rst:178
 msgid "Install PostgrSQL, PostGIS and pgRouting ::"
 msgstr ""
-

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 15:22+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,17 +18,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.17.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../build/docs/basic/withPoints.rst:11
 msgid "Routing using points"
 msgstr ""
 
-#: ../../build/docs/basic/withPoints.rst:17
+#: ../../build/docs/basic/withPoints.rst:18
 msgid ""
-"Other kind of functions are `pl/pgsql <https://www.postgresql.org/docs/"
-"current/plpgsql.html>`__. As the applications requirements become more "
-"complex, building queries and storing queries in a variable becomes necessary"
+"For more advanced requirements, you can utilize `PL/pgSQL <https://www."
+"postgresql.org/docs/current/plpgsql.html>`_. As application logic grows more "
+"complex, using PL/pgSQL to dynamically construct SQL queries and execute "
+"them using internal variables becomes necessary."
 msgstr ""
 
 #: ../../build/docs/basic/withPoints.rst:22

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-28 19:15+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid "Create a pgRouting compatible database"
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:43
-msgid "Depending on the postgres configuration :code:`-U <user>` is needed on :code:`psql` commands"
+msgid "Depending on the Postgres configuration :code:`-U <user>` is needed on :code:`psql` commands"
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:51
@@ -105,7 +105,7 @@ msgid "The following downloads the latest OSM data on using the same area. Using
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:98
-msgid "More information about how to download OpenStreetMap data can be found in https://wiki.openstreetmap.org/wiki/Downloading_data"
+msgid "More information about how to download OpenStreetMap data can be found `here <https://wiki.openstreetmap.org/wiki/Downloading_data>`_."
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:101

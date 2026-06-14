@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 19:44+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Vehicle Routing"
 msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:18
-msgid "Routing, is not limited to pedestrians and most of the time is used for routing vehicles."
+msgid "Routing is not limited to pedestrians and most of the time is also used for routing vehicles."
 msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:21
@@ -65,7 +65,7 @@ msgid "Dollars"
 msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:36
-msgid "CO\\ :sub:`2`\\ emissions"
+msgid "CO\\ :sub:`2`\\  emissions"
 msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:37

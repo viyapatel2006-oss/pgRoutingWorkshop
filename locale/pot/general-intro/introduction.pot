@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-30 17:36+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgid "Basic"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:22
-msgid "will demonstrate the routing functionality by providing examples using |osm-web| road network data from Auckland. Covering topics from how to prepare the data, making routing queries, understanding the results, up to writing a custom 'plpgsql' function that can be integrated with other FOSS tools."
+msgid "This level will demonstrate the routing functionality by providing examples using |osm-web| road network data from Auckland. Covering topics from how to prepare the data, making routing queries, understanding the results, up to writing a custom 'plpgsql' function that can be integrated with other FOSS tools."
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:28
@@ -57,7 +57,7 @@ msgid "Writing advanced queries."
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:33
-msgid "Writing a custom PostgreSQL stored procedure in `plpgsql`"
+msgid "Writing a custom PostgreSQL stored procedure in `plpgsql`."
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:36
@@ -66,7 +66,7 @@ msgid "Prerequisites"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:37
-msgid "Workshop level: basic."
+msgid "Workshop level: basic"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:38
@@ -87,7 +87,7 @@ msgid "pgRouting is an extendible open-source library that provides a variety of
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:50
-msgid "Workshop level: Advanced."
+msgid "Workshop level: Advanced"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:51
@@ -112,15 +112,15 @@ msgid "Developers & presenters of FOSS4G Auckland workshop:"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:71
-msgid "*Vicky Vergara* Is a freelance developer from Mexico. She's the core developer of pgRouting project and GSoC Mentor. OSGeo Charter member."
+msgid "*Vicky Vergara* is a freelance developer from Mexico. She is the core developer of the pgRouting project and a GSoC Mentor. She also serves as an OSGeo Charter member."
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:74
-msgid "*Ramón Ríos* Is a freelance developer from Mexico. Lead engenieer for ParkUpFront"
+msgid "*Ramón Ríos* is a freelance developer from Mexico. He is the Lead Engineer for ParkUpFront."
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:79
-msgid "Past and present tutors and developers"
+msgid "Past and present tutors and developers:"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:80
@@ -128,7 +128,7 @@ msgid "Daniel Kastl, José Ríos, Ko Nagase, Stephen Woodbridge, Swapnil Joshi, 
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:91
-msgid "Past and present supporters"
+msgid "Past and present supporters:"
 msgstr ""
 
 #: ../../build/docs/general-intro/introduction.rst:92

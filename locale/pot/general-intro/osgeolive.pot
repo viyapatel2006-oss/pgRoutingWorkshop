@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2010-2024 pgRouting Developers
-# This file is distributed under the same license as the Workshop FOSS4G Belém package.
+# Copyright (C) 2010-2025 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G Auckland package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 21:10-0600\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,23 +113,23 @@ msgid "Click on ``New`` and fill with the following information"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:94
-msgid "**Name** OSGeoLive 17"
+msgid "**Name**: OSGeoLive 17"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:95
-msgid "**Type** Linux"
+msgid "**Type**: Linux"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:96
-msgid "**Version** Ubuntu (64-bit)"
+msgid "**Version**: Ubuntu (64-bit)"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:97
-msgid "**Memory size** 4096"
+msgid "**Memory size**: 4096"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:98
-msgid "**Hard disk** Create a virtual hard disk now"
+msgid "**Hard disk**: Create a virtual hard disk now"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:102
@@ -137,19 +137,19 @@ msgid "Click on ``Create`` and fill with the following information"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:104
-msgid "**File location** Choose a suitable location for the Virtual Hard Disk"
+msgid "**File location**: Choose a suitable location for the Virtual Hard Disk"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:105
-msgid "**File size** 10.0GB"
+msgid "**File size**: 10.0GB"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:106
-msgid "**Hard disk file type** VDI (VirtualBox Disk image)"
+msgid "**Hard disk file type**: VDI (VirtualBox Disk image)"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:107
-msgid "**Storage on physical hard disk** Dynamically allocated"
+msgid "**Storage on physical hard disk**: Dynamically allocated"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:112
@@ -174,15 +174,15 @@ msgid "IDE Secondary Device 0"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:117
-msgid "[Optical Drive] empty"
+msgid "[Optical Drive] Empty"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:121
-msgid "Choose ``Storage`` from the virtual box traits and clink on ``Empty``"
+msgid "Choose ``Storage`` from the virtual box traits and click on ``Empty``"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:125
-msgid "Click on the small disk icon and select **Choose/Create a Virtual Disk**"
+msgid "Click on the small disk icon and select ``Choose/Create a Virtual Optical Disk``"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:129
@@ -190,7 +190,7 @@ msgid "Navigate to the location where the ISO was installed"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:133
-msgid "Instead of empty, now it has the ISO installed"
+msgid "Instead of ``Empty`` now it has the ISO installed"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:137
@@ -206,7 +206,7 @@ msgid "Start OSGeoLive"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:148
-msgid "Click on ``Start`` button, and click on ``capture``, to capture the mouse movements"
+msgid "Click on ``Start`` button and then on ``capture`` button to capture the mouse movements"
 msgstr ""
 
 #: ../../build/docs/general-intro/osgeolive.rst:153

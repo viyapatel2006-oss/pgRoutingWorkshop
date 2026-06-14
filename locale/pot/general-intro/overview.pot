@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2010-2024 pgRouting Developers
-# This file is distributed under the same license as the Workshop FOSS4G Belém package.
+# Copyright (C) 2010-2025 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G Auckland package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 17:44+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Software and Data Overview"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:18
-msgid "This workshop use several free and open source software for geospatial tools. Most of the free and open source software for geospatial tools that are related to other open source software projects. Here we mention the most important ones."
+msgid "This workshop uses several free and open source softwares for geospatial tools. Most of these softwares are related to other open source software projects. Here we mention the most important ones."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:23
@@ -89,42 +89,34 @@ msgid "`Driving Distance <https://docs.pgrouting.org/latest/en/pgr_drivingDistan
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:55
-msgid "many more!!!"
+msgid "`and many more <https://docs.pgrouting.org/latest/en/routingFunctions.html>`_"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:57
-msgid "pgRouting is an Open Source Software, available under the GPLv2 license and is supported and maintained by a the pgRouting community."
+msgid "pgRouting is an open source software available under the GPLv2 license and is supported and maintained by the pgRouting community."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:60
-msgid "pgRouting is a part of `OSGeo Community Projects <https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ of the `OSGeo Foundation <https://www.osgeo.org>`__ and included on `OSGeoLive <https://live.osgeo.org/en/overview/pgrouting_overview.html>`__."
+msgid "`pgRouting <https://pgrouting.org>`_ is part of `OSGeo Community Projects <https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ under `OSGeo Foundation <https://www.osgeo.org>`__. It is included on `OSGeoLive <https://live.osgeo.org/en/overview/pgrouting_overview.html>`__."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:0
-msgid "Website"
+msgid "Check it out on OSGeoLive"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:65
-msgid "https://pgrouting.org"
-msgstr ""
-
-#: ../../build/docs/general-intro/overview.rst:0
-msgid "OSGeoLive"
-msgstr ""
-
-#: ../../build/docs/general-intro/overview.rst:66
 msgid "https://live.osgeo.org/en/overview/pgrouting_overview.html"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:70
+#: ../../build/docs/general-intro/overview.rst:69
 msgid "osm2pgrouting Overview"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:77
+#: ../../build/docs/general-intro/overview.rst:76
 msgid "osm2pgrouting is a command line tool that imports OpenStreetMap data into a pgRouting database. It builds the routing network topology automatically and creates tables for feature types and road classes. osm2pgrouting was primarily written by Daniel Wendt and is now hosted on the pgRouting project site."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:82
+#: ../../build/docs/general-intro/overview.rst:81
 msgid "osm2pgrouting is available under the GPLv2 license."
 msgstr ""
 
@@ -132,46 +124,42 @@ msgstr ""
 msgid "Wiki"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:84
+#: ../../build/docs/general-intro/overview.rst:83
 msgid "https://github.com/pgRouting/osm2pgrouting/wiki"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:88
+#: ../../build/docs/general-intro/overview.rst:87
 msgid "OpenStreetMap Overview"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:95
-msgid "\"OpenStreetMap (OSM) is dedicated to creating and providing geographic data, such as street maps, worldwide, for free. Most maps considered \"free\" actually have legal or technical restrictions on their use. These restrictions hold back anyone from using them in creative, productive or unexpected ways, and make every map a silo of data and effort.\""
-msgstr ""
-
 #: ../../build/docs/general-intro/overview.rst:101
-msgid "(Source: https://wiki.openstreetmap.org/wiki/Press)"
+msgid "OpenStreetMap is an incredible data source for pgRouting because it has no technical restrictions in terms of processing the data. Data availability still varies from country to country, but the worldwide coverage is improving day by day."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:103
-msgid "OpenStreetMap is an adequate data source for pgRouting, because it has no technical restrictions in terms of processing the data. Data availability still varies from country to country, but the worldwide coverage is improving day by day."
-msgstr ""
-
-#: ../../build/docs/general-intro/overview.rst:108
+#: ../../build/docs/general-intro/overview.rst:106
 msgid "OpenStreetMap uses a topological data structure:"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:110
+#: ../../build/docs/general-intro/overview.rst:108
 msgid "Nodes are points with a geographic position."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:111
+#: ../../build/docs/general-intro/overview.rst:109
 msgid "Ways are lists of nodes, representing a polyline or polygon."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:112
+#: ../../build/docs/general-intro/overview.rst:110
 msgid "Relations are groups of nodes, ways and other relations which can be assigned certain properties."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:114
+#: ../../build/docs/general-intro/overview.rst:112
 msgid "Properties can be assigned to nodes, ways or relations and consist of :code:`name = value` pairs."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:117
+#: ../../build/docs/general-intro/overview.rst:0
+msgid "Website"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:115
 msgid "https://www.openstreetmap.org"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-28 19:15+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Pedestrian Routing"
 msgstr ""
 
 #: ../../build/docs/basic/pedestrian.rst:17
-msgid "**pgRouting** was first called *pgDijkstra*, because it implemented only shortest path search with *Dijkstra* algorithm. Later other functions were added and the library was renamed to pgRouting."
+msgid "**pgRouting** was first called *pgDijkstra* because it implemented only shortest path search with *Dijkstra* algorithm. Later other functions were added and the library was renamed to pgRouting."
 msgstr ""
 
 #: ../../build/docs/basic/pedestrian.rst:21
@@ -45,7 +45,7 @@ msgid "pgr_dijkstra"
 msgstr ""
 
 #: ../../build/docs/basic/pedestrian.rst:31
-msgid "Dijkstra algorithm was the first algorithm implemented in pgRouting. It doesn't require other attributes than the identifiers ``id``, ``source`` and ``target`` and the weights ``cost`` and ``reverse_cost``."
+msgid "Dijkstra algorithm was the first algorithm implemented in pgRouting. It does not require other attributes than the identifiers ``id``, ``source`` and ``target`` and the weights ``cost`` and ``reverse_cost``."
 msgstr ""
 
 #: ../../build/docs/basic/pedestrian.rst:35

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 17:44+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../build/docs/general-intro/overview.rst:11
 msgid "Software and Data Overview"
@@ -26,10 +26,9 @@ msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:18
 msgid ""
-"This workshop use several free and open source software for geospatial "
-"tools. Most of the free and open source software for geospatial tools "
-"that are related to other open source software projects. Here we mention "
-"the most important ones."
+"This workshop uses several free and open source softwares for geospatial "
+"tools. Most of these softwares are related to other open source software "
+"projects. Here we mention the most important ones."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:23
@@ -42,8 +41,8 @@ msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:32
 msgid ""
-"pgRouting extends the PostGIS / PostgreSQL geospatial database to provide"
-" geospatial routing functionality."
+"pgRouting extends the PostGIS / PostgreSQL geospatial database to provide "
+"geospatial routing functionality."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:35
@@ -59,14 +58,14 @@ msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:40
 msgid ""
-"Data changes can be reflected instantaneously through the routing engine."
-" There is no need for precalculation."
+"Data changes can be reflected instantaneously through the routing engine. "
+"There is no need for precalculation."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:42
 msgid ""
-"The “cost” parameter can be dynamically calculated through SQL and its "
-"value can come from multiple fields or tables."
+"The “cost” parameter can be dynamically calculated through SQL and its value "
+"can come from multiple fields or tables."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:45
@@ -75,100 +74,91 @@ msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:47
 msgid ""
-"`Dijkstra Algorithm "
-"<https://docs.pgrouting.org/latest/en/pgr_dijkstra.html>`__"
+"`Dijkstra Algorithm <https://docs.pgrouting.org/latest/en/pgr_dijkstra."
+"html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:48
 msgid ""
-"`Johnson's Algorithm "
-"<https://docs.pgrouting.org/latest/en/pgr_johnson.html>`__"
+"`Johnson's Algorithm <https://docs.pgrouting.org/latest/en/pgr_johnson."
+"html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:49
 msgid ""
-"`Floyd-Warshall Algorithm "
-"<https://docs.pgrouting.org/latest/en/pgr_floydWarshall.html>`__"
+"`Floyd-Warshall Algorithm <https://docs.pgrouting.org/latest/en/"
+"pgr_floydWarshall.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:50
 msgid ""
-"`A* Search Algorithm "
-"<https://docs.pgrouting.org/latest/en/pgr_aStar.html>`__"
+"`A* Search Algorithm <https://docs.pgrouting.org/latest/en/pgr_aStar.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:51
 msgid ""
-"`Bi-directional Dijkstra "
-"<https://docs.pgrouting.org/latest/en/pgr_bdDijkstra.html>`__"
+"`Bi-directional Dijkstra <https://docs.pgrouting.org/latest/en/"
+"pgr_bdDijkstra.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:52
 msgid ""
-"`Bi-directional A* "
-"<https://docs.pgrouting.org/latest/en/pgr_bdAstar.html>`__"
+"`Bi-directional A* <https://docs.pgrouting.org/latest/en/pgr_bdAstar.html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:53
 msgid ""
-"`Traveling Salesperson Problem "
-"<https://docs.pgrouting.org/latest/en/pgr_TSP.html>`__"
+"`Traveling Salesperson Problem <https://docs.pgrouting.org/latest/en/pgr_TSP."
+"html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:54
 msgid ""
-"`Driving Distance "
-"<https://docs.pgrouting.org/latest/en/pgr_drivingDistance.html>`__"
+"`Driving Distance <https://docs.pgrouting.org/latest/en/pgr_drivingDistance."
+"html>`__"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:55
-msgid "many more!!!"
+msgid ""
+"`and many more <https://docs.pgrouting.org/latest/en/routingFunctions.html>`_"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:57
 msgid ""
-"pgRouting is an Open Source Software, available under the GPLv2 license "
-"and is supported and maintained by a the pgRouting community."
+"pgRouting is an open source software available under the GPLv2 license and "
+"is supported and maintained by the pgRouting community."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:60
 msgid ""
-"pgRouting is a part of `OSGeo Community Projects "
-"<https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ of the `OSGeo "
-"Foundation <https://www.osgeo.org>`__ and included on `OSGeoLive "
-"<https://live.osgeo.org/en/overview/pgrouting_overview.html>`__."
+"`pgRouting <https://pgrouting.org>`_ is part of `OSGeo Community Projects "
+"<https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ under `OSGeo "
+"Foundation <https://www.osgeo.org>`__. It is included on `OSGeoLive <https://"
+"live.osgeo.org/en/overview/pgrouting_overview.html>`__."
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst
-msgid "Website"
+msgid "Check it out on OSGeoLive"
 msgstr ""
 
 #: ../../build/docs/general-intro/overview.rst:65
-msgid "https://pgrouting.org"
-msgstr ""
-
-#: ../../build/docs/general-intro/overview.rst
-msgid "OSGeoLive"
-msgstr ""
-
-#: ../../build/docs/general-intro/overview.rst:66
 msgid "https://live.osgeo.org/en/overview/pgrouting_overview.html"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:70
+#: ../../build/docs/general-intro/overview.rst:69
 msgid "osm2pgrouting Overview"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:77
+#: ../../build/docs/general-intro/overview.rst:76
 msgid ""
-"osm2pgrouting is a command line tool that imports OpenStreetMap data into"
-" a pgRouting database. It builds the routing network topology "
-"automatically and creates tables for feature types and road classes. "
-"osm2pgrouting was primarily written by Daniel Wendt and is now hosted on "
-"the pgRouting project site."
+"osm2pgrouting is a command line tool that imports OpenStreetMap data into a "
+"pgRouting database. It builds the routing network topology automatically and "
+"creates tables for feature types and road classes. osm2pgrouting was "
+"primarily written by Daniel Wendt and is now hosted on the pgRouting project "
+"site."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:82
+#: ../../build/docs/general-intro/overview.rst:81
 msgid "osm2pgrouting is available under the GPLv2 license."
 msgstr ""
 
@@ -176,61 +166,50 @@ msgstr ""
 msgid "Wiki"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:84
+#: ../../build/docs/general-intro/overview.rst:83
 msgid "https://github.com/pgRouting/osm2pgrouting/wiki"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:88
+#: ../../build/docs/general-intro/overview.rst:87
 msgid "OpenStreetMap Overview"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:95
-msgid ""
-"\"OpenStreetMap (OSM) is dedicated to creating and providing geographic "
-"data, such as street maps, worldwide, for free. Most maps considered "
-"\"free\" actually have legal or technical restrictions on their use. "
-"These restrictions hold back anyone from using them in creative, "
-"productive or unexpected ways, and make every map a silo of data and "
-"effort.\""
-msgstr ""
-
 #: ../../build/docs/general-intro/overview.rst:101
-msgid "(Source: https://wiki.openstreetmap.org/wiki/Press)"
-msgstr ""
-
-#: ../../build/docs/general-intro/overview.rst:103
 msgid ""
-"OpenStreetMap is an adequate data source for pgRouting, because it has no"
-" technical restrictions in terms of processing the data. Data "
-"availability still varies from country to country, but the worldwide "
-"coverage is improving day by day."
+"OpenStreetMap is an incredible data source for pgRouting because it has no "
+"technical restrictions in terms of processing the data. Data availability "
+"still varies from country to country, but the worldwide coverage is "
+"improving day by day."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:108
+#: ../../build/docs/general-intro/overview.rst:106
 msgid "OpenStreetMap uses a topological data structure:"
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:110
+#: ../../build/docs/general-intro/overview.rst:108
 msgid "Nodes are points with a geographic position."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:111
+#: ../../build/docs/general-intro/overview.rst:109
 msgid "Ways are lists of nodes, representing a polyline or polygon."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:112
+#: ../../build/docs/general-intro/overview.rst:110
 msgid ""
 "Relations are groups of nodes, ways and other relations which can be "
 "assigned certain properties."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:114
+#: ../../build/docs/general-intro/overview.rst:112
 msgid ""
-"Properties can be assigned to nodes, ways or relations and consist of "
-":code:`name = value` pairs."
+"Properties can be assigned to nodes, ways or relations and consist of :code:"
+"`name = value` pairs."
 msgstr ""
 
-#: ../../build/docs/general-intro/overview.rst:117
+#: ../../build/docs/general-intro/overview.rst
+msgid "Website"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:115
 msgid "https://www.openstreetmap.org"
 msgstr ""
-

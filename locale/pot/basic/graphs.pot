@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 17:35+0000\n"
+"POT-Creation-Date: 2026-06-14 15:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "Chapter Contents"
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:20
-msgid "Different application require different graphs. This chapter covers how to discard disconnected segments and different approaches to create graphs."
+msgid "Different applications require different graphs. This chapter covers how to discard disconnected segments and different approaches to create graphs."
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:23
@@ -49,7 +49,7 @@ msgid "The graph requirements"
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:32
-msgid "In this chapter there are three graph requirements. It consists on three graphs based on a **fully connected** graph derived from ``ways``: two for different types of vehicles and one for pedestrian, the source and the target in all of them are based on the ``source`` and ``target``."
+msgid "This chapter requires the creation of three distinct routing graphs derived from ``ways``. These consist of two vehicle-specific graphs and one pedestrian graph, all of which utilize the standard ``source`` and ``target`` to determine routing paths."
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:37
@@ -98,7 +98,7 @@ msgid "Walk on the whole Auckland area."
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:59
-msgid "Can only use pedestrian only ways:"
+msgid "Can only use pedestrian-only ways:"
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:61
@@ -118,7 +118,7 @@ msgid "When dealing with data, being aware of what kind of data is being used ca
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:71
-msgid "Vehicles can not circulate on pedestrian ways"
+msgid "Vehicles cannot circulate on pedestrian ways"
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:78
@@ -138,7 +138,7 @@ msgid "tag_id values"
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:99
-msgid "In the image above there is a detail of the ``tag_id`` of the roads."
+msgid "In the image above, there is a detail of the ``tag_id`` of the roads."
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:103
@@ -146,7 +146,7 @@ msgid "The `OSM highway <https://wiki.openstreetmap.org/wiki/Key:highway>`__ typ
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:113
-msgid "Also, on the ``ways`` table there is a column that can be used to ``JOIN`` with the ``configuration`` table."
+msgid "Also, on the ``ways`` table, there is a column that can be used to ``JOIN`` with the ``configuration`` table."
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:116
