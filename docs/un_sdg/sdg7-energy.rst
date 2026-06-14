@@ -12,11 +12,11 @@ Affordable and Clean Energy
 
 `Affordable and Clean Energy` is the 7th Sustainable Development Goal 11. It aspires
 to ensure access to `affordable, reliable, sustainable` and `modern` energy for all.
-Today renewable energy is making impressive gains in the electricity sector. As
+Today, renewable energy is making impressive gains in the electricity sector. As
 more and more new settlements are built, there would be new electricity distribution
 network developed. Electricity Distribution is very expensive infrastructure. Finding the
 optimal path for laying this infrastructure is very crucial to maintain the
-affordability of electricity for everyone. This exercise focusses on finding this
+affordability of electricity for everyone. This exercise focuses on finding this
 optimal path/network for laying the electricity distribution equipment.
 
 .. image:: images/sdg7/un_sdg7.png
