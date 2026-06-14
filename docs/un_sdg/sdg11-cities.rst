@@ -232,7 +232,7 @@ altitude of the city, are to be removed from the ``waterways_ways`` table.
 Exercise 6: Get the Connected Components of Waterways
 ================================================================================
 
-As the rivers in the data are not having single edge, i.e, multiple edges make up
+As the rivers in the data are not having single edges, i.e, multiple edges make up
 a river, it is important to find out the connected edges and store the information
 in the ``waterways_ways`` table. This will help us to identify which edges belong to
 a river. First, the connected components are found and then stored in a new column
