@@ -15,8 +15,8 @@ Software and Data Overview
     :target: https://www.osgeo.org/
 
 
-This workshop use several free and open source software for geospatial tools.
-Most of the free and open source software for geospatial tools that are related to
+This workshop uses several free and open source softwares for geospatial tools.
+Most of these softwares are related to
 other open source software projects. Here we mention the most important ones.
 
 .. contents:: Chapter Contents
@@ -52,18 +52,17 @@ Some of the pgRouting library core features are:
 * `Bi-directional A* <https://docs.pgrouting.org/latest/en/pgr_bdAstar.html>`__
 * `Traveling Salesperson Problem <https://docs.pgrouting.org/latest/en/pgr_TSP.html>`__
 * `Driving Distance <https://docs.pgrouting.org/latest/en/pgr_drivingDistance.html>`__
-* many more!!!
+* `and many more <https://docs.pgrouting.org/latest/en/routingFunctions.html>`_
 
-pgRouting is an Open Source Software, available under the GPLv2 license and is
-supported and maintained by a the pgRouting community.
+pgRouting is an open source software available under the GPLv2 license and is
+supported and maintained by the pgRouting community.
 
-pgRouting is a part of `OSGeo Community Projects
-<https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ of the `OSGeo
-Foundation <https://www.osgeo.org>`__ and included on `OSGeoLive
+`pgRouting <https://pgrouting.org>`_ is part of `OSGeo Community Projects
+<https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ under `OSGeo
+Foundation <https://www.osgeo.org>`__. It is included on `OSGeoLive
 <https://live.osgeo.org/en/overview/pgrouting_overview.html>`__.
 
-:Website: https://pgrouting.org
-:OSGeoLive: https://live.osgeo.org/en/overview/pgrouting_overview.html
+:Check it out on OSGeoLive: https://live.osgeo.org/en/overview/pgrouting_overview.html
 
 
 osm2pgrouting Overview
@@ -91,16 +90,15 @@ OpenStreetMap Overview
     :align: center
     :target: https://www.openstreetmap.org
 
+    OpenStreetMap (OSM) is dedicated to creating and providing geographic 
+    data, such as street maps, worldwide, for free. Most maps considered 
+    'free' actually have legal or technical restrictions on their use. 
+    These restrictions hold back anyone from using them in creative, 
+    productive or unexpected ways, and make every map a silo of data and effort.
 
-"OpenStreetMap (OSM) is dedicated to creating and providing geographic data,
-such as street maps, worldwide, for free. Most maps considered "free" actually
-have legal or technical restrictions on their use. These restrictions hold back
-anyone from using them in creative, productive or unexpected ways, and make
-every map a silo of data and effort."
+    -- `Source: OSM Press Wiki <https://wiki.openstreetmap.org/wiki/Press>`_
 
-(Source: https://wiki.openstreetmap.org/wiki/Press)
-
-OpenStreetMap is an adequate data source for pgRouting, because it has no
+OpenStreetMap is an incredible data source for pgRouting because it has no
 technical restrictions in terms of processing the data. Data availability still
 varies from country to country, but the worldwide coverage is improving day by
 day.
