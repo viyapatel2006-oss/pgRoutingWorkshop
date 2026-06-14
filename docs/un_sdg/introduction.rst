@@ -160,7 +160,7 @@ Goals and covers the following:
 Target Audience
 -------------------------------------------------------------------------------
 
-This educational material can be used by researchers, educators and in local,regional,
+This educational material can be used by researchers and educators in local, regional,
 national or international agencies who have some knowledge of PostGIS and
 PostgreSQL, and want to teach themselves how to use pgRouting. It is recommended
 to have a basic knowledge of database management systems and geospatial data
