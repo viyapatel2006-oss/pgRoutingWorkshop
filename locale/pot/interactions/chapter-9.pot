@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2010-2024 pgRouting Developers
-# This file is distributed under the same license as the Workshop FOSS4G Belém package.
+# Copyright (C) 2010-2025 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G Auckland package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 17:44+0000\n"
+"POT-Creation-Date: 2026-06-14 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Using Qgis"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:18
-msgid "Other kind of functions are `pl/pgsql`. As applications requirements become more complex, using previously defined functions becomes necessary."
+msgid "Other kind of functions are in `pl/pgsql`. As applications requirements become more complex, using previously defined functions becomes necessary."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:23

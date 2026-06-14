@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 17:44+0000\n"
+"POT-Creation-Date: 2026-06-14 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../build/docs/un_sdg/data.rst:11
 msgid "Data for Sustainable Development Goals"
@@ -26,10 +26,9 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:16
 msgid ""
-"To be able to use pgRouting, data has to be imported into a database. "
-"This chapter will use ``osm2pgrouting`` to get that the data from "
-"OpenStreetMaps(OSM). This data will be used for exercises in further "
-"chapters."
+"To be able to use pgRouting, data has to be imported into a database. This "
+"chapter will use ``osm2pgrouting`` to get that the data from OpenStreetMap "
+"(OSM). This data will be used for exercises in further chapters."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:20
@@ -59,9 +58,9 @@ msgstr ""
 #: ../../build/docs/un_sdg/data.rst:38
 msgid ""
 "These requirements are met on OSGeoLive. When the required software is "
-"installed, open a terminal window by pressing ``ctrl-alt-t`` and follow "
-"the instructions. Information about installing OSGeoLive can be found in "
-":doc:`../general-intro/osgeolive` of this workshop."
+"installed, open a terminal window by pressing ``ctrl-alt-t`` and follow the "
+"instructions. Information about installing OSGeoLive can be found in :doc:"
+"`../general-intro/osgeolive` of this workshop."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:43
@@ -85,9 +84,9 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:63 ../../build/docs/un_sdg/data.rst:197
 msgid ""
-"After connecting to the database, first step is to create ``EXTENSION`` "
-"to enable pgRouting and PostGIS in the database. Then add the ``SCHEMA`` "
-"for each table."
+"After connecting to the database, first step is to create ``EXTENSION`` to "
+"enable pgRouting and PostGIS in the database. Then add the ``SCHEMA`` for "
+"each table."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:73
@@ -106,14 +105,14 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:80
 msgid ""
-"The following command is used to download the snapshot of the Mumbai area"
-" data used in this workshop, using the download service of OSGeo."
+"The following command is used to download the snapshot of the Mumbai area "
+"data used in this workshop, using the download service of OSGeo."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:83
 msgid ""
-"The Mumbai data for this workshop depends on this `snapshot "
-"<http://download.osgeo.org/pgrouting/workshops/mumbai.osm.bz2>`__."
+"The Mumbai data for this workshop depends on this `snapshot <http://download."
+"osgeo.org/pgrouting/workshops/mumbai.osm.bz2>`__."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:93
@@ -122,16 +121,15 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:94
 msgid ""
-"The following command is used to download the OpenStreetMap data of the "
-"area in Mumbai, India."
+"The following command is used to download the OpenStreetMap data of the area "
+"in Mumbai, India."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:96
 msgid ""
-"OpenStreetMap data changes on a day to day basis, therefore if this data "
-"is used, the results might change and some queries might need "
-"adjustments. The command was used to take the snapshot of the data on "
-"June 2021."
+"OpenStreetMap data changes on a day to day basis, therefore if this data is "
+"used, the results might change and some queries might need adjustments. The "
+"command was used to take the snapshot of the data on June 2021."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:107
@@ -140,10 +138,10 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:109 ../../build/docs/un_sdg/data.rst:238
 msgid ""
-"The next step is to run ``osm2pgrouting`` converter, which is a command "
-"line tool that inserts the data in the database, \"ready\" to be used "
-"with pgRouting. See :doc:`../appendix/appendix-3` for additional "
-"information about ``osm2pgrouting``."
+"The next step is to run ``osm2pgrouting`` converter, which is a command line "
+"tool that inserts the data in the database, \"ready\" to be used with "
+"pgRouting. See :doc:`../appendix/appendix-3` for additional information "
+"about ``osm2pgrouting``."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:113 ../../build/docs/un_sdg/data.rst:242
@@ -152,8 +150,8 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:115
 msgid ""
-"``mumbai_buildings.xml`` and ``mumbai_roads.xml`` configuration files for"
-" osm2pgrouting."
+"``mumbai_buildings.xml`` and ``mumbai_roads.xml`` configuration files for "
+"osm2pgrouting."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:116
@@ -166,17 +164,17 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:119 ../../build/docs/un_sdg/data.rst:248
 msgid ""
-"Contents of the configuration files are given in the `Appendix`_. Create "
-"a XML file using these contents and save it into the root directory "
-"``~/Desktop/workshop``."
+"Contents of the configuration files are given in the `Appendix`_. Create a "
+"XML file using these contents and save it into the root directory ``~/"
+"Desktop/workshop``."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:122
 msgid ""
-"Open a terminal window by ``ctrl-alt-t`` and move to the workshop "
-"directory by ``cd ~/Desktop/workshop``. The following ``osm2pgrouting`` "
-"command will be used to convert the osm files to pgRouting friendly "
-"format which we will use for further exercises."
+"Open a terminal window by ``ctrl-alt-t`` and move to the workshop directory "
+"by ``cd ~/Desktop/workshop``. The following ``osm2pgrouting`` command will "
+"be used to convert the osm files to pgRouting friendly format which we will "
+"use for further exercises."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:127
@@ -186,8 +184,8 @@ msgstr ""
 #: ../../build/docs/un_sdg/data.rst:129
 msgid ""
 "The following ``osm2pgrouting`` command will be used to import the Roads "
-"from OpenStreetMaps file to pgRouting database which we will use for "
-"further exercises."
+"from OpenStreetMaps file to pgRouting database which we will use for further "
+"exercises."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:139 ../../build/docs/un_sdg/data.rst:160
@@ -207,8 +205,8 @@ msgstr ""
 #: ../../build/docs/un_sdg/data.rst:150
 msgid ""
 "Similar to Roads, ``osm2pgrouting`` command will be used to import the "
-"Buildings from OpenStreetMaps file to pgRouting database which we will "
-"use for further exercises."
+"Buildings from OpenStreetMaps file to pgRouting database which we will use "
+"for further exercises."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:168 ../../build/docs/un_sdg/data.rst:274
@@ -221,8 +219,8 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:178
 msgid ""
-"Now download the data for an area in Bangladesh by following the same "
-"steps like that of Mumbai."
+"Now download the data for an area in Bangladesh by following the same steps "
+"like that of Mumbai."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:182
@@ -249,8 +247,8 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:215
 msgid ""
-"The Bangladesh data for this workshop depends on this `snapshot "
-"<http://download.osgeo.org/pgrouting/workshops/bangladesh.osm.bz2>`__."
+"The Bangladesh data for this workshop depends on this `snapshot <http://"
+"download.osgeo.org/pgrouting/workshops/bangladesh.osm.bz2>`__."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:225
@@ -281,8 +279,8 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:251
 msgid ""
-"Open a terminal window by ``ctrl-alt-t`` and move to the workshop "
-"directory by ``cd ~/Desktop/workshop``."
+"Open a terminal window by ``ctrl-alt-t`` and move to the workshop directory "
+"by ``cd ~/Desktop/workshop``."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:255
@@ -291,9 +289,9 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:257
 msgid ""
-"The following ``osm2pgrouting`` command will be used to import the "
-"Waterways from OpenStreetMaps file to pgRouting database which we will "
-"use for further exercises."
+"The following ``osm2pgrouting`` command will be used to import the Waterways "
+"from OpenStreetMaps file to pgRouting database which we will use for further "
+"exercises."
 msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:283
@@ -307,4 +305,3 @@ msgstr ""
 #: ../../build/docs/un_sdg/data.rst:294
 msgid "Configuration information for Waterways"
 msgstr ""
-

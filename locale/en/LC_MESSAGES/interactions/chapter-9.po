@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 17:44+0000\n"
+"POT-Creation-Date: 2026-06-14 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../build/docs/interactions/chapter-9.rst:12
 msgid "Using Qgis"
@@ -26,9 +26,8 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:18
 msgid ""
-"Other kind of functions are `pl/pgsql`. As applications requirements "
-"become more complex, using previously defined functions becomes "
-"necessary."
+"Other kind of functions are in `pl/pgsql`. As applications requirements "
+"become more complex, using previously defined functions becomes necessary."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:23
@@ -42,17 +41,17 @@ msgstr ""
 #: ../../build/docs/interactions/chapter-9.rst:28
 msgid ""
 "Graphs have a `set of edges` and `set of vertices` associated to it. "
-"`osm2pgrouting` provides the `ways_vertices_pgr` table which is "
-"associated with the `ways` table. When a subset of `edges` is used like "
-"in ``vehicle_net`` or in ``small_net``, the set of vertices associated to"
-" each one must be used in order to, for example, locate the nearest "
-"vertex to a lat/lon location."
+"`osm2pgrouting` provides the `ways_vertices_pgr` table which is associated "
+"with the `ways` table. When a subset of `edges` is used like in "
+"``vehicle_net`` or in ``small_net``, the set of vertices associated to each "
+"one must be used in order to, for example, locate the nearest vertex to a "
+"lat/lon location."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:35
 msgid ""
-"Launch QGIS from :menuselection:`Geospatial --> Desktop GIS --> QGIS` and"
-" select :menuselection:`Project --> Open` from the menu bar."
+"Launch QGIS from :menuselection:`Geospatial --> Desktop GIS --> QGIS` and "
+"select :menuselection:`Project --> Open` from the menu bar."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:40
@@ -69,8 +68,8 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:53
 msgid ""
-"Connect to a posgGIS enabeled potsgreSQL database clicking on "
-":menuselection:`Add postGIS layer`"
+"Connect to a posgGIS enabeled potsgreSQL database clicking on :menuselection:"
+"`Add postGIS layer`"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:58
@@ -179,14 +178,14 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:123
 msgid ""
-"Choose a formmated layer and :menuselection:`Right click --> Styles --> "
-"Copy Styles`"
+"Choose a formmated layer and :menuselection:`Right click --> Styles --> Copy "
+"Styles`"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:128
 msgid ""
-"Choose another layer and :menuselection:`Right click --> Styles --> Paste"
-" Styles`"
+"Choose another layer and :menuselection:`Right click --> Styles --> Paste "
+"Styles`"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-9.rst:134
@@ -202,4 +201,3 @@ msgid ""
 "Navigate to: :menuselection:`User --> Desktop --> workshop` and save "
 "``pgrouting-Bucharest-Example``"
 msgstr ""
-

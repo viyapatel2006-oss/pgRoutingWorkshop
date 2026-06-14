@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 21:10-0600\n"
+"POT-Creation-Date: 2026-06-14 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: ../../build/docs/interactions/chapter-10.rst:13
 msgid "WMS server with GeoServer"
@@ -32,9 +32,9 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:18
 msgid ""
-"The installation of GeoServer is out of the scope of this workshop, but "
-"if you're using the `OSGeoLive <https://live.osgeo.org>`_ for this "
-"workshop then you have GeoServer installed already."
+"The installation of GeoServer is out of the scope of this workshop, but if "
+"you're using the `OSGeoLive <https://live.osgeo.org>`_ for this workshop "
+"then you have GeoServer installed already."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:23
@@ -43,18 +43,17 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:25
 msgid ""
-"In order to create the WMS layer, we need to connect to the "
-"administration interface of GeoServer. On `OSGeoLive "
-"<https://live.osgeo.org>`_ Desktop, open the *Applications* menu on the "
-"desktop and then *Geospatial* > *Web Services* > *GeoServer* > *Start "
-"GeoServer*."
+"In order to create the WMS layer, we need to connect to the administration "
+"interface of GeoServer. On `OSGeoLive <https://live.osgeo.org>`_ Desktop, "
+"open the *Applications* menu on the desktop and then *Geospatial* > *Web "
+"Services* > *GeoServer* > *Start GeoServer*."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:29
 msgid ""
-"Once the server is up and running, open the `administration page "
-"<http://localhost:8082/geoserver/web>`_ in your browser, click the "
-"*Login* button, and enter the GeoServer admin credentials:"
+"Once the server is up and running, open the `administration page <http://"
+"localhost:8082/geoserver/web>`_ in your browser, click the *Login* button, "
+"and enter the GeoServer admin credentials:"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst
@@ -79,18 +78,17 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:39
 msgid ""
-"Now that your are logged in as an administrator you can create the WMS "
-"layer. In GeoServer terminology you will create an SQL View (see the "
-"`official documentation "
-"<https://docs.geoserver.org/latest/en/user/data/database/sqlview.html>`_ "
-"for more info)."
+"Now that your are logged in as an administrator you can create the "
+"WMS layer. In GeoServer terminology you will create an SQL View (see the "
+"`official documentation <https://docs.geoserver.org/latest/en/user/data/"
+"database/sqlview.html>`_ for more info)."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:44
 msgid ""
-"The first thing to do is to create a new **Workspace** for pgrouting: in "
-"the left menu of the page, inside the *Data* section, click *Workspaces* "
-"and then *Add new workspace*."
+"The first thing to do is to create a new **Workspace** for pgrouting: in the "
+"left menu of the page, inside the *Data* section, click *Workspaces* and "
+"then *Add new workspace*."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:48
@@ -109,7 +107,7 @@ msgid "``pgrouting``"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst
-msgid "Namespace URI"
+msgid "Namespace URL"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:51
@@ -122,9 +120,9 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:55
 msgid ""
-"Next step: create a new **Store** linked to the workspace. Still in the "
-"left menu, click *Stores* and then *Add new Store*. Here you can choose "
-"the type of data source to configure. Choose *PostGIS*."
+"Next step: create a new **Store** linked to the workspace. Still in the left "
+"menu, click *Stores* and then *Add new Store*. Here you can choose the type "
+"of data source to configure. Choose *PostGIS*."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:61
@@ -194,9 +192,9 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:77
 msgid ""
-"Finally, your next task is to create the **Layer**. Click the *Layers* "
-"menu and then *Add a new resource*. Select the newly created workspace "
-"and store pair: ``pgrouting:pgrouting``."
+"Finally, your next task is to create the **Layer**. Click the *Layers* menu "
+"and then *Add a new resource*. Select the newly created workspace and store "
+"pair: ``pgrouting:pgrouting``."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:81
@@ -209,8 +207,8 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:91
 msgid ""
-"In the *SQL view parameters*, click *Guess parameters from SQL*; the list"
-" displayed represents the parameters from the SQL above."
+"In the *SQL view parameters*, click *Guess parameters from SQL*; the list "
+"displayed represents the parameters from the SQL above."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:94
@@ -239,8 +237,8 @@ msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:104
 msgid ""
-"Change the type to ``LineString`` and the SRID of the geometry column "
-"from ``-1`` to ``4326``"
+"Change the type to ``LineString`` and the SRID of the geometry column from "
+"``-1`` to ``4326``"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:107
@@ -262,14 +260,13 @@ msgstr ""
 #: ../../build/docs/interactions/chapter-10.rst:116
 msgid ""
 "Scroll down to the *coordinate reference system* section and change the "
-"**Declared SRS** to ``EPSG:3857`` and the **SRS handling** to ``Reproject"
-" native to declared``."
+"**Declared SRS** to ``EPSG:3857`` and the **SRS handling** to ``Reproject "
+"native to declared``."
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:120
 msgid ""
 "Click the *Compute from data* and *Compute from native bounds* link to "
-"automatically set the layer bounds. Click the *Save* at the bottom of the"
-" page to create the layer."
+"automatically set the layer bounds. Click the *Save* at the bottom of the "
+"page to create the layer."
 msgstr ""
-

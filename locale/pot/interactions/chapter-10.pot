@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2010-2024 pgRouting Developers
-# This file is distributed under the same license as the Workshop FOSS4G Belém package.
+# Copyright (C) 2010-2025 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G Auckland package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 21:10-0600\n"
+"POT-Creation-Date: 2026-06-14 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,7 +84,7 @@ msgid "``pgrouting``"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:0
-msgid "Namespace URI"
+msgid "Namespace URL"
 msgstr ""
 
 #: ../../build/docs/interactions/chapter-10.rst:51

@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2010-2024 pgRouting Developers
-# This file is distributed under the same license as the Workshop FOSS4G Belém package.
+# Copyright (C) 2010-2025 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G Auckland package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-10 17:09+0000\n"
+"POT-Creation-Date: 2026-06-14 15:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgid "Exercise 6: Get the Connected Components of Waterways"
 msgstr ""
 
 #: ../../build/docs/un_sdg/sdg11-cities.rst:235
-msgid "As the rivers in the data are not having single edge, i.e, multiple edges make up a river, it is important to find out the connected edges and store the information in the ``waterways_ways`` table. This will help us to identify which edges belong to a river. First, the connected components are found and then stored in a new column named ``component``."
+msgid "As the rivers in the data are not having single edges, i.e, multiple edges make up a river, it is important to find out the connected edges and store the information in the ``waterways_ways`` table. This will help us to identify which edges belong to a river. First, the connected components are found and then stored in a new column named ``component``."
 msgstr ""
 
 #: ../../build/docs/un_sdg/sdg11-cities.rst:241
