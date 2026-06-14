@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Auckland 3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-14 15:20+0000\n"
+"POT-Creation-Date: 2026-06-14 15:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -261,7 +261,7 @@ msgid "Verification"
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:230
-msgid "Not expecting to be done due to the fact that some vertices are dead ends."
+msgid "Do not expect this count to be the same as the total number of rows in the vertices table, because some nodes are dead ends: some vertices will only be sources and others only targets, so not all rows can be updated."
 msgstr ""
 
 #: ../../build/docs/basic/graphs.rst:242
