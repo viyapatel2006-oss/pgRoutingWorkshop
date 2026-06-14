@@ -48,7 +48,7 @@ left menu of the page, inside the *Data* section, click *Workspaces* and then
 Fill the form with:
 
 :Name: ``pgrouting``
-:Namespace URI: ``https://pgrouting.org``
+:Namespace URL: ``https://pgrouting.org``
 
 And press the ``submit`` button.
 

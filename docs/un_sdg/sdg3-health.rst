@@ -21,7 +21,7 @@ health infrastructure. An appropriate planning is required for optimal distribut
 of the population of an area to its hospitals. Hence, it is very important to estimate
 the number of dependant people living near the hospital for better planning which
 would ultimately help in achieving universal coverage of health services. This chapter
-will focus on solving one such problem.
+will focus on solving one of such problems.
 
 .. image:: images/sdg3/un_sdg3.png
   :align: center
