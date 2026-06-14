@@ -14,7 +14,7 @@ Data for Sustainable Development Goals
   :align: center
 
 To be able to use pgRouting, data has to be imported into a database. This chapter
-will use ``osm2pgrouting`` to get that the data from OpenStreetMaps(OSM). This data will
+will use ``osm2pgrouting`` to get that the data from OpenStreetMap (OSM). This data will
 be used for exercises in further chapters.
 
 .. contents:: Chapter Contents
