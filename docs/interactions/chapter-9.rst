@@ -15,7 +15,7 @@ Using Qgis
   :width: 250pt
   :align: center
 
-Other kind of functions are `pl/pgsql`.
+Other kind of functions are in `pl/pgsql`.
 As applications requirements become more complex, using previously defined functions
 becomes necessary.
 
