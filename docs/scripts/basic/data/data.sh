@@ -1,5 +1,5 @@
 set -e
 
-#4.3.2 from-here
+# city tables from-here
 psql -d city_routing -c "\d"
-#4.3.2 to-here
+# city tables to-here

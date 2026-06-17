@@ -4,11 +4,12 @@ set -e
 #CITY="@PGR_WORKSHOP_CITY_FILE@"
 #wget -N --progress=dot:mega "https://download.osgeo.org/livedvd/17/osm/@PGR_WORKSHOP_CITY_FILE@.osm.bz2"
 #bunzip2 -f "@PGR_WORKSHOP_CITY_FILE@.osm.bz2"
-# 4.2.2 from-here
+
+# city from-here
 CITY="@PGR_WORKSHOP_CITY_FILE@"
 wget -N --progress=dot:mega "https://download.osgeo.org/pgrouting/workshops/@PGR_WORKSHOP_CITY_FILE@.osm.bz2"
 bunzip2 -f "@PGR_WORKSHOP_CITY_FILE@.osm.bz2"
-# 4.2.2 to-here
+# city to-here
 
 # mumbai data from-here
 wget -N --progress=dot:mega "https://download.osgeo.org/pgrouting/workshops/mumbai.osm.bz2"
