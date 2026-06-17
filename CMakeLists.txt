@@ -55,7 +55,7 @@ set(PGR_WORKSHOP_CITY_FILE "HIROSHIMA_JP")
 set(PGR_WORKSHOP_CITY_BBOX "132.439,34.33,132.4782,34.412")
 
 # Make it smaller
-set(PGR_WORKSHOP_LITTLE_NET_BBOX "132.439,34.38, 132.46,34.40)
+set(PGR_WORKSHOP_LITTLE_NET_BBOX "132.439,34.38, 132.46,34.40")
 
 # Use git blame (on install_osm.sh) to get the date when the line was changed
 # The file I set up is from June
