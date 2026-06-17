@@ -27,7 +27,7 @@ installed, open a terminal window by pressing :code:`ctrl-alt-t` and follow the
 instructions.
 
 Information about installing OSGeoLive can be found on
-:doc:`../general-intro/osgeolive`.
+:doc:`../appendix/osgeolive`.
 
 .. note:: If OSGeoLive is not being used, please refer to the chapter's appendix
    to set up the user ``user``.
@@ -90,7 +90,7 @@ due to changes since @DATE_OF_DATA@.
   BBOX="@PGR_WORKSHOP_CITY_BBOX@"
   wget --progress=dot:mega -O "$CITY.osm" "http://www.overpass-api.de/api/xapi?*[bbox=\$\{BBOX\}][@meta]"
 
-More information about how to download OpenStreetMap data can be found 
+More information about how to download OpenStreetMap data can be found
 `here <https://wiki.openstreetmap.org/wiki/Downloading_data>`_.
 
 An alternative for very large areas is to use the download services of
