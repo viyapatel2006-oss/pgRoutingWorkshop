@@ -31,13 +31,13 @@ SELECT * FROM vertices Limit 10;
 \o fill_columns_1.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_2.txt
-UPDATE vertices v SET (w.geom, osm_id) = (ST_startPoint(w.geom), source_osm)
+UPDATE vertices v SET (geom, osm_id) = (ST_startPoint(w.geom), source_osm)
 FROM ways w WHERE source = v.id;
 \o fill_columns_3.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_4.txt
 UPDATE vertices v SET (v.geom, osm_id) = (ST_endPoint(w.geom), target_osm)
-FROM ways w WHERE w.geom IS NULL AND target = id;
+FROM ways w WHERE w.geom IS NULL AND target = v.id;
 \o fill_columns_5.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_6.txt
@@ -51,7 +51,8 @@ ALTER TABLE ways ADD COLUMN component BIGINT;
 UPDATE vertices AS v SET component = c.component
 FROM (
   SELECT seq, component, node
-  FROM pgr_connectedComponents('SELECT id, source, target, cost, reverse_cost FROM ways')) AS c
+  FROM pgr_connectedComponents('SELECT id, source, target, cost, reverse_cost FROM ways')
+) AS c
 WHERE v.id = c.node;
 \o set_components3.txt
 

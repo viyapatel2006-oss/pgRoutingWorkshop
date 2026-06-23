@@ -256,7 +256,7 @@ DROP VIEW IF EXISTS vehicle_net CASCADE;
 -- DROP VIEW vehicle_net CASCADE;
 
 CREATE VIEW vehicle_net AS
-    SELECT gid,
+    SELECT id,
         source,
         target,
         -- converting to minutes
@@ -304,7 +304,7 @@ FROM pgr_dijkstra(
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309)
     ) AS dijkstra
 LEFT JOIN ways
-ON (edge = gid) ORDER BY seq;
+ON (edge = id) ORDER BY seq;
 
 
 
@@ -315,7 +315,7 @@ FROM pgr_dijkstra(
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309)
     ) AS dijkstra
 LEFT JOIN ways
-ON (edge = gid) ORDER BY seq;
+ON (edge = id) ORDER BY seq;
 
 
 
@@ -329,7 +329,7 @@ dijkstra AS (
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309))
 )
 SELECT dijkstra.*, ways.name, ways.geom AS route_geom
-FROM dijkstra LEFT JOIN ways ON (edge = gid)
+FROM dijkstra LEFT JOIN ways ON (edge = id)
 ORDER BY seq;
 
 
@@ -345,7 +345,7 @@ dijkstra AS (
 ),
 get_geom AS (
     SELECT dijkstra.*, ways.name, ways.geom AS route_geom
-    FROM dijkstra JOIN ways ON (edge = gid)
+    FROM dijkstra JOIN ways ON (edge = id)
     ORDER BY seq)
 SELECT seq, name, cost,
     -- calculating the azimuth
@@ -373,7 +373,7 @@ get_geom AS (
             WHEN dijkstra.node = ways.source THEN geom
             ELSE ST_Reverse(geom)
         END AS route_geom
-    FROM dijkstra JOIN ways ON (edge = gid)
+    FROM dijkstra JOIN ways ON (edge = id)
     ORDER BY seq)
 SELECT seq, name, cost,
     degrees(ST_azimuth(ST_StartPoint(route_geom), ST_EndPoint(route_geom))) AS azimuth,
@@ -414,7 +414,7 @@ $BODY$
                 WHEN dijkstra.node = ways.source THEN geom
                 ELSE ST_Reverse(geom)
             END AS route_geom
-        FROM dijkstra JOIN ways ON (edge = gid)
+        FROM dijkstra JOIN ways ON (edge = id)
         ORDER BY seq)
     SELECT
         seq,
@@ -530,7 +530,7 @@ BEGIN
             )
             SELECT
                 seq,
-                dijkstra.gid,
+                dijkstra.id,
                 dijkstra.name,
                 ways.length_m/1000.0 AS length,
                 dijkstra.cost AS the_time,

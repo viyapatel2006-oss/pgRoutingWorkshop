@@ -92,7 +92,7 @@ SELECT seq,
   WHEN end_vid = @ID_5@ THEN '@PLACE_5@' END
   AS name,
   start_vid, end_vid, geom AS geom
-FROM dijkstra JOIN ways ON(edge = gid);
+FROM dijkstra JOIN ways ON(edge = id);
 
 CREATE OR REPLACE VIEW vehicle_no_penalty_routes AS
 WITH dijkstra AS (
@@ -111,7 +111,7 @@ SELECT seq,
   WHEN end_vid = @ID_5@ THEN '@PLACE_5@' END
   AS name,
   start_vid, end_vid, geom AS geom
-FROM dijkstra JOIN ways ON(edge = gid);
+FROM dijkstra JOIN ways ON(edge = id);
 
 CREATE OR REPLACE VIEW pedestrian_only_roads AS
 SELECT * FROM ways where tag_id in (119, 122, 114, 118);

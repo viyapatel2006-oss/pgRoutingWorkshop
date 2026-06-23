@@ -50,11 +50,11 @@ FROM pgr_extractVertices(
 
 \o only_connected2.txt
 
-UPDATE waterways_vertices SET geom = ST_startPoint(geom)
-FROM waterways_ways WHERE source = id;
+UPDATE waterways_vertices v SET geom = ST_startPoint(w.geom)
+FROM waterways_ways w WHERE source = v.id;
 
-UPDATE waterways_vertices SET geom = ST_endPoint(geom)
-FROM waterways_ways WHERE geom IS NULL AND target = id;
+UPDATE waterways_vertices v SET geom = ST_endPoint(w.geom)
+FROM waterways_ways w WHERE v.geom IS NULL AND target = v.id;
 
 UPDATE waterways_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
 
@@ -68,7 +68,7 @@ ALTER TABLE waterways_vertices ADD COLUMN component BIGINT;
 UPDATE waterways_vertices SET component = c.component
 FROM (
   SELECT * FROM pgr_connectedComponents(
-  'SELECT gid as id, source, target, cost, reverse_cost FROM waterways_ways')
+  'SELECT id, source, target, cost, reverse_cost FROM waterways_ways')
 ) AS c
 WHERE id = node;
 
@@ -90,8 +90,8 @@ LANGUAGE SQL;
 \o exercise_11.txt
 
 SELECT DISTINCT component
-FROM bangladesh JOIN waterways.waterways_ways
-ON (ST_Intersects(geom, get_city_buffer(5)));
+FROM bangladesh JOIN waterways.waterways_ways w
+ON (ST_Intersects(w.geom, get_city_buffer(5)));
 
 \o get_rain_zone1.txt
 

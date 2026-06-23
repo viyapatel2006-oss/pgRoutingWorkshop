@@ -84,6 +84,6 @@ FROM pgr_dijkstraCost(
   ARRAY[@ID_4@, @ID_5@],
   directed := false)
 )
-SELECT row_number() over() AS gid, start_vid, end_vid, agg_cost, ST_MakeLine(v1.geom, v2.geom) AS geom FROM dijkstra
+SELECT row_number() over() AS id, start_vid, end_vid, agg_cost, ST_MakeLine(v1.geom, v2.geom) AS geom FROM dijkstra
 JOIN vertices AS v1 ON (start_vid = v1.id)
 JOIN vertices AS v2 ON (end_vid = v2.id);

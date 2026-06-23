@@ -108,7 +108,7 @@ ALTER TABLE roads_vertices ADD COLUMN component BIGINT;
 UPDATE roads_vertices SET component = c.component
 FROM (
   SELECT * FROM pgr_connectedComponents(
-  'SELECT gid as id, source, target, cost, reverse_cost FROM roads_ways')
+  'SELECT id, source, target, cost, reverse_cost FROM roads_ways')
 ) AS c
 WHERE id = node;
 
@@ -157,12 +157,12 @@ SELECT closest_vertex(poly_geom) FROM buildings_ways;
 \o prepare_edges.txt
 
 PREPARE edges AS
-SELECT gid as id,source,target, length_m/60 AS cost,length_m/60 AS reverse_cost
+SELECT id,source,target, length_m/60 AS cost,length_m/60 AS reverse_cost
 FROM roads.roads_ways;
 
 \o exercise_15.txt
 
-SELECT gid, source, target, agg_cost AS minutes, geom
+SELECT id, source, target, agg_cost AS minutes, geom
 FROM pgr_drivingDistance(
   'edges', -- the prepared statement
   (
@@ -173,7 +173,7 @@ FROM pgr_drivingDistance(
   10,  -- 10 minutes
   false -- graph is undirected
 ) AS results
-JOIN roads.roads_ways AS r ON (edge = gid);
+JOIN roads.roads_ways AS r ON (edge = id);
 
 \o exercise_16.txt
 
@@ -188,10 +188,10 @@ subquery AS (
       WHERE tag_id = '318'
     ), 10, FALSE
   ) AS results
-  JOIN roads.roads_ways AS r ON (edge = gid)
+  JOIN roads.roads_ways AS r ON (edge = id)
 ),
 connected_edges AS (
-  SELECT r.gid, r.source, r.target, length_m/60, r.geom
+  SELECT r.id, r.source, r.target, length_m/60, r.geom
   FROM subquery AS s JOIN roads.roads_ways AS r
   ON ((s.source = r.source OR s.source = r.target))
 )
@@ -249,10 +249,10 @@ subquery AS (
     ), 10, FALSE
   )
   AS results
-  JOIN roads.roads_ways AS r ON (edge = gid)
+  JOIN roads.roads_ways AS r ON (edge = id)
 ),
 connected_edges AS (
-  SELECT DISTINCT gid, population
+  SELECT DISTINCT id, population
   FROM subquery AS s JOIN roads.roads_ways AS r
   ON (
     (s.source = r.source OR s.source = r.target) OR

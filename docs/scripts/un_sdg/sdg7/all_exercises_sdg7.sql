@@ -34,7 +34,7 @@ ALTER TABLE roads_vertices ADD COLUMN component BIGINT;
 UPDATE roads_vertices SET component = c.component
 FROM (
   SELECT * FROM pgr_connectedComponents(
-  'SELECT gid as id, source, target, cost, reverse_cost FROM roads_ways')
+  'SELECT id, source, target, cost, reverse_cost FROM roads_ways')
 ) AS c
 WHERE id = node;
 
