@@ -16,11 +16,11 @@ FROM pgr_extractVertices(
 
 \o only_connected2.txt
 
-UPDATE roads_vertices SET geom = ST_startPoint(geom)
-FROM roads_ways WHERE source = id;
+UPDATE roads_vertices v SET geom = ST_startPoint(w.geom)
+FROM roads_ways w WHERE source = v.id;
 
-UPDATE roads_vertices SET geom = ST_endPoint(geom)
-FROM roads_ways WHERE geom IS NULL AND target = id;
+UPDATE roads_vertices v SET geom = ST_endPoint(w.geom)
+FROM roads_ways w WHERE v.geom IS NULL AND target = v.id;
 
 UPDATE roads_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
 

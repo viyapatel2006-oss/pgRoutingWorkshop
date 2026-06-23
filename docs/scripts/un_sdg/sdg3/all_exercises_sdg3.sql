@@ -90,11 +90,11 @@ FROM pgr_extractVertices(
 
 \o only_connected2.txt
 
-UPDATE roads_vertices SET geom = ST_startPoint(geom)
-FROM roads_ways WHERE source = id;
+UPDATE roads_vertices v SET geom = ST_startPoint(w.geom)
+FROM roads_ways w WHERE source = v.id;
 
-UPDATE roads_vertices SET geom = ST_endPoint(geom)
-FROM roads_ways WHERE geom IS NULL AND target = id;
+UPDATE roads_vertices v SET geom = ST_endPoint(w.geom)
+FROM roads_ways w WHERE v.geom IS NULL AND target = v.id;
 
 UPDATE roads_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
 
@@ -204,7 +204,7 @@ SELECT * FROM connected_edges;
 CREATE OR REPLACE FUNCTION closest_edge(geom GEOMETRY)
 RETURNS BIGINT AS
 $BODY$
-  SELECT gid FROM roads_ways ORDER BY geom <-> geom LIMIT 1;
+  SELECT id FROM roads_ways ORDER BY geom <-> geom LIMIT 1;
 $BODY$
 LANGUAGE SQL;
 
@@ -229,11 +229,11 @@ FROM (
 	FROM buildings_ways GROUP BY edge_id
 	)
 AS subquery
-WHERE gid = edge_id;
+WHERE id = edge_id;
 
 \o add_road_population3.txt
 
-SELECT population FROM roads_ways WHERE gid = 441;
+SELECT population FROM roads_ways WHERE id = 441;
 
 \o exercise_20.txt
 
