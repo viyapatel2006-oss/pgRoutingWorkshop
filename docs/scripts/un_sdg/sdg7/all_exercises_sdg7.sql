@@ -11,15 +11,15 @@ ALTER TABLE roads.roads_ways DROP component;
 
 SELECT * INTO roads.roads_vertices
 FROM pgr_extractVertices(
-  'SELECT gid AS id, source, target
+  'SELECT id, source, target
   FROM roads.roads_ways ORDER BY id');
 
 \o only_connected2.txt
 
-UPDATE roads_vertices SET geom = ST_startPoint(the_geom)
+UPDATE roads_vertices SET geom = ST_startPoint(geom)
 FROM roads_ways WHERE source = id;
 
-UPDATE roads_vertices SET geom = ST_endPoint(the_geom)
+UPDATE roads_vertices SET geom = ST_endPoint(geom)
 FROM roads_ways WHERE geom IS NULL AND target = id;
 
 UPDATE roads_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
@@ -70,7 +70,7 @@ DELETE FROM roads_vertices WHERE component != (SELECT component FROM the_compone
 \o exercise_10-1.txt
 
 PREPARE edges AS
-SELECT gid AS id, source, target, length_m AS cost
+SELECT id, source, target, length_m AS cost
 FROM roads.roads_ways;
 
 \o exercise_10-2.txt

@@ -21,9 +21,7 @@ ORDER BY tag_id;
 
 SELECT id, in_edges, out_edges, x, y, NULL::BIGINT osm_id, NULL::BIGINT component, geom
 INTO vertices
-FROM pgr_extractVertices(
-  'SELECT gid AS id, source, target
-  FROM ways ORDER BY id');
+FROM pgr_extractVertices('SELECT id, source, target FROM ways ORDER BY id');
 
 \o vertices_description.txt
 \dS+ vertices
@@ -33,13 +31,13 @@ SELECT * FROM vertices Limit 10;
 \o fill_columns_1.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_2.txt
-UPDATE vertices SET (geom, osm_id) = (ST_startPoint(the_geom), source_osm)
-FROM ways WHERE source = id;
+UPDATE vertices v SET (w.geom, osm_id) = (ST_startPoint(w.geom), source_osm)
+FROM ways w WHERE source = v.id;
 \o fill_columns_3.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_4.txt
-UPDATE vertices SET (geom, osm_id) = (ST_endPoint(the_geom), target_osm)
-FROM ways WHERE geom IS NULL AND target = id;
+UPDATE vertices v SET (v.geom, osm_id) = (ST_endPoint(w.geom), target_osm)
+FROM ways w WHERE w.geom IS NULL AND target = id;
 \o fill_columns_5.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_6.txt
@@ -53,9 +51,7 @@ ALTER TABLE ways ADD COLUMN component BIGINT;
 UPDATE vertices AS v SET component = c.component
 FROM (
   SELECT seq, component, node
-  FROM pgr_connectedComponents(
-    'SELECT gid as id, source, target, cost, reverse_cost FROM ways'
-)) AS c
+  FROM pgr_connectedComponents('SELECT id, source, target, cost, reverse_cost FROM ways')) AS c
 WHERE v.id = c.node;
 \o set_components3.txt
 
@@ -89,10 +85,10 @@ the_component AS (
   WHERE count = (SELECT max FROM max_component))
 
 SELECT
-  gid AS id,
+  id,
   source, target,
   cost_s AS cost, reverse_cost_s AS reverse_cost,
-  name, length_m AS length, tag_id, the_geom AS geom
+  name, length_m AS length, tag_id, geom AS geom
 FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
 WHERE  tag_value NOT IN ('pedestrian', 'steps','footway','path','cycleway'); -- line 18
 
@@ -130,10 +126,10 @@ maxcount AS (SELECT max(count) from allc),
 the_component AS (SELECT component FROM allc WHERE count = (SELECT max FROM maxcount))
 
 SELECT
-  gid AS id,
+  id,
   source, target,
   length_m / 2.0 AS cost, length_m / 2.0 AS reverse_cost,
-  name, length_m AS length, the_geom AS geom
+  name, length_m AS length, geom AS geom
 FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
 WHERE  tag_value IN ('residential','pedestrian', 'steps','footway','path','cycleway'); -- line 18
 

@@ -17,7 +17,7 @@ DROP VIEW IF EXISTS d_1 ; CREATE VIEW d_1 AS
 
 SELECT * FROM pgr_dijkstra(
     '
-      SELECT gid AS id,
+      SELECT id,
         source,
         target,
         length AS cost
@@ -36,7 +36,7 @@ DROP VIEW IF EXISTS d_2 ; CREATE VIEW d_2 AS
 
 SELECT * FROM pgr_dijkstra(
     '
-      SELECT gid AS id,
+      SELECT id,
         source,
         target,
         length_m AS cost
@@ -54,7 +54,7 @@ DROP VIEW IF EXISTS d_3 ; CREATE VIEW d_3 AS
 
 SELECT * FROM pgr_dijkstra(
     '
-      SELECT gid AS id,
+      SELECT id,
         source,
         target,
         length_m / 1.3 AS cost
@@ -73,7 +73,7 @@ DROP VIEW IF EXISTS d_4 ; CREATE VIEW d_4 AS
 
 SELECT * FROM pgr_dijkstra(
     '
-      SELECT gid AS id,
+      SELECT id,
        source,
        target,
        length_m / 1.3 / 60 AS cost
@@ -92,7 +92,7 @@ DROP VIEW IF EXISTS d_5 ; CREATE VIEW d_5 AS
 SELECT *
 FROM pgr_dijkstraCost(
     '
-      SELECT gid AS id,
+      SELECT id,
        source,
        target,
        length_m  / 1.3 / 60 AS cost
@@ -110,7 +110,7 @@ DROP VIEW IF EXISTS d_6 ; CREATE VIEW d_6 AS
 SELECT start_vid, sum(agg_cost)
 FROM pgr_dijkstraCost(
     '
-      SELECT gid AS id,
+      SELECT id,
         source,
         target,
         length_m  / 1.3 / 60 AS cost
@@ -135,7 +135,7 @@ DROP VIEW IF EXISTS ad_7 ; CREATE VIEW ad_7 AS
 
 SELECT * FROM pgr_dijkstra(
     '
-      SELECT gid AS id,
+      SELECT id,
         source,
         target,
         cost_s AS cost,
@@ -151,7 +151,7 @@ DROP VIEW IF EXISTS ad_8 ; CREATE VIEW ad_8 AS
 
 SELECT * FROM pgr_dijkstra(
   '
-    SELECT gid AS id,
+    SELECT id,
       source,
       target,
       cost_s AS cost,
@@ -168,7 +168,7 @@ DROP VIEW IF EXISTS ad_9 ; CREATE VIEW ad_9 AS
 
 SELECT * FROM pgr_dijkstra(
   '
-    SELECT gid AS id,
+    SELECT id,
       source,
       target,
       cost_s / 3600 * 100 AS cost,
@@ -202,7 +202,7 @@ UPDATE configuration SET penalty=1;
 SELECT *
 FROM pgr_dijkstra(
   '
-    SELECT gid AS id,
+    SELECT id,
         source,
         target,
         cost_s * penalty AS cost,
@@ -232,7 +232,7 @@ DROP VIEW IF EXISTS ad_11 ; CREATE VIEW ad_11 AS
 
 SELECT * FROM pgr_dijkstra(
   '
-    SELECT gid AS id,
+    SELECT id,
         source,
         target,
         cost_s * penalty AS cost,
@@ -262,7 +262,7 @@ CREATE VIEW vehicle_net AS
         -- converting to minutes
         cost_s / 60 AS cost,
         reverse_cost_s / 60 AS reverse_cost,
-        the_geom
+        geom
     FROM ways JOIN configuration AS c
     USING (tag_id)
     WHERE  c.tag_value NOT IN ('steps','footway','path');
@@ -278,7 +278,7 @@ SELECT count(*) FROM vehicle_net;
 CREATE VIEW little_net AS
     SELECT *
     FROM vehicle_net
-    WHERE vehicle_net.the_geom && ST_MakeEnvelope(39.27, -6.79, 39.30, -6.83);
+    WHERE vehicle_net.geom && ST_MakeEnvelope(39.27, -6.79, 39.30, -6.83);
 
 -- Verification
 SELECT count(*) FROM little_net;
@@ -288,7 +288,7 @@ DROP VIEW IF EXISTS ch7_e3 ; CREATE VIEW ch7_e3 AS
 
 SELECT *
 FROM pgr_dijkstra(
-    'SELECT gid AS id, * FROM vehicle_net',
+    'SELECT id, * FROM vehicle_net',
     -- source
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 252643343),
     -- target
@@ -299,7 +299,7 @@ DROP VIEW IF EXISTS ch7_e4 ; CREATE VIEW ch7_e4 AS
 
 SELECT dijkstra.*, ways.name
 FROM pgr_dijkstra(
-    'SELECT gid AS id, * FROM vehicle_net',
+    'SELECT id, * FROM vehicle_net',
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 252643343),
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309)
     ) AS dijkstra
@@ -308,9 +308,9 @@ ON (edge = gid) ORDER BY seq;
 
 DROP VIEW IF EXISTS ch7_e5 ; CREATE VIEW ch7_e5 AS 
 
-SELECT dijkstra.*, ways.name, ST_AsText(ways.the_geom)
+SELECT dijkstra.*, ways.name, ST_AsText(ways.geom)
 FROM pgr_dijkstra(
-    'SELECT gid AS id, * FROM vehicle_net',
+    'SELECT id, * FROM vehicle_net',
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 252643343),
     (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309)
     ) AS dijkstra
@@ -324,11 +324,11 @@ DROP VIEW IF EXISTS ch7_e6 ; CREATE VIEW ch7_e6 AS
 WITH
 dijkstra AS (
     SELECT * FROM pgr_dijkstra(
-        'SELECT gid AS id, * FROM vehicle_net',
+        'SELECT id, * FROM vehicle_net',
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 252643343),
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309))
 )
-SELECT dijkstra.*, ways.name, ways.the_geom AS route_geom
+SELECT dijkstra.*, ways.name, ways.geom AS route_geom
 FROM dijkstra LEFT JOIN ways ON (edge = gid)
 ORDER BY seq;
 
@@ -339,12 +339,12 @@ DROP VIEW IF EXISTS ch7_e7 ; CREATE VIEW ch7_e7 AS
 WITH
 dijkstra AS (
     SELECT * FROM pgr_dijkstra(
-        'SELECT gid AS id, * FROM vehicle_net',
+        'SELECT id, * FROM vehicle_net',
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 252643343),
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309))
 ),
 get_geom AS (
-    SELECT dijkstra.*, ways.name, ways.the_geom AS route_geom
+    SELECT dijkstra.*, ways.name, ways.geom AS route_geom
     FROM dijkstra JOIN ways ON (edge = gid)
     ORDER BY seq)
 SELECT seq, name, cost,
@@ -362,7 +362,7 @@ DROP VIEW IF EXISTS ch7_e8 ; CREATE VIEW ch7_e8 AS
 WITH
 dijkstra AS (
     SELECT * FROM pgr_dijkstra(
-        'SELECT gid AS id, * FROM vehicle_net',
+        'SELECT id, * FROM vehicle_net',
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 252643343),
         (SELECT id FROM ways_vertices_pgr WHERE osm_id = 302057309))
 ),
@@ -370,8 +370,8 @@ get_geom AS (
     SELECT dijkstra.*, ways.name,
         -- adjusting directionality
         CASE
-            WHEN dijkstra.node = ways.source THEN the_geom
-            ELSE ST_Reverse(the_geom)
+            WHEN dijkstra.node = ways.source THEN geom
+            ELSE ST_Reverse(geom)
         END AS route_geom
     FROM dijkstra JOIN ways ON (edge = gid)
     ORDER BY seq)
@@ -404,15 +404,15 @@ $BODY$
     dijkstra AS (
         SELECT * FROM pgr_dijkstra(
             -- using parameters instead of specific values
-            'SELECT gid AS id, * FROM ' || $1,
+            'SELECT id, * FROM ' || $1,
             (SELECT id FROM ways_vertices_pgr WHERE osm_id = $2),
             (SELECT id FROM ways_vertices_pgr WHERE osm_id = $3))
     ),
     get_geom AS (
         SELECT dijkstra.*, ways.name,
             CASE
-                WHEN dijkstra.node = ways.source THEN the_geom
-                ELSE ST_Reverse(the_geom)
+                WHEN dijkstra.node = ways.source THEN geom
+                ELSE ST_Reverse(geom)
             END AS route_geom
         FROM dijkstra JOIN ways ON (edge = gid)
         ORDER BY seq)
@@ -460,7 +460,7 @@ DROP VIEW IF EXISTS ch8_e2 ; CREATE VIEW ch8_e2 AS
 
 -- Closest osm_id in the original graph
 SELECT osm_id FROM ways_vertices_pgr
-    ORDER BY the_geom <-> ST_SetSRID(ST_Point(39.291852, -6.811437), 4326) LIMIT 1;
+    ORDER BY geom <-> ST_SetSRID(ST_Point(39.291852, -6.811437), 4326) LIMIT 1;
 
 -- Closest osm_id in the vehicle_net graph
 WITH
@@ -472,7 +472,7 @@ vertices AS (
         SELECT target FROM vehicle_net)
 )
 SELECT osm_id FROM vertices
-    ORDER BY the_geom <-> ST_SetSRID(ST_Point(39.291852, -6.811437), 4326) LIMIT 1;
+    ORDER BY geom <-> ST_SetSRID(ST_Point(39.291852, -6.811437), 4326) LIMIT 1;
 
 -- Closest osm_id in the little_net graph
 WITH
@@ -484,7 +484,7 @@ vertices AS (
         SELECT target FROM little_net)
 )
 SELECT osm_id FROM vertices
-    ORDER BY the_geom <-> ST_SetSRID(ST_Point(39.291852, -6.811437), 4326) LIMIT 1;
+    ORDER BY geom <-> ST_SetSRID(ST_Point(39.291852, -6.811437), 4326) LIMIT 1;
 
 
 -- DROP FUNCTION wrk_fromAtoB(varchar, numeric, numeric, numeric, numeric);
@@ -523,10 +523,10 @@ BEGIN
                     '%1$I',
                     -- source
                     (SELECT osm_id FROM vertices
-                        ORDER BY the_geom <-> ST_SetSRID(ST_Point(%2$s, %3$s), 4326) LIMIT 1),
+                        ORDER BY geom <-> ST_SetSRID(ST_Point(%2$s, %3$s), 4326) LIMIT 1),
                     -- target
                     (SELECT osm_id FROM vertices
-                        ORDER BY the_geom <-> ST_SetSRID(ST_Point(%4$s, %5$s), 4326) LIMIT 1))
+                        ORDER BY geom <-> ST_SetSRID(ST_Point(%4$s, %5$s), 4326) LIMIT 1))
             )
             SELECT
                 seq,

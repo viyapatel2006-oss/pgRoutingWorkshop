@@ -597,8 +597,8 @@ msgid "Name it ``additional``. (line **6**)"
 msgstr "Asignar el nombre ``additional``. (línea **6**)"
 
 #: ../../build/docs/basic/sql_function.rst:321
-msgid "The ``ways`` table geometry name is ``the_geom``."
-msgstr "El nombre de la geometría de la tabla ``ways`` es ``the_geom``."
+msgid "The ``ways`` table geometry name is ``geom``."
+msgstr "El nombre de la geometría de la tabla ``ways`` es ``geom``."
 
 #: ../../build/docs/basic/sql_function.rst:322
 msgid "Final ``SELECT`` statements gets:"

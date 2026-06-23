@@ -76,7 +76,7 @@ SELECT seq, geom AS geom FROM dijkstra JOIN vehicle_net ON(edge = id);
 CREATE OR REPLACE VIEW vehicle_penalty_routes AS
 WITH dijkstra AS (
 SELECT * FROM pgr_dijkstra(
-  ' SELECT gid AS id, source, target, cost_s * penalty AS cost, reverse_cost_s * penalty AS reverse_cost
+  ' SELECT id, source, target, cost_s * penalty AS cost, reverse_cost_s * penalty AS reverse_cost
   FROM ways JOIN configuration
   USING (tag_id) ',
 ARRAY[@ID_1@,@ID_2@,@ID_3@,@ID_4@, @ID_5@],
@@ -91,13 +91,13 @@ SELECT seq,
   WHEN end_vid = @ID_3@ THEN '@PLACE_3@' WHEN end_vid = @ID_4@ THEN '@PLACE_4@'
   WHEN end_vid = @ID_5@ THEN '@PLACE_5@' END
   AS name,
-  start_vid, end_vid, the_geom AS geom
+  start_vid, end_vid, geom AS geom
 FROM dijkstra JOIN ways ON(edge = gid);
 
 CREATE OR REPLACE VIEW vehicle_no_penalty_routes AS
 WITH dijkstra AS (
 SELECT * FROM pgr_dijkstra(
-  ' SELECT gid AS id, source, target, cost_s AS cost, reverse_cost_s AS reverse_cost FROM ways ',
+  ' SELECT id, source, target, cost_s AS cost, reverse_cost_s AS reverse_cost FROM ways ',
 ARRAY[@ID_1@,@ID_2@,@ID_3@,@ID_4@, @ID_5@],
 ARRAY[@ID_1@,@ID_2@,@ID_3@,@ID_4@, @ID_5@])
 )
@@ -110,7 +110,7 @@ SELECT seq,
   WHEN end_vid = @ID_3@ THEN '@PLACE_3@' WHEN end_vid = @ID_4@ THEN '@PLACE_4@'
   WHEN end_vid = @ID_5@ THEN '@PLACE_5@' END
   AS name,
-  start_vid, end_vid, the_geom AS geom
+  start_vid, end_vid, geom AS geom
 FROM dijkstra JOIN ways ON(edge = gid);
 
 CREATE OR REPLACE VIEW pedestrian_only_roads AS

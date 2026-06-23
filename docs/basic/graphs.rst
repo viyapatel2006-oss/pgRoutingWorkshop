@@ -25,8 +25,8 @@ The graph requirements
 ===============================================================================
 
 This chapter requires the creation of three distinct routing graphs derived from
-``ways``. These consist of two vehicle-specific graphs and one pedestrian 
-graph, all of which utilize the standard ``source`` and ``target`` to determine 
+``ways``. These consist of two vehicle-specific graphs and one pedestrian
+graph, all of which utilize the standard ``source`` and ``target`` to determine
 routing paths.
 
 The description of the graphs:
@@ -53,7 +53,7 @@ The description of the graphs:
   - Walk on the whole @PGR_WORKSHOP_CITY@ area.
   - Can only use pedestrian-only ways:
 
-    - `pedestrian`, `steps`, `footway`, `path`, `cycleway`
+    - `pedestrian`, `steps`, `footway`, `path`, `cycleway`, `residential`
 
   - The walking speed is ``2 mts/sec``.
 

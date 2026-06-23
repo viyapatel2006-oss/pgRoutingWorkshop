@@ -45,15 +45,15 @@ DELETE FROM waterways_ways WHERE osm_id = 815893446;
 
 SELECT * INTO waterways.waterways_vertices
 FROM pgr_extractVertices(
-  'SELECT gid AS id, source, target
+  'SELECT id, source, target
   FROM waterways.waterways_ways ORDER BY id');
 
 \o only_connected2.txt
 
-UPDATE waterways_vertices SET geom = ST_startPoint(the_geom)
+UPDATE waterways_vertices SET geom = ST_startPoint(geom)
 FROM waterways_ways WHERE source = id;
 
-UPDATE waterways_vertices SET geom = ST_endPoint(the_geom)
+UPDATE waterways_vertices SET geom = ST_endPoint(geom)
 FROM waterways_ways WHERE geom IS NULL AND target = id;
 
 UPDATE waterways_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
@@ -91,7 +91,7 @@ LANGUAGE SQL;
 
 SELECT DISTINCT component
 FROM bangladesh JOIN waterways.waterways_ways
-ON (ST_Intersects(the_geom, get_city_buffer(5)));
+ON (ST_Intersects(geom, get_city_buffer(5)));
 
 \o get_rain_zone1.txt
 
@@ -101,8 +101,8 @@ ADD COLUMN rain_zone geometry;
 \o get_rain_zone2.txt
 
 UPDATE waterways.waterways_ways
-SET rain_zone = ST_Buffer((the_geom),0.005)
-WHERE ST_Intersects(the_geom, get_city_buffer(5));
+SET rain_zone = ST_Buffer((geom),0.005)
+WHERE ST_Intersects(geom, get_city_buffer(5));
 \o exercise_13.txt
 -- Combining mutliple rain zones
 SELECT ST_Union(rain_zone) AS Combined_Rain_Zone

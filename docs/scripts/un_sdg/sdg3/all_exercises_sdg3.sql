@@ -31,11 +31,11 @@ SELECT AddGeometryColumn('buildings','buildings_ways','poly_geom',4326,'POLYGON'
 \dS+ buildings_ways
 \o exercise_7.txt
 DELETE FROM buildings_ways
-WHERE ST_NumPoints(the_geom) < 4
-OR ST_IsClosed(the_geom) = FALSE;
+WHERE ST_NumPoints(geom) < 4
+OR ST_IsClosed(geom) = FALSE;
 \o exercise_8.txt
 UPDATE buildings_ways
-SET poly_geom = ST_MakePolygon(the_geom);
+SET poly_geom = ST_MakePolygon(geom);
 \o add_area_col.txt
 
 ALTER TABLE buildings_ways ADD COLUMN area INTEGER;
@@ -85,15 +85,15 @@ SET population = population(tag_id,area);
 
 SELECT * INTO roads.roads_vertices
 FROM pgr_extractVertices(
-  'SELECT gid AS id, source, target
+  'SELECT id, source, target
   FROM roads.roads_ways ORDER BY id');
 
 \o only_connected2.txt
 
-UPDATE roads_vertices SET geom = ST_startPoint(the_geom)
+UPDATE roads_vertices SET geom = ST_startPoint(geom)
 FROM roads_ways WHERE source = id;
 
-UPDATE roads_vertices SET geom = ST_endPoint(the_geom)
+UPDATE roads_vertices SET geom = ST_endPoint(geom)
 FROM roads_ways WHERE geom IS NULL AND target = id;
 
 UPDATE roads_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
@@ -162,7 +162,7 @@ FROM roads.roads_ways;
 
 \o exercise_15.txt
 
-SELECT gid, source, target, agg_cost AS minutes, the_geom
+SELECT gid, source, target, agg_cost AS minutes, geom
 FROM pgr_drivingDistance(
   'edges', -- the prepared statement
   (
@@ -179,7 +179,7 @@ JOIN roads.roads_ways AS r ON (edge = gid);
 
 WITH
 subquery AS (
-  SELECT edge, source, target, agg_cost AS minutes, the_geom
+  SELECT edge, source, target, agg_cost AS minutes, geom
   FROM pgr_drivingDistance(
     'edges',
     (
@@ -191,7 +191,7 @@ subquery AS (
   JOIN roads.roads_ways AS r ON (edge = gid)
 ),
 connected_edges AS (
-  SELECT r.gid, r.source, r.target, length_m/60, r.the_geom
+  SELECT r.gid, r.source, r.target, length_m/60, r.geom
   FROM subquery AS s JOIN roads.roads_ways AS r
   ON ((s.source = r.source OR s.source = r.target))
 )
@@ -204,7 +204,7 @@ SELECT * FROM connected_edges;
 CREATE OR REPLACE FUNCTION closest_edge(geom GEOMETRY)
 RETURNS BIGINT AS
 $BODY$
-  SELECT gid FROM roads_ways ORDER BY geom <-> the_geom LIMIT 1;
+  SELECT gid FROM roads_ways ORDER BY geom <-> geom LIMIT 1;
 $BODY$
 LANGUAGE SQL;
 
