@@ -31,17 +31,19 @@ SELECT * FROM vertices Limit 10;
 \o fill_columns_1.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_2.txt
-UPDATE vertices v SET (geom, osm_id) = (ST_startPoint(w.geom), source_osm)
-FROM ways w WHERE source = v.id;
+with get_data as (select source, source_osm, ST_startPoint(geom) as pt from ways
+union all
+select target, target_osm, ST_endPoint(geom) from ways
+) update vertices set
+(geom, osm_id, x, y) = (ST_startPoint(pt), source_osm, st_x(pt), st_y(pt)) FROM get_data WHERE source = id;
 \o fill_columns_3.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_4.txt
-UPDATE vertices v SET (v.geom, osm_id) = (ST_endPoint(w.geom), target_osm)
-FROM ways w WHERE w.geom IS NULL AND target = v.id;
+SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_5.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_6.txt
-UPDATE vertices set (x,y) = (ST_X(geom), ST_Y(geom));
+SELECT count(*) FROM vertices WHERE geom IS NULL;
 
 
 \o set_components1.txt
@@ -86,11 +88,11 @@ the_component AS (
   WHERE count = (SELECT max FROM max_component))
 
 SELECT
-  id,
+  w.id,
   source, target,
   cost_s AS cost, reverse_cost_s AS reverse_cost,
   name, length_m AS length, tag_id, geom AS geom
-FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
+FROM ways w JOIN the_component USING (component) JOIN configuration USING (tag_id)
 WHERE  tag_value NOT IN ('pedestrian', 'steps','footway','path','cycleway'); -- line 18
 
 \o create_vehicle_net2.txt
@@ -127,11 +129,11 @@ maxcount AS (SELECT max(count) from allc),
 the_component AS (SELECT component FROM allc WHERE count = (SELECT max FROM maxcount))
 
 SELECT
-  id,
+  w.id,
   source, target,
   length_m / 2.0 AS cost, length_m / 2.0 AS reverse_cost,
   name, length_m AS length, geom AS geom
-FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
+FROM ways w JOIN the_component USING (component) JOIN configuration USING (tag_id)
 WHERE  tag_value IN ('residential','pedestrian', 'steps','footway','path','cycleway'); -- line 18
 
 \o create_walk_net2.txt
