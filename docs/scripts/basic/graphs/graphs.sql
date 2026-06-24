@@ -38,17 +38,9 @@ select target, target_osm, ST_endPoint(geom) from ways
 (geom, osm_id, x, y) = (ST_startPoint(pt), source_osm, st_x(pt), st_y(pt)) FROM get_data WHERE source = id;
 \o fill_columns_3.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
-\o fill_columns_4.txt
-SELECT count(*) FROM vertices WHERE geom IS NULL;
-\o fill_columns_5.txt
-SELECT count(*) FROM vertices WHERE geom IS NULL;
-\o fill_columns_6.txt
-SELECT count(*) FROM vertices WHERE geom IS NULL;
-
 
 \o set_components1.txt
 ALTER TABLE ways ADD COLUMN component BIGINT;
-
 \o set_components2.txt
 UPDATE vertices AS v SET component = c.component
 FROM (
@@ -57,7 +49,6 @@ FROM (
 ) AS c
 WHERE v.id = c.node;
 \o set_components3.txt
-
 UPDATE ways SET component = v.component
 FROM (SELECT id, component FROM vertices) AS v
 WHERE source = v.id;
@@ -81,19 +72,18 @@ SELECT component FROM all_components WHERE count = (SELECT max FROM max_componen
 CREATE OR REPLACE VIEW vehicle_net AS
 
 WITH
-all_components AS (SELECT component, count(*) FROM ways GROUP BY component), -- line 6
+all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
 max_component AS (SELECT max(count) from all_components),
 the_component AS (
   SELECT component FROM all_components
   WHERE count = (SELECT max FROM max_component))
 
 SELECT
-  w.id,
-  source, target,
+  w.id, source, target,
   cost_s AS cost, reverse_cost_s AS reverse_cost,
   name, length_m AS length, tag_id, geom AS geom
 FROM ways w JOIN the_component USING (component) JOIN configuration USING (tag_id)
-WHERE  tag_value NOT IN ('pedestrian', 'steps','footway','path','cycleway'); -- line 18
+WHERE  tag_value NOT IN ('pedestrian', 'steps','footway','path','cycleway');
 
 \o create_vehicle_net2.txt
 SELECT count(*) FROM ways;
@@ -124,17 +114,18 @@ SELECT count(*) FROM taxi_net;
 CREATE MATERIALIZED VIEW walk_net AS
 
 WITH
-allc AS (SELECT component, count(*) FROM ways GROUP BY component),
-maxcount AS (SELECT max(count) from allc),
-the_component AS (SELECT component FROM allc WHERE count = (SELECT max FROM maxcount))
+all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
+max_component AS (SELECT max(count) from all_components),
+the_component AS (
+  SELECT component FROM all_components
+  WHERE count = (SELECT max FROM max_component))
 
 SELECT
-  w.id,
-  source, target,
+  w.id, source, target,
   length_m / 2.0 AS cost, length_m / 2.0 AS reverse_cost,
-  name, length_m AS length, geom AS geom
+  name, length_m AS length, geom
 FROM ways w JOIN the_component USING (component) JOIN configuration USING (tag_id)
-WHERE  tag_value IN ('residential','pedestrian', 'steps','footway','path','cycleway'); -- line 18
+WHERE  tag_value IN ('residential','pedestrian', 'steps','footway','path','cycleway');
 
 \o create_walk_net2.txt
 
