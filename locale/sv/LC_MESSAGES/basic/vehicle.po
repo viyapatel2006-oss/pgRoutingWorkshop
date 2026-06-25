@@ -238,7 +238,7 @@ msgstr "Kostnaden i ``dollars`` är ``cost_s / 3600 * 100``."
 
 #: ../../build/docs/basic/vehicle.rst:174
 msgid "Comparing with `Exercise 2: Vehicle routing - returning`_:"
-msgstr "Jämförs med `Övning 2: Fordonsdirigering - retur`_:"
+msgstr "Jämförs med `Exercise 2: Vehicle routing - returning`_:"
 
 #: ../../build/docs/basic/vehicle.rst:176
 msgid "The total number of records are identical."
@@ -325,7 +325,7 @@ msgstr "Från \"|place_3|\" till \"|place_1|\""
 #: ../../build/docs/basic/vehicle.rst:249
 #: ../../build/docs/basic/vehicle.rst:313
 msgid "From |place_3| to |place_1|"
-msgstr "Från |place_3 till |place_1"
+msgstr "Från |place_3| till |place_1|"
 
 #: ../../build/docs/basic/vehicle.rst:256
 msgid "Add a penalty column"
@@ -435,7 +435,7 @@ msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:337
 msgid "Comparing with `Exercise 3: Vehicle routing when time is money`_:"
-msgstr "Jämförelse med `Övning 3: Fordonsdirigering när tid är pengar`_:"
+msgstr "Jämförelse med `Exercise 3: Vehicle routing when time is money`_:"
 
 #: ../../build/docs/basic/vehicle.rst:339
 msgid "The total number of records changed."
@@ -480,7 +480,7 @@ msgstr "Anslut med hjälp av ``gid`` (rad **18**)"
 
 #: ../../build/docs/basic/vehicle.rst:373
 msgid "Comparing with `Exercise 5: Vehicle routing with penalization`_:"
-msgstr "Jämförs med `Övning 5: Fordonsdirigering med straff`_:"
+msgstr "Jämförs med `Exercise 5: Vehicle routing with penalization`_:"
 
 #: ../../build/docs/basic/vehicle.rst:375
 msgid "The total number of records is the same."

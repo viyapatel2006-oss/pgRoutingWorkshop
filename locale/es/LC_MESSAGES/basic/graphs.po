@@ -373,7 +373,7 @@ msgstr "Preparación de los grafos"
 
 #: ../../build/docs/basic/graphs.rst:348
 msgid "Exercise 5: Creating a view for routing"
-msgstr "Ejercicio 5: Creación de una vista para el ruteo"
+msgstr "Exercise 5: Creating a view for routing"
 
 #: ../../build/docs/basic/graphs.rst:350
 msgid "View of roads for vehicles"
@@ -584,7 +584,7 @@ msgstr "`the_geom` La geometría."
 
 #: ../../build/docs/basic/graphs.rst:502
 msgid "Similar to `Exercise 5: Creating a view for routing`_:"
-msgstr "Similar al `Ejercicio 5: Creación de una vista para el enrutamiento`_:"
+msgstr "Similar al `Exercise 5: Creating a view for routing`_:"
 
 #: ../../build/docs/basic/graphs.rst:504
 msgid ""

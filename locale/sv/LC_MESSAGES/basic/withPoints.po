@@ -520,7 +520,7 @@ msgstr "Använd följande (lat,lon)-värden: ``(-1.455829, -48.446044)``."
 
 #: ../../build/docs/basic/withPoints.rst:261
 msgid "The point is the same as in `Exercise 3: Nearest Vertex`_ problem."
-msgstr "Poängen är densamma som i `Övning 3: Närmaste vertex`_ problem."
+msgstr "Poängen är densamma som i `Exercise 3: Nearest Vertex`_ problem."
 
 #: ../../build/docs/basic/withPoints.rst:263
 msgid "Verify the results are the same."
@@ -575,7 +575,7 @@ msgstr "Använd specialiserade funktioner:"
 
 #: ../../build/docs/basic/withPoints.rst:334
 msgid "``wrk_NearestOSM`` created on `Exercise 4: Nearest vertex function`_."
-msgstr "``wrk_NearestOSM`` skapad på `Övning 4: Närmaste vertexfunktion`_."
+msgstr "``wrk_NearestOSM`` skapad på `Exercise 4: Nearest vertex function`_."
 
 #: ../../build/docs/basic/withPoints.rst:336
 msgid "It receives the point in natural language format."

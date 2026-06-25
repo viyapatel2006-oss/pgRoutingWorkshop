@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:112
 msgid "Exercise 2: Vehicle routing - returning"
-msgstr "Ejercicio 2: Ruteo de vehículos - regreso"
+msgstr "Exercise 2: Vehicle routing - returning"
 
 #: ../../build/docs/basic/vehicle.rst:116
 msgid "From \"|place_3|\" to the \"|place_1|\" by car."
@@ -278,7 +278,7 @@ msgstr "El costo en ``dollars`` es ``cost_s / 3600 * 100``."
 
 #: ../../build/docs/basic/vehicle.rst:174
 msgid "Comparing with `Exercise 2: Vehicle routing - returning`_:"
-msgstr "Comparación con `Ejercicio 2: Ruteo de vehículos - regreso`_:"
+msgstr "Comparación con `Exercise 2: Vehicle routing - returning`_:"
 
 #: ../../build/docs/basic/vehicle.rst:176
 msgid "The total number of records are identical."
@@ -428,7 +428,7 @@ msgstr ""
 
 #: ../../build/docs/basic/vehicle.rst:282
 msgid "Exercise 5: Vehicle routing with penalization"
-msgstr "Ejercicio 5: Ruteo de vehículos con penalización"
+msgstr "Exercise 5: Vehicle routing with penalization"
 
 #: ../../build/docs/basic/vehicle.rst:285
 msgid "Concept:"
@@ -551,7 +551,7 @@ msgstr "Unir usando ``gid`` (línea **18**)"
 
 #: ../../build/docs/basic/vehicle.rst:373
 msgid "Comparing with `Exercise 5: Vehicle routing with penalization`_:"
-msgstr "Comparando con `Ejercicio 5: Ruteo de vehículos con penalización`_:"
+msgstr "Comparando con `Exercise 5: Vehicle routing with penalization`_:"
 
 #: ../../build/docs/basic/vehicle.rst:375
 msgid "The total number of records is the same."
