@@ -356,7 +356,7 @@ msgstr ""
 
 #: ../../build/docs/basic/sql_function.rst:130
 msgid "Exercise 2: Route geometry (human readable)"
-msgstr "Ejercicio 2: Geometría de la ruta (legible para humanos)"
+msgstr "Exercise 2: Route geometry (human readable)"
 
 #: ../../build/docs/basic/sql_function.rst:132
 #: ../../build/docs/basic/sql_function.rst:218
@@ -477,8 +477,8 @@ msgid ""
 "Inspecting the detail of the results of `Exercise 2: Route geometry "
 "(human readable)`_"
 msgstr ""
-"Inspeccionando el detalle de los resultados de `Ejercicio 2: Geometría de"
-" la ruta (legible para humanos)`_"
+"Inspeccionando el detalle de los resultados de `Exercise 2: Route geometry"
+" (human readable)`_"
 
 #: ../../build/docs/basic/sql_function.rst:231
 msgid "Rows **59** to **61** do not match that criteria"
@@ -597,8 +597,8 @@ msgid "Name it ``additional``. (line **6**)"
 msgstr "Asignar el nombre ``additional``. (línea **6**)"
 
 #: ../../build/docs/basic/sql_function.rst:321
-msgid "The ``ways`` table geometry name is ``the_geom``."
-msgstr "El nombre de la geometría de la tabla ``ways`` es ``the_geom``."
+msgid "The ``ways`` table geometry name is ``geom``."
+msgstr "El nombre de la geometría de la tabla ``ways`` es ``geom``."
 
 #: ../../build/docs/basic/sql_function.rst:322
 msgid "Final ``SELECT`` statements gets:"

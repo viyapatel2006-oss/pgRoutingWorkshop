@@ -1,11 +1,6 @@
-..
-  ****************************************************************************
-  pgRouting Workshop Manual
-  Copyright(c) pgRouting Contributors
-
-  This documentation is licensed under a Creative Commons Attribution-Share
-  Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
-  ****************************************************************************
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2024-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
 
 Graphs
@@ -30,8 +25,8 @@ The graph requirements
 ===============================================================================
 
 This chapter requires the creation of three distinct routing graphs derived from
-``ways``. These consist of two vehicle-specific graphs and one pedestrian 
-graph, all of which utilize the standard ``source`` and ``target`` to determine 
+``ways``. These consist of two vehicle-specific graphs and one pedestrian
+graph, all of which utilize the standard ``source`` and ``target`` to determine
 routing paths.
 
 The description of the graphs:
@@ -58,7 +53,7 @@ The description of the graphs:
   - Walk on the whole @PGR_WORKSHOP_CITY@ area.
   - Can only use pedestrian-only ways:
 
-    - `pedestrian`, `steps`, `footway`, `path`, `cycleway`
+    - `pedestrian`, `steps`, `footway`, `path`, `cycleway`, `residential`
 
   - The walking speed is ``2 mts/sec``.
 
@@ -75,8 +70,6 @@ improve results.
 
 |
 
-Penalizing or removal of pedestrian ways will make the results closer to reality.
-
 When converting data from OSM format using the `osm2pgrouting` tool, there is an
 additional table: ``configuration``.
 
@@ -89,12 +82,6 @@ additional table: ``configuration``.
 .. collapse:: The table description
 
    .. literalinclude:: ../scripts/basic/graphs/configuration_structure.txt
-
-.. image:: images/graphs/roads_tag_ids.png
-  :scale: 25%
-  :alt: tag_id values
-
-|
 
 In the image above, there is a detail of the ``tag_id`` of the roads.
 
@@ -227,62 +214,42 @@ Count the number of rows that need to be filled up.
 
   .. literalinclude:: ../scripts/basic/graphs/fill_columns_2.txt
 
-Do not expect this count to be the same as the total number of rows in the vertices table, because some nodes are dead ends: some vertices will only be sources and others only targets, so not all rows can be updated.
-
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :language: sql
-  :start-after: fill_columns_3.txt
-  :end-before: fill_columns_4.txt
-
-.. collapse:: Numbers of records that need update
+.. collapse:: Number of rows with empty geometry should be 0
 
   .. literalinclude:: ../scripts/basic/graphs/fill_columns_3.txt
 
-.. rubric:: Continue update the ``geom`` and ``osm_id`` columns
+Exercise 3: Use QGIS to view the work
+-------------------------------------------------------------------------------
 
-* The update based on the ``target`` column from ``ways`` table and the ``id``
-  column of the vertices table.
-* To update ``geom`` column, use the end point of the geometry on the ``ways``
-  table.
-* Use the ``target_osm`` value to fill up ``osm_id`` column.
+QGIS is a powerfull tool
 
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :language: sql
-  :start-after: fill_columns_4.txt
-  :end-before: fill_columns_5.txt
+If you are using OSGeoLive, then you can find QGIS here:
 
-.. rubric:: Verification
+.. image:: images/graphs/qgis_menu.png
+  :scale: 25%
 
-.. collapse:: Number of updated records
+|
 
-  .. literalinclude:: ../scripts/basic/graphs/fill_columns_4.txt
+Open it and add the Postgres credentials to access city_routing
 
-Expecting to be done, that is the geometry column should not have a ``NULL``
-value.
+.. image:: images/graphs/qgis_credentials.png
+  :scale: 25%
 
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :language: sql
-  :start-after: fill_columns_5.txt
-  :end-before: fill_columns_6.txt
+|
 
-.. collapse:: Count should be 0
+Choose the vertices table and move it to the layers
 
-  .. literalinclude:: ../scripts/basic/graphs/fill_columns_5.txt
+.. image:: images/graphs/qgis_moveLayer.png
+  :scale: 25%
 
-.. rubric:: Update the ``x`` and ``y`` columns
+|
 
-Update the ``x`` and ``y`` columns based on the ``geom`` column.
+You will see on the canvas something similar to:
 
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :language: sql
-  :start-after: fill_columns_6.txt
-  :end-before: set_components1.txt
+.. image:: images/graphs/vertices.png
+  :scale: 25%
 
-.. rubric:: Verification
-
-.. collapse:: Number of updated records
-
-  .. literalinclude:: ../scripts/basic/graphs/fill_columns_6.txt
+|
 
 
 pgr_connectedComponents
@@ -305,7 +272,7 @@ Description of the function can be found in `pgr_connectedComponents
 <https://docs.pgrouting.org/latest/en/pgr_connectedComponents.html>`__
 
 
-Exercise 3: Set components on edges and vertices tables
+Exercise 4: Set components on edges and vertices tables
 -------------------------------------------------------------------------------
 
 .. rubric:: Problem
@@ -339,6 +306,16 @@ Create additional columns on the edges tables.
 
   .. literalinclude:: ../scripts/basic/graphs/set_components2.txt
 
+.. collapse:: Using QGIS to visually see the components
+
+  .. image:: images/graphs/vertices_components.png
+    :scale: 25%
+
+|
+
+.. note:: This is not a QGIS workshop, so the details about how to display
+   layers are not written in this workshop
+
 .. rubric:: Update the edges table with based on the component number of the vertex
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
@@ -350,8 +327,15 @@ Create additional columns on the edges tables.
 
   .. literalinclude:: ../scripts/basic/graphs/set_components3.txt
 
+.. collapse:: Using QGIS to visually see the components
 
-Exercise 4: Inspect the components
+  .. image:: images/graphs/ways_components.png
+    :scale: 25%
+
+|
+
+
+Exercise 5: Inspect the components
 -------------------------------------------------------------------------------
 
 .. rubric:: Problem
@@ -422,7 +406,7 @@ Count the distinct components.
 Preparing the graphs
 ================================================================================
 
-Exercise 5: Creating a view for routing
+Exercise 6: Creating a view for routing vehicles
 -------------------------------------------------------------------------------
 
 .. image:: images/graphs/vehicle_net.png
@@ -432,14 +416,16 @@ Exercise 5: Creating a view for routing
 .. rubric:: Problem
 
 - Create a view with minimal amount of information for processing the particular vehicles.
-- Routing `cost` and `reverse_cost` in terms of seconds for routing calculations.
-- Exclude `steps`, `footway`, `path`, `cycleway` segments.
+- Routing ``cost`` and ``reverse_cost`` in terms of seconds for routing calculations.
+- Exclude ``pedestrian``, ``steps``, ``footway``, ``path``, ``cycleway`` segments.
 - Data needed in the view for further processing.
 
+  - ``id`` of the segment.
+  - ``source`` and ``target`` of the segment.
   - ``name`` The name of the segment.
-  - ``length_m`` The length in meters rename to ``length``.
-  - ``the_geom`` The geometry rename to ``geom``.
-  - ``tag_id`` Keep as is.
+  - ``length`` The length in meters rename from ``length_m``.
+  - ``geom`` The geometry.
+  - ``tag_id`` The kind of road.
 
 - Verify the number of edges was reduced.
 
@@ -447,17 +433,16 @@ Exercise 5: Creating a view for routing
 
 Creating the view:
 
-- If you need to reconstruct the view, first drop it using the command on **line
-  1**.
-- Get the component with maximum number of edges (**lines 6-10**)
-- The `source` and `target` requirements for the function are to be with OSM
-  identifiers. (line **14**)
-- The ``cost`` and ``reverse_cost`` are in terms of seconds. (line **15**)
-- The additional parameters ``length_m`` and ``the_geom`` are renamed, ``name``
-  is also included. (line **16**)
+- If you need to reconstruct the view, first drop it using the command on line
+  1.
+- Get the component with maximum number of edges.
+- Select the required columns.
+  - The ``cost`` and ``reverse_cost`` are in terms of seconds.
+  - The ``length_m`` is renamed.
+
 - ``JOIN`` with the `configuration`:
 
-  - Exclude `steps`, `footway`, `path`, `cycleway`. (line **18**)
+  - Exclude ``pedestrian``, ``steps``, ``footway``, ``path``, ``cycleway``.
 
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
@@ -492,8 +477,86 @@ Get the description of the view
 
    .. literalinclude:: ../scripts/basic/graphs/create_vehicle_net3.txt
 
+Exercise 7: Creating a materialized view for routing pedestrians
+-------------------------------------------------------------------------------
 
-Exercise 6: Limiting the road network within an area
+.. image:: images/graphs/walk_net.png
+  :scale: 25%
+  :alt: View of roads for pedestrians
+
+.. rubric:: Problem
+
+- Create a materialized view with minimal amount of information for processing
+  pedestrian routing.
+- Routing ``cost`` and ``reverse_cost`` will be in seconds for routing calculations.
+
+  - The walking speed is ``2 mts/sec``.
+
+- Include the pedestrian roads: ``pedestrian``, ``steps``, ``footway``,
+  ``path``, ``cycleway`` and ``residential`` roads.
+- Data needed in the view for further processing.
+
+  - ``id`` of the segment.
+  - ``source`` and ``target`` of the segment.
+  - ``name`` The name of the segment.
+  - ``length`` The length in meters rename from ``length_m``.
+  - ``geom`` The geometry.
+  - ``tag_id`` The kind of road.
+
+- Verify the number of edges was reduced.
+
+.. rubric:: Solution
+
+Creating the view:
+
+- If you need to reconstruct the view, first drop it using the command on line
+  1.
+- Get the component with maximum number of edges.
+- Select the required columns.
+
+  - The ``cost`` and ``reverse_cost`` are in terms of seconds with speed of
+    ``2 mts/sec``.
+  - The ``length_m`` is renamed.
+
+- ``JOIN`` with the `configuration`:
+
+  - Include ``residential``, ``pedestrian``, ``steps``, ``footway``, ``path``,
+    ``cycleway``.
+
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+   :language: sql
+   :linenos:
+   :emphasize-lines: 14
+   :start-after: create_walk_net1.txt
+   :end-before: create_walk_net2.txt
+
+.. collapse:: Response of command
+
+   .. literalinclude:: ../scripts/basic/graphs/create_walk_net1.txt
+
+
+Count the rows on the view ``walk_net``.
+
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+  :language: sql
+  :start-after: create_walk_net2.txt
+  :end-before: create_walk_net3.txt
+
+.. collapse:: Row count results
+
+   .. literalinclude:: ../scripts/basic/graphs/create_walk_net2.txt
+
+Get the description.
+
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+  :start-after: create_walk_net3.txt
+  :end-before: create_net_vertices.txt
+
+.. collapse:: The view description
+
+   .. literalinclude:: ../scripts/basic/graphs/create_walk_net3.txt
+
+Exercise 8: Limiting the road network within an area
 -------------------------------------------------------------------------------
 
 .. image:: images/graphs/taxi_net.png
@@ -506,6 +569,7 @@ Exercise 6: Limiting the road network within an area
 
   * The taxi can only circulate inside this Bounding Box: ``(@PGR_WORKSHOP_LITTLE_NET_BBOX@)``
   * The taxi speed is 10% slower than the particular vehicle.
+  * Base the view on ``vehicle_net``
 
 * Verify the reduced number of road segments.
 
@@ -514,10 +578,10 @@ Exercise 6: Limiting the road network within an area
 Creating the view:
 
 * Adjust the taxi's ``cost`` and ``reverse_cost`` to be 10% slower than of the
-  particular vehicle. (line **7**)
-* The graph for the taxi is a subset of the ``vehicle_net`` graph. (line **9**)
+  particular vehicle.
+* The graph for the taxi is a subset of the ``vehicle_net`` graph.
 * Can only circulate inside the bounding box:
-  ``(@PGR_WORKSHOP_LITTLE_NET_BBOX@)``. (line **10**)
+  ``(@PGR_WORKSHOP_LITTLE_NET_BBOX@)``.
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
   :language: sql
@@ -551,71 +615,6 @@ Get the description.
 
    .. literalinclude:: ../scripts/basic/graphs/create_taxi_net3.txt
 
-Exercise 7: Creating a materialized view for routing pedestrians
--------------------------------------------------------------------------------
-
-.. image:: images/graphs/walk_net.png
-  :scale: 25%
-  :alt: View of roads for pedestrians
-
-.. rubric:: Problem
-
-- Create a materialized view with minimal amount of information for processing
-  pedestrians.
-- Routing `cost` and `reverse_cost` will be on seconds for routing calculations.
-
-  - The speed is ``2 mts/sec``.
-
-- Only include the pedestrian only roads: ``pedestrian``, ``steps``, ``footway``,
-  ``path``, ``cycleway``
-- Data needed in the view for further processing.
-
-  - ``length_m`` The length in meters.
-  - ``the_geom`` The geometry.
-
-- Verify the number of edges was reduced.
-
-.. rubric:: Solution
-
-- Creating the view:
-
-  - Similar to `Exercise 5: Creating a view for routing`_:
-
-    - The ``cost`` and ``reverse_cost`` are in terms of seconds with speed of
-      ``2 mts/sec``. (line **7**)
-    - Exclude ``motorway``, ``primary`` and ``secondary`` . (line **11**)
-
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :language: sql
-  :emphasize-lines: 7, 11
-  :start-after: create_walk_net1.txt
-  :end-before: create_walk_net2.txt
-
-.. collapse:: Response of command
-
-   .. literalinclude:: ../scripts/basic/graphs/create_walk_net1.txt
-
-
-Count the rows on the view ``walk_net``.
-
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :language: sql
-  :start-after: create_walk_net2.txt
-  :end-before: create_walk_net3.txt
-
-.. collapse:: Row count results
-
-   .. literalinclude:: ../scripts/basic/graphs/create_walk_net2.txt
-
-Get the description.
-
-.. literalinclude:: ../scripts/basic/graphs/graphs.sql
-  :start-after: create_walk_net3.txt
-  :end-before: create_net_vertices.txt
-
-.. collapse:: The view description
-
-   .. literalinclude:: ../scripts/basic/graphs/create_walk_net3.txt
 
 pgr_dijkstraCostMatrix
 ================================================================================
@@ -634,10 +633,10 @@ pgr_dijkstraCostMatrix
 Description of the function can be found in `pgr_dijkstraCostMatrix
 <https://docs.pgrouting.org/latest/en/pgr_dijkstraCostMatrix.html>`__
 
-Exercise 8: Testing the views
+Exercise 9: Testing the views
 -------------------------------------------------------------------------------
 
-.. image:: images/graphs/costMatrix.png
+.. image:: images/graphs/vehicle_costmatrix.png
   :scale: 25%
 
 .. rubric:: Problem
@@ -646,8 +645,12 @@ Exercise 8: Testing the views
 
 In particular:
 
-* Get a traveling cost matrix in seconds from all locations to all locations.
-* the views to be tested are:
+* Get a traveling cost matrix in seconds from the all follwoing ``id`` to all
+  the ``id``
+
+  * |id_1|, |id_2|, |id_3|, |id_4| and |id_5|.
+
+  * the views to be tested are:
 
   * ``vehicle_net``
   * ``taxi_net``
@@ -663,17 +666,15 @@ In particular:
 For ``vehicle_net``:
 
 * ``vehicle_net`` is used.
-* Selection of the columns with the corresponding names are on line **1**.
+* Selection of the columns with the corresponding names.
 * The view is prepared with the column names that pgRouting use.
 
-  * There is no need to rename columns. (line **3**)
-
-* The OSM identifiers of the departure and destination are used. (line **4**)
+  * There is no need to rename columns.
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
   :language: sql
   :linenos:
-  :emphasize-lines: 1,3,4
+  :emphasize-lines: 3
   :start-after: test_view1.txt
   :end-before: test_view2.txt
 
@@ -683,12 +684,14 @@ For ``vehicle_net``:
 
 For ``taxi_net``:
 
-* Similar as the previous one but with ``taxi_net``. (line **3**)
+* Similar as the previous one but with ``taxi_net``.
 * The results give the same route as with ``vehicle_net`` but ``cost`` is
   higher.
+* Not all the locations are in the area, so not all are calculated.
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
   :language: sql
+  :linenos:
   :emphasize-lines: 3
   :start-after: test_view2.txt
   :end-before: test_view3.txt
@@ -699,15 +702,46 @@ For ``taxi_net``:
 
 For ``walk_net``:
 
-* Similar as the previous one but with ``walk_net``. (line **3**)
-* The results give a different route than of the vehicles.
+* Similar as the previous ones but with ``walk_net``.
 
-  .. literalinclude:: ../scripts/basic/graphs/graphs.sql
-    :language: sql
-    :emphasize-lines: 3
-    :start-after: test_view3.txt
-    :end-before: graphs_end.txt
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+  :language: sql
+  :linenos:
+  :emphasize-lines: 3
+  :start-after: test_view3.txt
+  :end-before: visualize1.txt
 
 .. collapse:: Query results
 
    .. literalinclude:: ../scripts/basic/graphs/test_view3.txt
+
+Exercise 10: Visualize on QGIS the ``pgr_costMatrix`` result
+-------------------------------------------------------------------------------
+
+.. image:: images/graphs/vehicle_costmatrix.png
+  :scale: 25%
+
+.. rubric:: Problem
+
+Based on the query from `Exercise 9: Testing the views`_, create a view to be
+able to use on QGIS. (like the one above)
+
+* The results when using ``vehile_net`` is the example.
+* The other results are left to the reader.
+
+.. rubric:: Solution
+
+* QGIS needs a unique identifier, the identifier will be the row number.
+* ``JOIN`` with ``vertices`` table to get the geometry of the points.
+* Build a ``LINESTRING`` joining the 2 points.
+* The name of the line consists of the values of the result of the function.
+
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+  :language: sql
+  :linenos:
+  :emphasize-lines: 3-5
+  :start-after: visualize1.txt
+  :end-before: graphs_end.txt
+
+Enter QGIS, refresh the database and move the view to the layers.
+Format adding the name to the lines.

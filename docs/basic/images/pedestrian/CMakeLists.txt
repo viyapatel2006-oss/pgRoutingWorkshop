@@ -4,10 +4,11 @@
 #---------------------
 set(PGR_WORKSHOP_IMG_FILES
   pedestrian_combinations.png
-  pedestrian_dijkstracost.png
+  pedestrian_cost_many_to_many.png
   pedestrian_many_to_many.png
   pedestrian_one_to_many.png
   pedestrian_one_to_one.png
+  stars.png
 )
 
 

@@ -1,11 +1,6 @@
-..
-  ****************************************************************************
-  pgRouting Workshop Manual
-  Copyright(c) pgRouting Contributors
-
-  This documentation is licensed under a Creative Commons Attribution-Share
-  Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
-  ****************************************************************************
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2021-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
 Data for Sustainable Development Goals
 ###############################################################################
@@ -38,7 +33,7 @@ pgRouting is pre-installed as an extension which requires:
 These requirements are met on OSGeoLive. When the required software is
 installed, open a terminal window by pressing ``ctrl-alt-t`` and follow the
 instructions. Information about installing OSGeoLive can be found in
-:doc:`../general-intro/osgeolive` of this workshop.
+:doc:`../appendix/osgeolive` of this workshop.
 
 .. note:: If you don't have pgRouting installed. You can find the installation
   procedure at this `link

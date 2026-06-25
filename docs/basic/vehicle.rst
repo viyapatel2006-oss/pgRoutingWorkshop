@@ -1,11 +1,6 @@
-..
-  ****************************************************************************
-  pgRouting Workshop Manual
-  Copyright(c) pgRouting Contributors
-
-  This documentation is licensed under a Creative Commons Attribution-Share
-  Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
-  ****************************************************************************
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2016-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
 
 Vehicle Routing
@@ -121,9 +116,10 @@ Exercise 2: Vehicle routing - returning
 * The vehicle is going from vertex |id_3| to |id_1|.
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
-  :start-after: route_coming.txt
-  :end-before: time_is_money.txt
-  :language: sql
+   :start-after: route_coming.txt
+   :end-before: time_is_money.txt
+   :language: sql
+   :emphasize-lines: 3-8
 
 .. collapse:: Query results
 
@@ -137,15 +133,15 @@ Exercise 3: Vehicle routing when time is money
 
 .. rubric:: Problem:
 
-* From "|place_3|" to the "|place_1|" by taxi.
+* From "|place_3|" to the "|place_1|"
 
 .. image:: images/vehicle/vehicle_time_is_money.png
   :width: 300pt
-  :alt: From |place_3| to |place_1| by taxi.
+  :alt: From |place_3| to |place_1|
 
 .. rubric:: Solution:
 
-* Use the ``taxi_net``.
+* Use the ``vehicle_net``.
 * The cost is ``$100 per hour``.
 
   * Using ``cost`` and ``reverse_cost`` columns, which are in seconds.
@@ -156,71 +152,93 @@ Exercise 3: Vehicle routing when time is money
 * The vehicle is going from vertex |id_3| to |id_1|.
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
-  :start-after: time_is_money.txt
-  :end-before: add_penalty.txt
-  :language: sql
+   :start-after: time_is_money.txt
+   :end-before: add_penalty.txt
+   :language: sql
+   :emphasize-lines: 3-8
 
 .. collapse:: Query results
 
   .. literalinclude:: ../scripts/basic/vehicles/time_is_money.txt
 
 .. note::
-  Comparing with `Exercise 2: Vehicle routing - returning`_:
+   Comparing with `Exercise 2: Vehicle routing - returning`_:
 
-  * The total number of records are identical.
-  * The node sequence is identical.
-  * The edge sequence is identical.
-  * The cost and agg_cost results are directly proportional.
+   * The total number of records are identical.
+   * The node sequence is identical.
+   * The edge sequence is identical.
+   * The cost and agg_cost results are directly proportional.
 
 
 Cost manipulations
 -------------------------------------------------------------------------------
 
-In this workshop, costs are going to be manipulated using the ``configuration`` table.
+In this workshop, costs are going to be manipulated using the ``configuration``
+table.
 
-Exercise 4: Vehicle routing without penalization
+Exercise 4: Create a penalazied view
 ...............................................................................
 
 .. rubric:: Problem:
 
-* From the "|place_3|" to "|place_1|"
+Add a penalty column on the :code:`configuration` table with default value of 1.
+Create a view that uses the value of the column to modify the costs.
+
+.. rubric:: Solution:
+
+* Add the penalty column with the default value of ``1``.
+
+.. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
+   :start-after: add_penalty.txt
+   :end-before: create_penalized_view.txt
+
+* Create the penalized vehicle net
+
+.. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
+   :start-after: create_penalized_view.txt
+   :end-before: use_penalty.txt
+
+* The vehicle's cost in this case will be in penalized seconds.
+
+  * Costs are to be multiplied by :code:`penalty`
+  * Costs won't change (:math:`cost * 1 = cost`).
+
+Exercise 5: Vehicle routing without penalization
+...............................................................................
+
+.. rubric:: Problem:
+
+* From the "|place_3|" to "|place_1|" use the penalized view.
 
 .. image:: images/vehicle/vehicle_route_coming.png
   :scale: 25%
   :alt: From |place_3| to |place_1|
 
-.. rubric:: Solution:
-
-* Add a penalty column
-
-  * All roads have a ``penalty`` of ``1``.
-
-  .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
-     :start-after: add_penalty.txt
-     :end-before: use_penalty.txt
-
-* The vehicle's cost in this case will be in penalized seconds.
-
-  * Costs are to be multiplied by :code:`penalty` (lines **5** and **6**).
-  * Costs won't change (:math:`cost * 1 = cost`).
-
-* The :code:`configuration` table is linked with the :code:`ways` table by the
-  :code:`tag_id` field using a ``JOIN``
 * The vehicle is going from vertex |id_3| to vertex |id_1|.
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
    :start-after: use_penalty.txt
-   :end-before: update_penalty.txt
+   :end-before: same_result_as_comming.txt
    :language: sql
    :linenos:
-   :force:
 
 .. collapse:: Query results
 
   .. literalinclude:: ../scripts/basic/vehicles/use_penalty.txt
 
+Simple check, the results are the same as the :code:`vehicle_route_coming` view.
 
-Exercise 5: Vehicle routing with penalization
+.. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
+   :start-after: same_result_as_comming.txt
+   :end-before: update_penalty.txt
+   :language: sql
+   :linenos:
+
+.. collapse:: Query results
+
+  .. literalinclude:: ../scripts/basic/vehicles/same_result_as_comming.txt
+
+Exercise 6: Penalizing based on the kind of roads
 ...............................................................................
 
 .. rubric:: Concept:
@@ -249,9 +267,16 @@ The ``penalty`` values can be changed with ``UPDATE`` queries.
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
    :start-after: update_penalty.txt
-   :end-before: get_penalized_route.txt
+   :end-before: show_penalties.txt
    :language: sql
    :force:
+
+.. collapse:: The penalties
+
+  .. literalinclude:: ../scripts/basic/vehicles/show_penalties.txt
+
+Exercise 7: Vehicle routing with penalization
+...............................................................................
 
 .. rubric:: Problem:
 
@@ -263,7 +288,7 @@ The ``penalty`` values can be changed with ``UPDATE`` queries.
 
 .. rubric:: Solution:
 
-* Using the same query from `Exercise 4: Vehicle routing without penalization`_
+* Using the same query from `Exercise 5: Vehicle routing without penalization`_
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
    :start-after: get_penalized_route.txt
@@ -276,16 +301,17 @@ The ``penalty`` values can be changed with ``UPDATE`` queries.
   .. literalinclude:: ../scripts/basic/vehicles/get_penalized_route.txt
 
 .. note::
-  Comparing with `Exercise 3: Vehicle routing when time is money`_:
+   Comparing with `Exercise 5: Vehicle routing without penalization`_
 
-  * The total number of records changed.
+   * The query is the same.
+   * The total number of records changed.
 
-    * The node sequence changed.
-    * The edge sequence changed.
+     * The node sequence changed.
+     * The edge sequence changed.
 
-  * The costs do not change proportionally.
+   * The costs do not change proportionally.
 
-Exercise 6: Time in seconds of penalized route using a view
+Exercise 8: Original time of penalized route
 ...............................................................................
 
 .. rubric:: Problem:
@@ -297,23 +323,14 @@ Get the times in seconds of a penalized route
 * Create a penalized view by joining the ``vehicle_net`` joined with the
   ``configuration`` table
 
-  * Use the inner query from `Exercise 5: Vehicle routing with penalization`_
-
-    .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
-       :start-after: penalized_view.txt
-       :end-before: using_view.txt
-       :language: sql
-       :force:
-
-* Get the route
-  ``configuration`` table
+  * Use the inner query from `Exercise 5: Vehicle routing without penalization`_
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
-   :start-after: using_view.txt
+   :start-after: time_in_secs.txt
    :end-before: vehicles_end.txt
    :language: sql
    :force:
 
 .. collapse:: Query results
 
-  .. literalinclude:: ../scripts/basic/vehicles/using_view.txt
+  .. literalinclude:: ../scripts/basic/vehicles/time_in_secs.txt

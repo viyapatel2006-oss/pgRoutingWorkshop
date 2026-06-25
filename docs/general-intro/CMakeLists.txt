@@ -6,7 +6,6 @@ add_custom_target(general-intro ALL)
 set(PGR_WORKSHOP_FILES
   introduction.rst
   overview.rst
-  osgeolive.rst
   )
 
 #---------------------------------------------

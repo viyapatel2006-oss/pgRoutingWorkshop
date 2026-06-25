@@ -51,7 +51,8 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y osm2pgrouting \
+          sudo apt-get install -y build-essential cmake libpq-dev libpqxx-dev libexpat1-dev \
+            libboost-program-options-dev \
             postgresql-${PGVER}-postgis-${PGIS} \
             postgresql-${PGVER}-postgis-${PGIS}-scripts \
             postgresql-${PGVER}-pgrouting
@@ -59,6 +60,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r REQUIREMENTS.txt
           pip list
+
+      - name: Build osm2pgrouting from source
+        run: |
+          wget -q https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v3.0.0.tar.gz
+          tar xzf v3.0.0.tar.gz
+          python3 -c "import re; c=open('osm2pgrouting-3.0.0/CMakeLists.txt').read(); c=c.replace('if (PQXX_VERSION VERSION_GREATER_EQUAL \"7.0.0\")','if (PQXX_VERSION VERSION_GREATER_EQUAL \"8.0.0\")'); c=c.replace('  set(CMAKE_CXX_STANDARD 17)','  set(CMAKE_CXX_STANDARD 20)\nelseif (PQXX_VERSION VERSION_GREATER_EQUAL \"7.0.0\")\n  set(CMAKE_CXX_STANDARD 17)',1); open('osm2pgrouting-3.0.0/CMakeLists.txt','w').write(c)"
+          cmake -S osm2pgrouting-3.0.0 -B osm2pgrouting-3.0.0/build \
+            -DCMAKE_BUILD_TYPE=Release
+          sudo cmake --build osm2pgrouting-3.0.0/build --target install
+          sudo ldconfig
 
       - name: Configure
         run: |
@@ -95,7 +106,7 @@ jobs:
           if [[ "${{ env.BRANCH }}" == "develop" ]]; then
             FOLDER_NAME="dev"
           elif [[ "${{ env.BRANCH }}" == "main" ]]; then
-            FOLDER_NAME="3.1"
+            FOLDER_NAME="3.2"
           fi
           git checkout -f origin/gh-pages
           git checkout -b gh-pages

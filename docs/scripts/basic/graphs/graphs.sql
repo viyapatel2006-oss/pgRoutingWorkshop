@@ -21,9 +21,7 @@ ORDER BY tag_id;
 
 SELECT id, in_edges, out_edges, x, y, NULL::BIGINT osm_id, NULL::BIGINT component, geom
 INTO vertices
-FROM pgr_extractVertices(
-  'SELECT gid AS id, source, target
-  FROM ways ORDER BY id');
+FROM pgr_extractVertices('SELECT id, source, target FROM ways ORDER BY id');
 
 \o vertices_description.txt
 \dS+ vertices
@@ -33,32 +31,24 @@ SELECT * FROM vertices Limit 10;
 \o fill_columns_1.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_2.txt
-UPDATE vertices SET (geom, osm_id) = (ST_startPoint(the_geom), source_osm)
-FROM ways WHERE source = id;
+with get_data as (select source, source_osm, ST_startPoint(geom) as pt from ways
+union all
+select target, target_osm, ST_endPoint(geom) from ways
+) update vertices set
+(geom, osm_id, x, y) = (ST_startPoint(pt), source_osm, st_x(pt), st_y(pt)) FROM get_data WHERE source = id;
 \o fill_columns_3.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
-\o fill_columns_4.txt
-UPDATE vertices SET (geom, osm_id) = (ST_endPoint(the_geom), target_osm)
-FROM ways WHERE geom IS NULL AND target = id;
-\o fill_columns_5.txt
-SELECT count(*) FROM vertices WHERE geom IS NULL;
-\o fill_columns_6.txt
-UPDATE vertices set (x,y) = (ST_X(geom), ST_Y(geom));
-
 
 \o set_components1.txt
 ALTER TABLE ways ADD COLUMN component BIGINT;
-
 \o set_components2.txt
 UPDATE vertices AS v SET component = c.component
 FROM (
   SELECT seq, component, node
-  FROM pgr_connectedComponents(
-    'SELECT gid as id, source, target, cost, reverse_cost FROM ways'
-)) AS c
+  FROM pgr_connectedComponents('SELECT id, source, target, cost, reverse_cost FROM ways')
+) AS c
 WHERE v.id = c.node;
 \o set_components3.txt
-
 UPDATE ways SET component = v.component
 FROM (SELECT id, component FROM vertices) AS v
 WHERE source = v.id;
@@ -82,19 +72,18 @@ SELECT component FROM all_components WHERE count = (SELECT max FROM max_componen
 CREATE OR REPLACE VIEW vehicle_net AS
 
 WITH
-all_components AS (SELECT component, count(*) FROM ways GROUP BY component), -- line 6
+all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
 max_component AS (SELECT max(count) from all_components),
 the_component AS (
   SELECT component FROM all_components
   WHERE count = (SELECT max FROM max_component))
 
 SELECT
-  gid AS id,
-  source, target,
+  w.id, source, target,
   cost_s AS cost, reverse_cost_s AS reverse_cost,
-  name, length_m AS length, tag_id, the_geom AS geom
-FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
-WHERE  tag_value NOT IN ('pedestrian', 'steps','footway','path','cycleway'); -- line 18
+  name, length_m AS length, tag_id, geom AS geom
+FROM ways w JOIN the_component USING (component) JOIN configuration USING (tag_id)
+WHERE  tag_value NOT IN ('pedestrian', 'steps','footway','path','cycleway');
 
 \o create_vehicle_net2.txt
 SELECT count(*) FROM ways;
@@ -125,17 +114,18 @@ SELECT count(*) FROM taxi_net;
 CREATE MATERIALIZED VIEW walk_net AS
 
 WITH
-allc AS (SELECT component, count(*) FROM ways GROUP BY component),
-maxcount AS (SELECT max(count) from allc),
-the_component AS (SELECT component FROM allc WHERE count = (SELECT max FROM maxcount))
+all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
+max_component AS (SELECT max(count) from all_components),
+the_component AS (
+  SELECT component FROM all_components
+  WHERE count = (SELECT max FROM max_component))
 
 SELECT
-  gid AS id,
-  source, target,
+  w.id, source, target,
   length_m / 2.0 AS cost, length_m / 2.0 AS reverse_cost,
-  name, length_m AS length, the_geom AS geom
-FROM ways JOIN the_component USING (component) JOIN configuration USING (tag_id)
-WHERE  tag_value IN ('pedestrian', 'steps','footway','path','cycleway'); -- line 18
+  name, length_m AS length, geom
+FROM ways w JOIN the_component USING (component) JOIN configuration USING (tag_id)
+WHERE  tag_value IN ('residential','pedestrian', 'steps','footway','path','cycleway');
 
 \o create_walk_net2.txt
 
@@ -181,5 +171,16 @@ FROM pgr_dijkstraCostMatrix(
   'SELECT * FROM walk_net',
   ARRAY[@ID_1@, @ID_2@, @ID_3@, @ID_4@, @ID_5@]);
 
+\o visualize1.txt
+CREATE OR REPLACE VIEW vehicle_costmatrix AS
+SELECT
+row_number() over() as id,
+ST_makeline(v1.geom, v2.geom) AS geom,
+'('||start_vid||', '||end_vid||') t= ' || round(agg_cost::NUMERIC, 2) AS name
+FROM pgr_dijkstraCostMatrix(
+  'SELECT * FROM vehicle_net',
+  ARRAY[@ID_1@, @ID_2@, @ID_3@, @ID_4@, @ID_5@])
+JOIN vertices v1 ON (start_vid=v1.id)
+JOIN vertices v2 ON (end_vid=v2.id);
 \o graphs_end.txt
 \o

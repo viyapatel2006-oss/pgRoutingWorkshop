@@ -303,4 +303,5 @@ rst_epilog="""
 .. |ch7_id_2| replace:: ``@CH7_ID_2@``
 .. |ch7_place_1| replace:: @CH7_PLACE_1@
 .. |ch7_place_2| replace:: @CH7_PLACE_2@
+.. |osm_map_link| replace:: https://www.openstreetmap.org/#map=16/@OSM_BBOX_CENTROID@
 """

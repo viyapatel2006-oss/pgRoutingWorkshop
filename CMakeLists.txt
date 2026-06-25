@@ -16,13 +16,13 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 #---------------------------------------------
 # Setting the version number
 #---------------------------------------------
-set(PGR_WORKSHOP_CITY "Auckland")
+set(PGR_WORKSHOP_CITY "Hiroshima")
 set(WORKSHOP_AREA "FOSS4G ${PGR_WORKSHOP_CITY}")
 set(COPYRIGHT "2010-2025 pgRouting Developers")
 set(PGR_WORKSHOP_VERSION_MAJOR "3")
-set(PGR_WORKSHOP_VERSION_MINOR "1")
+set(PGR_WORKSHOP_VERSION_MINOR "2")
 set(PGR_WORKSHOP_VERSION_PATCH "0")
-set(PGR_WORKSHOP_VERSION_DEV "-dev")
+set(PGR_WORKSHOP_VERSION_DEV "")
 set(PGR_WORKSHOP_VERSION "${PGR_WORKSHOP_VERSION_MAJOR}.${PGR_WORKSHOP_VERSION_MINOR}")
 set(PGR_WORKSHOP_RELEASE "${PGR_WORKSHOP_VERSION_MAJOR}.${PGR_WORKSHOP_VERSION_MINOR}.${PGR_WORKSHOP_VERSION_PATCH}${PGR_WORKSHOP_VERSION_DEV}")
 set(PGR_WORKSHOP_NAME "pgRouting workshop")
@@ -45,35 +45,42 @@ option(PGR_WORKSHOP_VERBOSE_DEBUG
 #---------------------------------------------
 # CONFIGURATION
 #---------------------------------------------
-set(PGR_WORKSHOP_CITY_FILE "AUCKLAND_NZ")
+set(PGR_WORKSHOP_CITY_FILE "HIROSHIMA_JP")
 
 # https://github.com/OSGeo/OSGeoLive/blob/master/bin/install_osm.sh
 # around line 117
-set(PGR_WORKSHOP_CITY_BBOX "-36.8798,174.8,-36.8344,174.72")
+# For Hiroshima this is the BBOX as OsgeoLive does not have one yet
+# BBOX="132.439,34.33,132.4782,34.412"
+
+set(PGR_WORKSHOP_CITY_BBOX "132.439,34.33,132.4782,34.412")
+
+# TODO Calculate the centroid and use
+set(OSM_BBOX_CENTROID "-36.8520950/174.7631803")
 
 # Make it smaller
-set(PGR_WORKSHOP_LITTLE_NET_BBOX "174.775,-36.855,174.76,-36.84")
+set(PGR_WORKSHOP_LITTLE_NET_BBOX "132.439,34.38, 132.46,34.40")
 
-# Use git blame to get the date when the line was changed
-set(PGR_WORKSHOP_DOWNLOAD_DIR "workshop-2025")
-set(DATE_OF_DATA "Jun 2025")
+# Use git blame (on install_osm.sh) to get the date when the line was changed
+# The file I set up is from June
+set(PGR_WORKSHOP_DOWNLOAD_DIR "workshop-2026")
+set(DATE_OF_DATA "Jun 2026")
 
 if (WORKSHOP_DEBUG)
   message(STATUS "WORKSHOP_CITY_FILE=${WORKSHOP_CITY_FILE}")
 endif()
 
-set(OSMID_1 "9451619540")
-set(OSMID_2 "60662678")
-set(OSMID_3 "11045827672")
-set(OSMID_4 "9452115611")
-set(OSMID_5 "11045833969")
+set(OSMID_1 "1395938201")
+set(OSMID_2 "1221117996")
+set(OSMID_3 "1370740519")
+set(OSMID_4 "560635941")
+set(OSMID_5 "344096830")
 
 # 3->1: routes for vehicles with penalty & no penalty must be different
-set(PLACE_1 "Auckland University of Technology")
-set(PLACE_2 "The Band Rotunda")
-set(PLACE_3 "Four Points by Sheraton")
-set(PLACE_4 "Sky tower")
-set(PLACE_5 "Emily Place Reserve")
+set(PLACE_1 "International Conference Center Hiroshima")
+set(PLACE_2 "Hiroshima Gate park")
+set(PLACE_3 "Aster Plaza")
+set(PLACE_4 "Grand Prince Hotel Hiroshima")
+set(PLACE_5 "RCC Bunka Center")
 
 
 set(CH7_PLACE_1 ${PLACE_5})
@@ -91,7 +98,7 @@ set(POINT2_LON "174.764448")
 # minimum versions
 #---------------------------------------------
 set(SPHINX_MINIMUM_VERSION "4.0.0")
-set(Osm2pgrouting_FIND_VERSION "2.3")
+set(Osm2pgrouting_FIND_VERSION "3.0.0")
 
 
 #---------------------------------------------

@@ -211,7 +211,7 @@ msgid ""
 "``~/Desktop/workshop``."
 msgstr ""
 "El contenido de los archivos de configuración se indican en el "
-"`Apéndice`_. Crear un archivo XML utilizando estos contenidos y guardar "
+"`Appendix`_. Crear un archivo XML utilizando estos contenidos y guardar "
 "en el directorio raíz ``~/Desktop/workshop``."
 
 #: ../../build/docs/un_sdg/data.rst:122
@@ -366,7 +366,7 @@ msgstr ""
 
 #: ../../build/docs/un_sdg/data.rst:283
 msgid "Appendix"
-msgstr "Apéndice"
+msgstr "Appendix"
 
 #: ../../build/docs/un_sdg/data.rst:286
 msgid "Configuration information for Buildings"

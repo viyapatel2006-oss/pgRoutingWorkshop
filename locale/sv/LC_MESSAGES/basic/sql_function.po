@@ -428,8 +428,8 @@ msgstr ""
 #: ../../build/docs/basic/sql_function.rst:228
 msgid "Inspecting the detail of the results of `Exercise 2: Route geometry (human readable)`_"
 msgstr ""
-"Kontrollerar detaljerna i resultatet av `Övning 2: Ruttgeometri (läsbar för "
-"alla)`_"
+"Kontrollerar detaljerna i resultatet av `Exercise 2: Route geometry (human "
+"readable)`_"
 
 #: ../../build/docs/basic/sql_function.rst:231
 msgid "Rows **59** to **61** do not match that criteria"
@@ -526,8 +526,8 @@ msgid "Name it ``additional``. (line **6**)"
 msgstr "Namnge den ``additional``. (rad **6**)"
 
 #: ../../build/docs/basic/sql_function.rst:321
-msgid "The ``ways`` table geometry name is ``the_geom``."
-msgstr "Geometrin i tabellen ``ways`` har namnet ``the_geom``."
+msgid "The ``ways`` table geometry name is ``geom``."
+msgstr "Geometrin i tabellen ``ways`` har namnet ``geom``."
 
 #: ../../build/docs/basic/sql_function.rst:322
 msgid "Final ``SELECT`` statements gets:"

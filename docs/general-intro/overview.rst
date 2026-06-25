@@ -1,13 +1,8 @@
-..
-   ****************************************************************************
-    pgRouting Workshop Manual
-    Copyright(c) pgRouting Contributors
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2010-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
-    This documentation is licensed under a Creative Commons Attribution-Share
-    Alike 3.0 License: https://creativecommons.org/licenses/by-sa/3.0/
-   ****************************************************************************
-
-Software and Data Overview
+Software and Data Source Overview
 ===============================================================================
 
 .. image:: /images/logos/osgeo.png
@@ -15,12 +10,13 @@ Software and Data Overview
     :target: https://www.osgeo.org/
 
 
+pgRouting is a community project of OSGeo.
+
 This workshop uses several free and open source softwares for geospatial tools.
-Most of these softwares are related to
-other open source software projects. Here we mention the most important ones.
+Most of these softwares are related to other open source software projects. Here
+we mention the most important ones.
 
 .. contents:: Chapter Contents
-
 
 pgRouting Overview
 -------------------------------------------------------------------------------
@@ -34,24 +30,18 @@ geospatial routing functionality.
 
 Advantages of the database routing approach are:
 
-* Data and attributes can be modified by many clients, like QGIS or by directly
-  using PL/pgSQL. The clients can either be personal computers or mobile
-  devices.
+* Data and attributes are stored on a PostreSQL database and as such they can be
+  modified can be modified by many clients.
 * Data changes can be reflected instantaneously through the routing engine.
-  There is no need for precalculation.
+  There is no need for pre-calculation.
 * The “cost” parameter can be dynamically calculated through SQL and its value
   can come from multiple fields or tables.
 
 Some of the pgRouting library core features are:
 
-* `Dijkstra Algorithm <https://docs.pgrouting.org/latest/en/pgr_dijkstra.html>`__
-* `Johnson's Algorithm <https://docs.pgrouting.org/latest/en/pgr_johnson.html>`__
-* `Floyd-Warshall Algorithm <https://docs.pgrouting.org/latest/en/pgr_floydWarshall.html>`__
-* `A* Search Algorithm <https://docs.pgrouting.org/latest/en/pgr_aStar.html>`__
-* `Bi-directional Dijkstra <https://docs.pgrouting.org/latest/en/pgr_bdDijkstra.html>`__
-* `Bi-directional A* <https://docs.pgrouting.org/latest/en/pgr_bdAstar.html>`__
-* `Traveling Salesperson Problem <https://docs.pgrouting.org/latest/en/pgr_TSP.html>`__
-* `Driving Distance <https://docs.pgrouting.org/latest/en/pgr_drivingDistance.html>`__
+* `Functions based on Dijkstra Algorithm <https://docs.pgrouting.org/latest/en/dijkstra-family.html>`__
+* `Functions based on `A* Search Algorithm <https://docs.pgrouting.org/latest/en/aStar-family.html>`__
+* `Graph commponent functions <https://docs.pgrouting.org/latest/en/components-family.html>`__
 * `and many more <https://docs.pgrouting.org/latest/en/routingFunctions.html>`_
 
 pgRouting is an open source software available under the GPLv2 license and is
@@ -90,18 +80,19 @@ OpenStreetMap Overview
     :align: center
     :target: https://www.openstreetmap.org
 
-    OpenStreetMap (OSM) is dedicated to creating and providing geographic 
-    data, such as street maps, worldwide, for free. Most maps considered 
-    'free' actually have legal or technical restrictions on their use. 
-    These restrictions hold back anyone from using them in creative, 
-    productive or unexpected ways, and make every map a silo of data and effort.
-
-    -- `Source: OSM Press Wiki <https://wiki.openstreetmap.org/wiki/Press>`_
-
 OpenStreetMap is an incredible data source for pgRouting because it has no
 technical restrictions in terms of processing the data. Data availability still
 varies from country to country, but the worldwide coverage is improving day by
-day.
+day. In its own words:
+
+  OpenStreetMap (OSM) is dedicated to creating and providing geographic
+  data, such as street maps, worldwide, for free.
+
+  Most maps considered 'free' actually have legal or technical restrictions on their use.
+  These restrictions hold back anyone from using them in creative,
+  productive or unexpected ways, and make every map a silo of data and effort.
+
+  -- `Source: OSM Press Wiki <https://wiki.openstreetmap.org/wiki/Press>`_
 
 OpenStreetMap uses a topological data structure:
 

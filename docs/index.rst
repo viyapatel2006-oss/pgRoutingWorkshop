@@ -1,11 +1,6 @@
-..
-   ****************************************************************************
-    pgRouting Workshop Manual
-    Copyright(c) pgRouting Contributors
-
-    This documentation is licensed under a Creative Commons Attribution-Share
-    Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
-   ****************************************************************************
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2010-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
 pgRouting Workshop
 ###############################################################################
@@ -19,9 +14,8 @@ Workshop introduction
    :numbered:
    :maxdepth: 2
 
-   general-intro/introduction.rst
-   general-intro/osgeolive.rst
-   general-intro/overview.rst
+   general-intro/introduction
+   general-intro/overview
 
 Basic
 ===============================================================================
@@ -30,12 +24,12 @@ Basic
    :numbered:
    :maxdepth: 2
 
-   basic/data.rst
-   basic/graphs.rst
-   basic/pedestrian.rst
-   basic/vehicle.rst
-   basic/sql_function.rst
-   basic/withPoints.rst
+   basic/data
+   basic/graphs
+   basic/pedestrian
+   basic/vehicle
+   basic/sql_function
+   basic/withPoints
 
 United Nations Sustainable Development Goals
 ===============================================================================
@@ -44,11 +38,11 @@ United Nations Sustainable Development Goals
    :numbered:
    :maxdepth: 2
 
-   un_sdg/data.rst
-   un_sdg/introduction.rst
-   un_sdg/sdg3-health.rst
-   un_sdg/sdg7-energy.rst
-   un_sdg/sdg11-cities.rst
+   un_sdg/data
+   un_sdg/introduction
+   un_sdg/sdg3-health
+   un_sdg/sdg7-energy
+   un_sdg/sdg11-cities
 
 Interaction with other software
 ===============================================================================
@@ -57,10 +51,10 @@ Interaction with other software
    :numbered:
    :maxdepth: 2
 
-   interactions/chapter-9.rst
-   interactions/chapter-10.rst
-   interactions/chapter-11.rst
-   advanced/chapter-12.rst
+   interactions/chapter-9
+   interactions/chapter-10
+   interactions/chapter-11
+   advanced/chapter-12
 
 Examples from the Internet
 ===============================================================================
@@ -69,9 +63,9 @@ Examples from the Internet
    :numbered:
    :maxdepth: 2
 
-   examples/boost_dijkstra.rst
-   examples/hanoslav.rst
-   examples/wiki_example.rst
+   examples/boost_dijkstra
+   examples/hanoslav
+   examples/wiki_example
 
 Appendices
 ===============================================================================
@@ -80,6 +74,7 @@ Appendices
    :numbered:
    :maxdepth: 2
 
-   appendix/appendix-2.rst
-   appendix/appendix-3.rst
-   appendix/appendix-4.rst
+   appendix/osgeolive
+   appendix/appendix-2
+   appendix/appendix-3
+   appendix/appendix-4

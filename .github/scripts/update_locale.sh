@@ -1,7 +1,7 @@
 #!/bin/bash
 # /*PGR-GNU*****************************************************************
 # File: update_locale.sh
-# Copyright (c) 2021 pgRouting developers
+# Copyright (c) 2024-2026 pgRouting developers
 # Mail: project@pgrouting.org
 # ------
 # This program is free software; you can redistribute it and/or modify

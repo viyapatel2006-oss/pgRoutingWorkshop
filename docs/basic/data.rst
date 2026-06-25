@@ -1,11 +1,6 @@
-..
-  ****************************************************************************
-  pgRouting Workshop Manual
-  Copyright(c) pgRouting Contributors
-
-  This documentation is licensed under a Creative Commons Attribution-Share
-  Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
-  ****************************************************************************
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2016-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
 
 Prepare Data
@@ -32,54 +27,55 @@ installed, open a terminal window by pressing :code:`ctrl-alt-t` and follow the
 instructions.
 
 Information about installing OSGeoLive can be found on
-:doc:`../general-intro/osgeolive`.
-
-.. note:: If OSGeoLive is not being used, please refer to the chapter's appendix
-   to set up the user ``user``.
+:doc:`../appendix/osgeolive`.
 
 Create a pgRouting compatible database
 -------------------------------------------------------------------------------
 
-.. note:: Depending on the Postgres configuration :code:`-U <user>` is needed on
-   :code:`psql` commands
+Create ``city_routing`` database that will be used on the workshop.
 
 .. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
-   :start-after: 4.1.1 from-here
-   :end-before:  4.1.1 to-here
+   :start-after: create city_routing
+   :end-before: connect city_routing
    :language: bash
 
-.. Note:: To exit the database use ``\q``
+Connect to the database
+
+.. code-block:: bash
+
+   psql city_routing
+
+Install pgRouting and its requirements. (otpionally check the version that is
+being used)
+
+.. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
+   :start-after: << EOF
+   :end-before: EOF
+   :language: bash
+
+Exit the database
+
+.. code-block:: bash
+
+   \q
 
 Get the Workshop Data
 ===============================================================================
 
-.. TODO get date
+This workshop will use the ``@PGR_WORKSHOP_CITY@`` city data and is a snapshot
+of @DATE_OF_DATA@.
 
-The pgRouting workshop will make use of OpenStreetMap data, which is already
-available on `OSGeoLive <https://live.osgeo.org>`_. This workshop will use the
-``@PGR_WORKSHOP_CITY@`` city data and is a snapshot of @DATE_OF_DATA@.
-
-Getting the data
+Get the data
 -------------------------------------------------------------------------------
 
-Option 1) When using OSGeoLive
-...............................................................................
-
-OSGeoLive comes with OSM data from the city of @PGR_WORKSHOP_CITY@.
-
-.. code-block:: bash
-
-  CITY="@PGR_WORKSHOP_CITY_FILE@"
-  bzcat ~/data/osm/$CITY.osm.bz2 > $CITY.osm
-
-Option 2) Download data form OSGeoLive website
+Download data form pgRouting download
 ...............................................................................
 
 The exact same data can be found on the OSGeoLive download page.
 
 .. literalinclude:: ../scripts/get_data/get_all_data.sh
-   :start-after: 4.2.2 from-here
-   :end-before:  4.2.2 to-here
+   :start-after: city from-here
+   :end-before:  city to-here
    :language: bash
 
 Option 3) Download using Overpass XAPI
@@ -95,12 +91,11 @@ due to changes since @DATE_OF_DATA@.
   BBOX="@PGR_WORKSHOP_CITY_BBOX@"
   wget --progress=dot:mega -O "$CITY.osm" "http://www.overpass-api.de/api/xapi?*[bbox=\$\{BBOX\}][@meta]"
 
-More information about how to download OpenStreetMap data can be found 
+More information about how to download OpenStreetMap data can be found
 `here <https://wiki.openstreetmap.org/wiki/Downloading_data>`_.
 
 An alternative for very large areas is to use the download services of
 `Geofabrik <https://download.geofabrik.de>`_.
-
 
 Upload data to the database
 ==============================================================================
@@ -121,62 +116,27 @@ Run the osm2pgrouting converter
 -------------------------------------------------------------------------------
 
 .. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
-   :start-after: 4.3.1 from-here
-   :end-before:  4.3.1 to-here
+   :start-after: import city from-here
+   :end-before:  import city to-here
    :language: bash
 
 .. note:: Depending on the osm2pgrouting version `-W password` is needed
 
-.. rubric:: Output:
+.. collapse:: Output:
 
-.. literalinclude:: ../scripts/get_data/process_osgeolive_data.txt
-   :start-after: 4.3.1 from-here
-   :end-before:  4.3.1 to-here
-
-.. rubric: Clean up
-
-.. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
-   :start-after: remove_faulty_ways_start
-   :end-before:  remove_faulty_ways_end
-
-.. literalinclude:: ../scripts/get_data/process_osgeolive_data.txt
-   :start-after: remove_faulty_ways_start
-   :end-before:  remove_faulty_ways_end
-
+  .. literalinclude:: ../scripts/get_data/process_osgeolive_data.txt
+     :start-after: import city from-here
+     :end-before:  import city to-here
 
 Tables on the database
 -------------------------------------------------------------------------------
 
+To inspect the tables that were created during this process:
+
 .. literalinclude:: ../scripts/basic/data/data.sh
-   :start-after: 4.3.2 from-here
-   :end-before:  4.3.2 to-here
+   :start-after: city tables from-here
+   :end-before: city tables to-here
 
-If everything went well the result should look like this:
+.. collapse:: Output:
 
-.. literalinclude:: ../scripts/basic/data/data.txt
-
-
-Chapter: Appendix
-===============================================================================
-
-
-OSGeoLive's account name on the database is ``user``. To easily use the workshop when not using
-OSGeoLive this extra steps are needed:
-
-.. code-block:: bash
-
-	# work on the home folder
-	cd
-
-	# login to postgres
-	psql -U postgres
-
-	-- Create "user"
-	CREATE ROLE "user" SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN PASSWORD 'user';
-
-	-- exit psql
-	\q
-
-	# Add the user to .pgpass
-	echo :5432:*:user:user >> .pgpass
-
+  .. literalinclude:: ../scripts/basic/data/data.txt

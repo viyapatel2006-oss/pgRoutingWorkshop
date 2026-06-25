@@ -1,11 +1,6 @@
-..
-  ****************************************************************************
-  pgRouting Workshop Manual
-  Copyright(c) pgRouting Contributors
-
-  This documentation is licensed under a Creative Commons Attribution-Share
-  Alike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/
-  ****************************************************************************
+:file: This file is part of the pgRouting project.
+:copyright: Copyright (c) 2013-2026 pgRouting developers
+:license: Creative Commons Attribution-Share Alike 3.0 https://creativecommons.org/licenses/by-sa/3.0
 
 
 SQL function
@@ -220,8 +215,7 @@ arrows that do not match the directionality of the route.
 To have correct directionality, the ending point of a geometry must match the
 starting point of the next geometry
 
-* Inspecting the detail of the results of `Exercise 2: Route geometry (human
-  readable)`_
+* Inspecting the detail of the results of `Exercise 2: Route geometry (human readable)`_
 
 .. collapse:: Query: Rows where criteria is not met
 
