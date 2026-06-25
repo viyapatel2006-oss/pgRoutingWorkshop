@@ -3,7 +3,6 @@
 # Files
 #---------------------
 set(PGR_WORKSHOP_IMG_FILES
-  costMatrix.png
   pedestrian_only_roads.png
   qgis_credentials.png
   qgis_menu.png
