@@ -311,7 +311,7 @@ Exercise 7: Vehicle routing with penalization
 
    * The costs do not change proportionally.
 
-Exercise 6: Original time of penalized route
+Exercise 8: Original time of penalized route
 ...............................................................................
 
 .. rubric:: Problem:
@@ -323,7 +323,7 @@ Get the times in seconds of a penalized route
 * Create a penalized view by joining the ``vehicle_net`` joined with the
   ``configuration`` table
 
-  * Use the inner query from `Exercise 5: Vehicle routing with penalization`_
+  * Use the inner query from `Exercise 5: Vehicle routing without penalization`_
 
 .. literalinclude:: ../scripts/basic/vehicles/vehicles.sql
    :start-after: time_in_secs.txt
