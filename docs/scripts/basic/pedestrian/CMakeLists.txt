@@ -4,7 +4,6 @@
 add_custom_target(basic_pedestrian_scripts)
 
 configure_file(pedestrian.sql pedestrian.sql)
-configure_file(images.sql images.sql)
 
 #----------------------------------------------
 # Generating the results files
@@ -21,10 +20,10 @@ add_custom_command(
     note_1.txt
     one_to_many.txt
     one_to_one.txt
+    one_to_one_view.txt
     dijkstracost.txt
     stars.txt
 
   COMMAND psql -d city_routing -f pedestrian.sql
-  COMMAND psql -d city_routing -f images.sql
   COMMENT "running chapter pedestrian scripts"
-  DEPENDS pedestrian.sql images.sql)
+  DEPENDS pedestrian.sql)
