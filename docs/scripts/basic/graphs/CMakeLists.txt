@@ -4,7 +4,8 @@ configure_file(graphs.sql graphs.sql)
 set(GENERATED_FILES
   configuration_structure.txt
   configuration_contents.txt
-  configuration-used.txt
+  configuration_used.txt
+  visualize1.txt
 
   create_vertices.txt
   vertices_description.txt
@@ -12,9 +13,6 @@ set(GENERATED_FILES
   fill_columns_1.txt
   fill_columns_2.txt
   fill_columns_3.txt
-  fill_columns_4.txt
-  fill_columns_5.txt
-  fill_columns_6.txt
   set_components1.txt
   set_components2.txt
   set_components3.txt
@@ -45,7 +43,7 @@ set(GENERATED_FILES
 add_custom_command(
   COMMAND psql -d city_routing -f graphs.sql
   OUTPUT ${GENERATED_FILES}
-
+  DEPENDS graphs.sql
   COMMENT "running chapter graphs scripts"
 )
 
