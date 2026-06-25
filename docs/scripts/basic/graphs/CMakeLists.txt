@@ -1,52 +1,51 @@
-# Script for basic/graphs chapter
+#---------------------
+# Files
+#---------------------
+add_custom_target(basic_graphs_scripts)
+
 configure_file(graphs.sql graphs.sql)
-
-set(GENERATED_FILES
-  configuration_structure.txt
-  configuration_contents.txt
-  configuration_used.txt
-  visualize1.txt
-
-  create_vertices.txt
-  vertices_description.txt
-  selected_rows.txt
-  fill_columns_1.txt
-  fill_columns_2.txt
-  fill_columns_3.txt
-  set_components1.txt
-  set_components2.txt
-  set_components3.txt
-  see_components1.txt
-  see_components2.txt
-  see_components3.txt
-  see_components4.txt
-  create_vehicle_net1.txt
-  create_vehicle_net2.txt
-  create_vehicle_net3.txt
-  create_taxi_net1.txt
-  create_taxi_net2.txt
-  create_taxi_net3.txt
-  create_walk_net1.txt
-  create_walk_net2.txt
-  create_walk_net3.txt
-  create_net_vertices.txt
-  test_view1.txt
-  test_view2.txt
-  test_view3.txt
-  graphs_end.txt
-)
 
 #----------------------------------------------
 # Generating the results files
 #---------------------------------------------
 
 add_custom_command(
-  COMMAND psql -d city_routing -f graphs.sql
-  OUTPUT ${GENERATED_FILES}
-  DEPENDS graphs.sql
-  COMMENT "running chapter graphs scripts"
-)
+  TARGET basic_graphs_scripts
+  PRE_BUILD
+  BYPRODUCTS
+    configuration_structure.txt
+    configuration_contents.txt
+    configuration_used.txt
+    visualize1.txt
 
-add_custom_target(basic_graphs_scripts
-  DEPENDS ${GENERATED_FILES}
-)
+    create_vertices.txt
+    vertices_description.txt
+    selected_rows.txt
+    fill_columns_1.txt
+    fill_columns_2.txt
+    fill_columns_3.txt
+    set_components1.txt
+    set_components2.txt
+    set_components3.txt
+    see_components1.txt
+    see_components2.txt
+    see_components3.txt
+    see_components4.txt
+    create_vehicle_net1.txt
+    create_vehicle_net2.txt
+    create_vehicle_net3.txt
+    create_taxi_net1.txt
+    create_taxi_net2.txt
+    create_taxi_net3.txt
+    create_walk_net1.txt
+    create_walk_net2.txt
+    create_walk_net3.txt
+    create_net_vertices.txt
+    test_view1.txt
+    test_view2.txt
+    test_view3.txt
+    graphs_end.txt
+
+  COMMAND psql -d city_routing -f graphs.sql
+  COMMENT "running chapter graphs scripts"
+  DEPENDS graphs.sql)

@@ -54,6 +54,9 @@ set(PGR_WORKSHOP_CITY_FILE "HIROSHIMA_JP")
 
 set(PGR_WORKSHOP_CITY_BBOX "132.439,34.33,132.4782,34.412")
 
+# TODO Calculate the centroid and use
+set(OSM_BBOX_CENTROID "-36.8520950/174.7631803")
+
 # Make it smaller
 set(PGR_WORKSHOP_LITTLE_NET_BBOX "132.439,34.38, 132.46,34.40")
 
@@ -67,17 +70,17 @@ if (WORKSHOP_DEBUG)
 endif()
 
 set(OSMID_1 "1395938201")
-set(OSMID_2 "344096830")
+set(OSMID_5 "344096830")
 set(OSMID_3 "1370740519")
 set(OSMID_4 "560635941")
-set(OSMID_5 "1221117996")
+set(OSMID_2 "1221117996")
 
 # 3->1: routes for vehicles with penalty & no penalty must be different
 set(PLACE_1 "International Conference Center Hiroshima")
-set(PLACE_2 "RCC Bunka Center")
+set(PLACE_5 "RCC Bunka Center")
 set(PLACE_3 "Aster Plaza")
 set(PLACE_4 "Grand Prince Hotel Hiroshima")
-set(PLACE_5 "Hiroshima Gate park")
+set(PLACE_2 "Hiroshima Gate park")
 
 
 set(CH7_PLACE_1 ${PLACE_5})
