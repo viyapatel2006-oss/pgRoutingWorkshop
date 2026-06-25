@@ -98,7 +98,7 @@ set(POINT2_LON "174.764448")
 # minimum versions
 #---------------------------------------------
 set(SPHINX_MINIMUM_VERSION "4.0.0")
-set(Osm2pgrouting_FIND_VERSION "2.3")
+set(Osm2pgrouting_FIND_VERSION "3.0.0")
 
 
 #---------------------------------------------
