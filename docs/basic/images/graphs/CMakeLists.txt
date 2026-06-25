@@ -8,7 +8,6 @@ set(PGR_WORKSHOP_IMG_FILES
   qgis_credentials.png
   qgis_menu.png
   qgis_moveLayer.png
-  roads_tag_ids.png
   taxi_net.png
   vehicle_costmatrix.png
   vehicle_net.png

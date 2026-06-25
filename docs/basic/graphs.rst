@@ -70,8 +70,6 @@ improve results.
 
 |
 
-Penalizing or removal of pedestrian ways will make the results closer to reality.
-
 When converting data from OSM format using the `osm2pgrouting` tool, there is an
 additional table: ``configuration``.
 
@@ -84,12 +82,6 @@ additional table: ``configuration``.
 .. collapse:: The table description
 
    .. literalinclude:: ../scripts/basic/graphs/configuration_structure.txt
-
-.. image:: images/graphs/roads_tag_ids.png
-  :scale: 25%
-  :alt: tag_id values
-
-|
 
 In the image above, there is a detail of the ``tag_id`` of the roads.
 
