@@ -70,17 +70,17 @@ if (WORKSHOP_DEBUG)
 endif()
 
 set(OSMID_1 "1395938201")
-set(OSMID_5 "344096830")
+set(OSMID_2 "1221117996")
 set(OSMID_3 "1370740519")
 set(OSMID_4 "560635941")
-set(OSMID_2 "1221117996")
+set(OSMID_5 "344096830")
 
 # 3->1: routes for vehicles with penalty & no penalty must be different
 set(PLACE_1 "International Conference Center Hiroshima")
-set(PLACE_5 "RCC Bunka Center")
+set(PLACE_2 "Hiroshima Gate park")
 set(PLACE_3 "Aster Plaza")
 set(PLACE_4 "Grand Prince Hotel Hiroshima")
-set(PLACE_2 "Hiroshima Gate park")
+set(PLACE_5 "RCC Bunka Center")
 
 
 set(CH7_PLACE_1 ${PLACE_5})
