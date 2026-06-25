@@ -215,8 +215,7 @@ arrows that do not match the directionality of the route.
 To have correct directionality, the ending point of a geometry must match the
 starting point of the next geometry
 
-* Inspecting the detail of the results of `Exercise 2: Route geometry (human
-  readable)`_
+* Inspecting the detail of the results of `Exercise 2: Route geometry (human readable)`_
 
 .. collapse:: Query: Rows where criteria is not met
 
