@@ -1,6 +1,5 @@
 # Script for basic/graphs chapter
 configure_file(graphs.sql graphs.sql)
-configure_file(images.sql images.sql)
 
 set(GENERATED_FILES
   configuration_structure.txt
@@ -45,7 +44,6 @@ set(GENERATED_FILES
 
 add_custom_command(
   COMMAND psql -d city_routing -f graphs.sql
-  COMMAND psql -d city_routing -f images.sql
   OUTPUT ${GENERATED_FILES}
 
   COMMENT "running chapter graphs scripts"

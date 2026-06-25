@@ -644,7 +644,7 @@ Description of the function can be found in `pgr_dijkstraCostMatrix
 Exercise 9: Testing the views
 -------------------------------------------------------------------------------
 
-.. image:: images/graphs/costMatrix.png
+.. image:: images/graphs/vehicle_costmatrix.png
   :scale: 25%
 
 .. rubric:: Problem
@@ -699,6 +699,7 @@ For ``taxi_net``:
 
 .. literalinclude:: ../scripts/basic/graphs/graphs.sql
   :language: sql
+  :linenos:
   :emphasize-lines: 3
   :start-after: test_view2.txt
   :end-before: test_view3.txt
@@ -711,12 +712,44 @@ For ``walk_net``:
 
 * Similar as the previous ones but with ``walk_net``.
 
-  .. literalinclude:: ../scripts/basic/graphs/graphs.sql
-    :language: sql
-    :emphasize-lines: 3
-    :start-after: test_view3.txt
-    :end-before: graphs_end.txt
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+  :language: sql
+  :linenos:
+  :emphasize-lines: 3
+  :start-after: test_view3.txt
+  :end-before: visualize1.txt
 
 .. collapse:: Query results
 
    .. literalinclude:: ../scripts/basic/graphs/test_view3.txt
+
+Exercise 10: Visualize on QGIS the ``pgr_costMatrix`` result
+-------------------------------------------------------------------------------
+
+.. image:: images/graphs/vehicle_costmatrix.png
+  :scale: 25%
+
+.. rubric:: Problem
+
+Based on the query from `Exercise 9: Testing the views`_, create a view to be
+able to use on QGIS. (like the one above)
+
+* The results when using ``vehile_net`` is the example.
+* The other results are left to the reader.
+
+.. rubric:: Solution
+
+* QGIS needs a unique identifier, the identifier will be the row number.
+* ``JOIN`` with ``vertices`` table to get the geometry of the points.
+* Build a ``LINESTRING`` joining the 2 points.
+* The name of the line consists of the values of the result of the function.
+
+.. literalinclude:: ../scripts/basic/graphs/graphs.sql
+  :language: sql
+  :linenos:
+  :emphasize-lines: 3-5
+  :start-after: visualize1.txt
+  :end-before: graphs_end.txt
+
+Enter QGIS, refresh the database and move the view to the layers.
+Format adding the name to the lines.
