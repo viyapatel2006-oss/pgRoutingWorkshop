@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 dropdb --if-exists city_routing
