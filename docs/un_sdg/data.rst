@@ -219,9 +219,9 @@ Downloading Bangladesh data from OpenStreetMap
 The following command is used to download the OSM data of the area in Munshigang,
 Bangladesh.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/get_bangladesh.sh
-    :start-after: get_bangladesh from-here
-    :end-before:  get_bangladesh to-here
+.. literalinclude:: ../scripts/get_data/get_all_data.sh
+    :start-after: bangladesh data from-here
+    :end-before:  bangladesh data to-here
     :language: bash
     :linenos:
 
@@ -250,19 +250,18 @@ Importing Bangladesh Waterways
 The following ``osm2pgrouting`` command will be used to import the Waterways
 from OpenStreetMaps file to pgRouting database which we will use for further exercises.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/import_bangladesh_waterways.sh
-    :start-after: from-here
-    :end-before:  to-here
+.. literalinclude:: ../scripts/get_data/setup_bangladesh.sh
+    :start-after: import_bangladesh_waterways from-here
+    :end-before:  import_bangladesh_waterways to-here
     :language: bash
-    :linenos:
 
 .. note:: Depending on the osm2pgrouting version `-W password` is needed
 
 .. rubric:: Output:
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/import_bangladesh_waterways.txt
-    :language: bash
-    :linenos:
+.. literalinclude:: ../scripts/get_data/setup_bangladesh.txt
+   :start-after: import_bangladesh_waterways from-here
+   :end-before: import_bangladesh_waterways to-here
 
 To connect to the database, type the following in the terminal.
 

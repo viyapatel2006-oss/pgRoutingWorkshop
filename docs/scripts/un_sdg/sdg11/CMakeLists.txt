@@ -1,38 +1,6 @@
 add_custom_target(un_sdg11_scripts)
 
-#---------------------
-# Files
-#---------------------
-set(PGR_WORKSHOP_FILES
-  get_bangladesh.sh
-  import_bangladesh_waterways.sh
-  sdg11.sql
-)
-
-#---------------------------------------------
-# Adding the documentation files
-#---------------------------------------------
-
-foreach (f ${PGR_WORKSHOP_FILES})
-    if (PGR_WORKSHOP_VERBOSE_DEBUG)
-        message(STATUS "    Adding file ${f}")
-    endif()
-    configure_file(${f} ${f})
-endforeach()
-
-execute_process(
-  OUTPUT_FILE created_bangladesh.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/create_bangladesh.sh > created_bangladesh.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/create_bangladesh.sh
-  )
-
-execute_process(
-  OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_bangladesh_waterways.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/import_bangladesh_waterways.sh > ${CMAKE_CURRENT_BINARY_DIR}/import_bangladesh_waterways.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_bangladesh_waterways.sh
-  )
+configure_file(sdg11.sql  sdg11.sql)
 
 add_custom_command(
   TARGET un_sdg11_scripts
