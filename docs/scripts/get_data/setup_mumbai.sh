@@ -24,7 +24,6 @@ echo import_roads from-here
     -f "mumbai.osm" \
     -c "@Osm2pgrouting_mapconfig@" \
     --schema "roads" \
-    --prefix "roads_" \
     -d mumbai \
     -U user \
     -W user \
@@ -37,7 +36,6 @@ echo import_buildings from-here
     -f "mumbai.osm" \
     -c "buildings.xml" \
     --schema "buildings" \
-    --prefix "buildings_" \
     --tags \
     -d mumbai \
     -U user \
