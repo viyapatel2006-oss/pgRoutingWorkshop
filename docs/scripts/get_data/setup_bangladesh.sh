@@ -28,7 +28,6 @@ echo import_bangladesh_waterways from-here
     -f "bangladesh.osm" \
     -c "waterways.xml" \
     --schema "waterways" \
-    --prefix "waterways_" \
     --tags \
     -d bangladesh \
     -U user \
