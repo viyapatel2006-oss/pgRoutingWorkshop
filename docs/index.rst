@@ -38,11 +38,11 @@ United Nations Sustainable Development Goals
    :numbered:
    :maxdepth: 2
 
-   un_sdg/data
    un_sdg/introduction
    un_sdg/sdg3-health
    un_sdg/sdg7-energy
    un_sdg/sdg11-cities
+   un_sdg/data
 
 Interaction with other software
 ===============================================================================
