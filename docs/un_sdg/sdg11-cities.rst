@@ -195,7 +195,7 @@ Exercise 5: Remove waterways not for the problem
 
 This exercise focusses only the areas in the mainland, where if it rains the city is
 affected. Hence, the rivers which are there in the swamp area wich is in a lower
-altitude of the city, are to be removed from the ``waterways_ways`` table.
+altitude of the city, are to be removed from the ``waterways.ways`` table.
 
 .. rubric:: Remove swamp rivers
 
@@ -229,7 +229,7 @@ Exercise 6: Get the Connected Components of Waterways
 
 As the rivers in the data are not having single edges, i.e, multiple edges make up
 a river, it is important to find out the connected edges and store the information
-in the ``waterways_ways`` table. This will help us to identify which edges belong to
+in the ``waterways.ways`` table. This will help us to identify which edges belong to
 a river. First, the connected components are found and then stored in a new column
 named ``component``.
 
@@ -238,8 +238,8 @@ and its explaind with more detail in :doc:`../basic/graphs`.
 
 A sub-query is created to find out all the connected components. After that,
 the ``component`` column is updated using the results obtained from the sub-query.
-This helps in storing the component id in the ``waterways_ways_vertices_pgr`` table.
-Next query uses this output and stores the component id in the waterways_ways
+This helps in storing the component id in the ``waterways.waterway_vertices`` table.
+Next query uses this output and stores the component id in the waterways.ways
 (edges) table. Follow the steps given below to complete this task.
 
 .. rubric:: Create a vertices table.
@@ -340,7 +340,7 @@ city would be affected, is calculated. This area is called ``rain zone`` in the 
 
 Create a Buffer around the river components.
 
-- Add columns named ``rain_zone`` in waterways_ways
+- Add columns named ``rain_zone`` in waterways.ways
 
   - To store buffer geometry of the rain zones.
 
