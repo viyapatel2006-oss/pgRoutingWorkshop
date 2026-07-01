@@ -48,14 +48,14 @@ WHERE source = v.id;
 
 WITH
 all_components AS (SELECT component, count(*) FROM roads.ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components)
+max_component AS (SELECT max(count) FROM all_components)
 SELECT component FROM all_components WHERE count = (SELECT max FROM max_component);
 
 \o only_connected7.txt
 
 WITH
 all_components AS (SELECT component, count(*) FROM roads.ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
+max_component AS (SELECT max(count) FROM all_components),
 the_component AS (SELECT component FROM all_components WHERE count = (SELECT max FROM max_component))
 DELETE FROM roads.ways WHERE component != (SELECT component FROM the_component);
 
@@ -63,7 +63,7 @@ DELETE FROM roads.ways WHERE component != (SELECT component FROM the_component);
 
 WITH
 all_components AS (SELECT component, count(*) FROM roads_vertices GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
+max_component AS (SELECT max(count) FROM all_components),
 the_component AS (SELECT component FROM all_components WHERE count = (SELECT max FROM max_component))
 DELETE FROM roads_vertices WHERE component != (SELECT component FROM the_component);
 

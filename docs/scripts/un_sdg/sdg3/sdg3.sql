@@ -65,8 +65,8 @@ FROM pgr_extractVertices('SELECT id, source, target FROM roads.ways ORDER BY id'
 \o only_connected2.txt
 
 WITH
-get_data as (
-  SELECT source, source_osm, ST_startPoint(geom) as pt FROM roads.ways
+get_data AS (
+  SELECT source, source_osm, ST_startPoint(geom) AS pt FROM roads.ways
   UNION ALL
   SELECT target, target_osm, ST_endPoint(geom) FROM roads.ways
 )
@@ -97,7 +97,7 @@ CREATE TABLE roads_net AS
 
 WITH
 all_components AS (SELECT component, count(*) FROM roads.ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
+max_component AS (SELECT max(count) FROM all_components),
 the_component AS (
   SELECT component FROM all_components
   WHERE count = (SELECT max FROM max_component))

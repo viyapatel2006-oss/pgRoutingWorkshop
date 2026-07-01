@@ -13,7 +13,7 @@ ORDER BY tag_id;
 
 \o configuration_used.txt
 
-SELECT distinct tag_id, tag_key, tag_value
+SELECT DISTINCT tag_id, tag_key, tag_value
 FROM ways JOIN configuration USING (tag_id)
 ORDER BY tag_id;
 
@@ -31,11 +31,15 @@ SELECT * FROM vertices Limit 10;
 \o fill_columns_1.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 \o fill_columns_2.txt
-with get_data as (select source, source_osm, ST_startPoint(geom) as pt from ways
-union all
-select target, target_osm, ST_endPoint(geom) from ways
-) update vertices set
-(geom, osm_id, x, y) = (ST_startPoint(pt), source_osm, st_x(pt), st_y(pt)) FROM get_data WHERE source = id;
+WITH
+get_data AS (
+  SELECT source, source_osm, ST_startPoint(geom) AS pt FROM ways
+  UNION ALL
+  SELECT target, target_osm, ST_endPoint(geom) FROM ways
+)
+UPDATE vertices SET
+(geom, osm_id, x, y) = (ST_startPoint(pt), source_osm, st_x(pt), st_y(pt))
+FROM get_data WHERE source = id;
 \o fill_columns_3.txt
 SELECT count(*) FROM vertices WHERE geom IS NULL;
 
@@ -63,7 +67,7 @@ ORDER BY count DESC LIMIT 10;
 \o see_components4.txt
 WITH
 all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components)
+max_component AS (SELECT max(count) FROM all_components)
 SELECT component FROM all_components WHERE count = (SELECT max FROM max_component);
 
 \o create_vehicle_net1.txt
@@ -73,7 +77,7 @@ CREATE OR REPLACE VIEW vehicle_net AS
 
 WITH
 all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
+max_component AS (SELECT max(count) FROM all_components),
 the_component AS (
   SELECT component FROM all_components
   WHERE count = (SELECT max FROM max_component))
@@ -115,7 +119,7 @@ CREATE MATERIALIZED VIEW walk_net AS
 
 WITH
 all_components AS (SELECT component, count(*) FROM ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
+max_component AS (SELECT max(count) FROM all_components),
 the_component AS (
   SELECT component FROM all_components
   WHERE count = (SELECT max FROM max_component))
@@ -174,7 +178,7 @@ FROM pgr_dijkstraCostMatrix(
 \o visualize1.txt
 CREATE OR REPLACE VIEW vehicle_costmatrix AS
 SELECT
-row_number() over() as id,
+row_number() over() AS id,
 ST_makeline(v1.geom, v2.geom) AS geom,
 '('||start_vid||', '||end_vid||') t= ' || round(agg_cost::NUMERIC, 2) AS name
 FROM pgr_dijkstraCostMatrix(

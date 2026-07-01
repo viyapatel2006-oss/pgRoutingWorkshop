@@ -1,14 +1,14 @@
 \o closestedges.txt
 
 CREATE OR REPLACE VIEW points_on_map AS
-SELECT 1 AS pid, * from pgr_findCloseEdges(
-  'SELECT id, geom from vehicle_net',
+SELECT 1 AS pid, * FROM pgr_findCloseEdges(
+  'SELECT id, geom FROM vehicle_net',
    ST_SetSRID(ST_Point(@POINT1_LON@, @POINT1_LAT@), 4326) , 0.5)
 
 UNION
 
-SELECT 2 AS pid, * from pgr_findCloseEdges(
-  'SELECT id, geom from vehicle_net',
+SELECT 2 AS pid, * FROM pgr_findCloseEdges(
+  'SELECT id, geom FROM vehicle_net',
   ST_SetSRID(ST_Point(@POINT2_LON@, @POINT2_LAT@), 4326) , 0.5);
 
 SELECT * FROM points_on_map;
@@ -16,14 +16,12 @@ SELECT * FROM points_on_map;
 \o route_withPoints.txt
 
 SELECT * FROM pgr_withPoints(
-  'SELECT id, source, target, cost, reverse_cost from vehicle_net',
+  'SELECT id, source, target, cost, reverse_cost FROM vehicle_net',
   $$
-  SELECT 2 AS pid, * from pgr_findCloseEdges(
-    'SELECT id, geom from vehicle_net',
-    ST_SetSRID(ST_Point(@POINT1_LON@,  @POINT1_LAT@), 4326), 0.5)
-  UNION
-  SELECT 1 AS pid, * from pgr_findCloseEdges(
-    'SELECT id, geom from vehicle_net',
+  SELECT 2 AS pid, * FROM pgr_findCloseEdges(
+    'SELECT id, geom FROM vehicle_net',
+  SELECT 1 AS pid, * FROM pgr_findCloseEdges(
+    'SELECT id, geom FROM vehicle_net',
      ST_SetSRID(ST_Point(@POINT2_LON@,  @POINT2_LAT@), 4326), 0.5)
   $$,
   -1, -2);
@@ -55,13 +53,13 @@ BEGIN
 
   points_sql := format(
     $cq$
-      SELECT 1 AS pid, * from pgr_findCloseEdges(
+      SELECT 1 AS pid, * FROM pgr_findCloseEdges(
       $q1$ SELECT id, geom FROM vehicle_net $q1$,
       ST_SetSRID(ST_Point(%1$s, %2$s), 4326) , 0.5)
 
       UNION
 
-      SELECT 2 AS pid, * from pgr_findCloseEdges(
+      SELECT 2 AS pid, * FROM pgr_findCloseEdges(
       $q1$ SELECT id, geom FROM vehicle_net $q1$,
       ST_SetSRID(ST_Point(%3$s, %4$s), 4326) , 0.5)
     $cq$, lon1, lat1, lon2, lat2);
