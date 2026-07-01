@@ -6,12 +6,19 @@ add_custom_command(
   TARGET un_sdg7_scripts
   PRE_BUILD
   BYPRODUCTS
-    exercise_5.txt
-    exercise_6.txt
-    exercise_7.txt
-    exercise_8.txt
-    exercise_9.txt
-    exercise_10.txt
+    set_path.txt
+    show_path2.txt
+    revert_changes.txt
+    only_connected1.txt
+    only_connected2.txt
+    only_connected3.txt
+    only_connected4.txt
+    only_connected5.txt
+    only_connected6.txt
+    only_connected7.txt
+    only_connected8.txt
+    exercise_10-1.txt
+    exercise_10-2.txt
     exercise_11.txt
     exercise_12.txt
   COMMAND psql -d mumbai -f sdg7.sql

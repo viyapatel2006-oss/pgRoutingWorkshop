@@ -6,16 +6,26 @@ add_custom_command(
   TARGET un_sdg11_scripts
   PRE_BUILD
   BYPRODUCTS
-    exercise_1.txt
-    exercise_2.txt
-    exercise_3.txt
-    exercise_4.txt
-    exercise_5.txt
+    create_city1.txt
+    create_city2.txt
+    create_city3.txt
+    create_city4.txt
+    set_path.txt
+    get_extensions.txt
+    get_tables.txt
     exercise_6.txt
-    exercise_7.txt
-    exercise_8.txt
-    exercise_9.txt
+    delete1.txt
+    delete2.txt
+    only_connected1.txt
+    only_connected2.txt
+    only_connected3.txt
+    only_connected4.txt
+    only_connected5.txt
     exercise_10.txt
+    exercise_11.txt
+    get_rain_zone1.txt
+    get_rain_zone2.txt
+    exercise_13.txt
   COMMAND psql -d bangladesh -f sdg11.sql
   COMMENT "running sdg11 scripts"
 )

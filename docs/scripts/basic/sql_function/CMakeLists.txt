@@ -15,6 +15,9 @@ add_custom_command(
     good_directionality.txt
     final_function.txt
     using_fn1.txt
+    vw_initial.txt
+    vw_fixed.txt
+    vw_final.txt
     helpers.txt
 
   COMMAND psql -d city_routing -f sql_function.sql
