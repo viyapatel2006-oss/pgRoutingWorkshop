@@ -128,6 +128,28 @@ Run the osm2pgrouting converter
      :start-after: import city from-here
      :end-before:  import city to-here
 
+Compatibility with older osm2pgrouting versions
+-------------------------------------------------------------------------------
+
+Check the installed version:
+
+.. code-block:: bash
+
+   osm2pgrouting --version
+
+If you are using version 2.x, the column names differ from those used in this
+workshop:
+
+- ``gid`` instead of ``id``
+- ``the_geom`` instead of ``geom``
+
+Run the following script to rename them:
+
+.. collapse:: Script
+
+   .. literalinclude:: ../scripts/get_data/osm2pgrouting_compat.sql
+      :language: postgresql
+
 Tables on the database
 -------------------------------------------------------------------------------
 
