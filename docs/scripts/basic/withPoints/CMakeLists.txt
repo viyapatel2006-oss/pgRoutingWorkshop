@@ -1,7 +1,4 @@
-#---------------------
-# Files
-#---------------------
-add_custom_target(basic_withPoints_scripts)
+add_custom_target(basic_withPoints_scripts DEPENDS withPoints.sql)
 
 configure_file(withPoints.sql withPoints.sql)
 
@@ -19,6 +16,4 @@ add_custom_command(
     warnings.txt
 
   COMMAND psql -d city_routing -f withPoints.sql 2> warnings.txt
-  COMMENT "running chapter withPoints scripts"
-  DEPENDS withPoints.sql
-)
+  COMMENT "running chapter withPoints scripts")

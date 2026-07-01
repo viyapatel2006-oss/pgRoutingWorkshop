@@ -1,4 +1,4 @@
-add_custom_target(un_sdg3_scripts)
+add_custom_target(un_sdg3_scripts DEPENDS sdg3.sql)
 
 configure_file(sdg3.sql sdg3.sql)
 

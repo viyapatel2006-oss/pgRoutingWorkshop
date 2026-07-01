@@ -1,13 +1,6 @@
-add_custom_target(basic_vehicles_scripts)
+add_custom_target(basic_vehicles_scripts DEPENDS vehicles.sql)
 
-#---------------------
-# Files
-#---------------------
 configure_file(vehicles.sql vehicles.sql)
-
-#----------------------------------------------
-# Generating the results files
-#---------------------------------------------
 
 add_custom_command(
   TARGET basic_vehicles_scripts
@@ -29,5 +22,4 @@ add_custom_command(
     vehicles_end.txt
 
   COMMAND psql -d city_routing -f vehicles.sql
-  COMMENT "running vehicles scripts"
-  DEPENDS vehicles.sql)
+  COMMENT "running vehicles scripts")
