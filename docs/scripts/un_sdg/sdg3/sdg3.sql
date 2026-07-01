@@ -1,59 +1,14 @@
-\o show_schemas.txt
-\dn
-\o show_path1.txt
-SHOW search_path;
-\o set_path.txt
-SET search_path TO roads,buildings,public,contrib,postgis;
-\o show_path2.txt
-SHOW search_path;
-\o enumerate_tables.txt
-\dt
-\o count1.txt
-SELECT COUNT(*) FROM roads_ways;
-\o count2.txt
-SELECT COUNT(*) FROM buildings_ways;
-\o clean_buildings.txt
-ALTER TABLE buildings.buildings_ways
-DROP source, DROP target,
-DROP source_osm, DROP target_osm,
-DROP length, DROP length_m,
-DROP cost, DROP reverse_cost,
-DROP cost_s, DROP reverse_cost_s,
-DROP one_way, DROP oneway,
-DROP priority, DROP osm_id, DROP rule,
-DROP x1, DROP x2,
-DROP y1, DROP y2,
-DROP maxspeed_forward,
-DROP maxspeed_backward;
-\o exercise_6.txt
-SELECT AddGeometryColumn('buildings','buildings_ways','poly_geom',4326,'POLYGON',2);
-\o buildings_description.txt
-\dS+ buildings_ways
-\o exercise_7.txt
-DELETE FROM buildings_ways
-WHERE ST_NumPoints(geom) < 4
-OR ST_IsClosed(geom) = FALSE;
-\o exercise_8.txt
-UPDATE buildings_ways
-SET poly_geom = ST_MakePolygon(geom);
-\o add_area_col.txt
-
-ALTER TABLE buildings_ways ADD COLUMN area INTEGER;
-
-\o get_area.txt
-
-UPDATE buildings_ways
-SET area = ST_Area(poly_geom::geography)::INTEGER;
-
+DROP TABLE IF EXISTS buildings;
+DROP TABLE IF EXISTS roads_net;
 \o kind_of_buildings.txt
 
 SELECT DISTINCT tag_id, tag_value
-FROM buildings_ways JOIN buildings.configuration USING (tag_id)
+FROM buildings.ways JOIN buildings.configuration USING (tag_id)
 ORDER BY tag_id;
 
 \o population_function.txt
 
-CREATE OR REPLACE FUNCTION  population(tag_id INTEGER,area INTEGER)
+CREATE OR REPLACE FUNCTION  population(tag_id INTEGER, area INTEGER)
 RETURNS INTEGER AS
 $BODY$
 DECLARE
@@ -72,193 +27,205 @@ END;
 $BODY$
 LANGUAGE plpgsql;
 
-\o add_population_col.txt
+\o show_population_100.txt
+SELECT tag_id, tag_value, population(tag_id, 100)
+FROM buildings.configuration
+ORDER BY tag_id;
+\o show_population_300.txt
+SELECT tag_id, tag_value, population(tag_id, 300)
+FROM buildings.configuration
+ORDER BY tag_id;
+\o show_schemas.txt
+\dn
+\o show_path1.txt
+SHOW search_path;
+\o set_path.txt
+SET search_path TO public,roads,buildings,contrib,postgis;
+\o show_path2.txt
+SHOW search_path;
+\o enumerate_tables.txt
+\dt
+\o count1.txt
+SELECT COUNT(*) FROM roads.ways;
+\o count2.txt
+SELECT COUNT(*) FROM buildings.ways;
+\o skip1.txt
 
-ALTER TABLE buildings_ways ADD COLUMN population INTEGER;
 
-\o get_population.txt
+\o only_connected0.txt
 
-UPDATE buildings_ways
-SET population = population(tag_id,area);
+ALTER TABLE roads.ways ADD COLUMN component BIGINT;
 
 \o only_connected1.txt
 
-SELECT * INTO roads.roads_vertices
-FROM pgr_extractVertices(
-  'SELECT id, source, target
-  FROM roads.roads_ways ORDER BY id');
+SELECT id, in_edges, out_edges, x, y, NULL::BIGINT osm_id, NULL::BIGINT component, geom
+INTO vertices
+FROM pgr_extractVertices('SELECT id, source, target FROM roads.ways ORDER BY id');
 
 \o only_connected2.txt
 
-UPDATE roads_vertices v SET geom = ST_startPoint(w.geom)
-FROM roads_ways w WHERE source = v.id;
-
-UPDATE roads_vertices v SET geom = ST_endPoint(w.geom)
-FROM roads_ways w WHERE v.geom IS NULL AND target = v.id;
-
-UPDATE roads_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
+WITH
+get_data as (
+  SELECT source, source_osm, ST_startPoint(geom) as pt FROM roads.ways
+  UNION ALL
+  SELECT target, target_osm, ST_endPoint(geom) FROM roads.ways
+)
+UPDATE vertices SET
+(geom, osm_id, x, y) = (ST_startPoint(pt), source_osm, st_x(pt), st_y(pt))
+FROM get_data WHERE source = id;
 
 \o only_connected3.txt
 
-ALTER TABLE roads_ways ADD COLUMN component BIGINT;
-ALTER TABLE roads_vertices ADD COLUMN component BIGINT;
-
-\o only_connected4.txt
-
-UPDATE roads_vertices SET component = c.component
+UPDATE vertices SET component = c.component
 FROM (
   SELECT * FROM pgr_connectedComponents(
-  'SELECT id, source, target, cost, reverse_cost FROM roads_ways')
+  'SELECT id, source, target, cost, reverse_cost FROM roads.ways')
 ) AS c
 WHERE id = node;
 
+
+\o only_connected4.txt
+
+UPDATE roads.ways SET component = v.component
+FROM (SELECT id, component FROM vertices) AS v
+WHERE source = v.id;
+
 \o only_connected5.txt
 
-UPDATE roads_ways SET component = v.component
-FROM (SELECT id, component FROM roads_vertices) AS v
-WHERE source = v.id;
+-- DROP TABLE IF EXISTS roads_net;
+CREATE TABLE roads_net AS
+
+WITH
+all_components AS (SELECT component, count(*) FROM roads.ways GROUP BY component),
+max_component AS (SELECT max(count) from all_components),
+the_component AS (
+  SELECT component FROM all_components
+  WHERE count = (SELECT max FROM max_component))
+
+SELECT
+  w.id, source, target,
+  length_m/60 AS cost, length_m/60 AS reverse_cost,
+  name, length_m AS length, NULL::BIGINT population, tag_id, component, geom AS geom
+FROM roads.ways w JOIN the_component USING (component);
 
 \o only_connected6.txt
 
-WITH
-all_components AS (SELECT component, count(*) FROM roads_ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components)
-SELECT component FROM all_components WHERE count = (SELECT max FROM max_component);
+DELETE FROM vertices WHERE component != (SELECT DISTINCT component FROM roads_net LIMIT 1);
 
-\o only_connected7.txt
-
-WITH
-all_components AS (SELECT component, count(*) FROM roads_ways GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
-the_component AS (SELECT component FROM all_components WHERE count = (SELECT max FROM max_component))
-DELETE FROM roads_ways WHERE component != (SELECT component FROM the_component);
-
-\o only_connected8.txt
-
-WITH
-all_components AS (SELECT component, count(*) FROM roads_vertices GROUP BY component),
-max_component AS (SELECT max(count) from all_components),
-the_component AS (SELECT component FROM all_components WHERE count = (SELECT max FROM max_component))
-DELETE FROM roads_vertices WHERE component != (SELECT component FROM the_component);
-
-\o nearest_vertex1.txt
-
-CREATE OR REPLACE FUNCTION closest_vertex(geom GEOMETRY)
+\o building_road.txt
+CREATE OR REPLACE FUNCTION building_road(building GEOMETRY)
 RETURNS BIGINT AS
 $BODY$
-SELECT id FROM roads_vertices ORDER BY geom <-> $1 LIMIT 1;
+  SELECT id FROM roads_net ORDER BY geom <-> $1 LIMIT 1;
 $BODY$
 LANGUAGE SQL;
 
-\o nearest_vertex2.txt
+\o test_building_road.txt
 
-SELECT closest_vertex(poly_geom) FROM buildings_ways;
+SELECT id, building_road(geom) FROM buildings.ways LIMIT 3;
 
-\o prepare_edges.txt
+\o nearest_vertex.txt
 
-PREPARE edges AS
-SELECT id,source,target, length_m/60 AS cost,length_m/60 AS reverse_cost
-FROM roads.roads_ways;
+CREATE OR REPLACE FUNCTION get_vertex(geom GEOMETRY)
+RETURNS BIGINT AS
+$BODY$
+SELECT id FROM vertices ORDER BY geom <-> $1 LIMIT 1;
+$BODY$
+LANGUAGE SQL;
 
-\o exercise_15.txt
+\o test_nearest_vertex.txt
+
+SELECT get_vertex(geom) FROM buildings.ways LIMIT 3;
+
+\o clean_buildings.txt
+-- DROP TABLE IF EXISTS buildings;
+CREATE TABLE buildings AS
+WITH
+buildings_data AS (
+SELECT id, name, building_road(geom) AS road, get_vertex(geom) AS vid, tag_id, geom, ST_MakePolygon(geom) AS building
+FROM buildings.ways
+WHERE ST_NumPoints(geom) >= 4
+  AND ST_IsClosed(geom) = TRUE)
+SELECT id, name,
+  ST_Area(building::geography)::INTEGER AS area,
+  population(tag_id, ST_Area(building::geography)::INTEGER) AS population,
+  road, vid,
+  tag_id,
+  geom, building
+FROM buildings_data;
+
+\o roads_population.txt
+
+UPDATE roads_net SET population = SUM
+FROM (
+  SELECT road, SUM(population)
+  FROM buildings GROUP BY road
+  )
+AS subquery
+WHERE id = road;
+
+\o served_roads.txt
 
 SELECT id, source, target, agg_cost AS minutes, geom
 FROM pgr_drivingDistance(
-  'edges', -- the prepared statement
+  'SELECT * FROM roads_net',
   (
-    SELECT closest_vertex(poly_geom)
-    FROM buildings.buildings_ways
+    -- the starting vertex
+    SELECT vid
+    FROM buildings
     WHERE tag_id = '318'
-  ), -- the starting vertex
+  ),
   10,  -- 10 minutes
   false -- graph is undirected
 ) AS results
-JOIN roads.roads_ways AS r ON (edge = id);
+JOIN roads_net ON (edge = id);
 
-\o exercise_16.txt
+\o adjacent_roads.txt
 
 WITH
 subquery AS (
   SELECT edge, source, target, agg_cost AS minutes, geom
   FROM pgr_drivingDistance(
-    'edges',
+    'SELECT * FROM roads_net',
     (
-      SELECT closest_vertex(poly_geom)
-      FROM buildings.buildings_ways
+      SELECT vid
+      FROM buildings
       WHERE tag_id = '318'
     ), 10, FALSE
   ) AS results
-  JOIN roads.roads_ways AS r ON (edge = id)
+  JOIN roads_net AS r ON (edge = id)
 ),
 connected_edges AS (
-  SELECT r.id, r.source, r.target, length_m/60, r.geom
-  FROM subquery AS s JOIN roads.roads_ways AS r
+  SELECT r.id, r.source, r.target, length, r.geom
+  FROM subquery AS s JOIN roads_net AS r
   ON ((s.source = r.source OR s.source = r.target))
 )
 SELECT * FROM subquery
 UNION ALL
 SELECT * FROM connected_edges;
 
-\o closest_edge1.txt
-
-CREATE OR REPLACE FUNCTION closest_edge(geom GEOMETRY)
-RETURNS BIGINT AS
-$BODY$
-  SELECT id FROM roads_ways ORDER BY geom <-> geom LIMIT 1;
-$BODY$
-LANGUAGE SQL;
-
-\o closest_edge2.txt
-
-ALTER TABLE buildings_ways
-ADD COLUMN edge_id INTEGER;
-
-\o closest_edge3.txt
-
-UPDATE buildings_ways SET edge_id = closest_edge(poly_geom);
-
-\o add_road_population1.txt
-
-ALTER TABLE roads_ways ADD COLUMN population INTEGER;
-
-\o add_road_population2.txt
-
-UPDATE roads_ways SET population = SUM
-FROM (
-	SELECT edge_id, SUM(population)
-	FROM buildings_ways GROUP BY edge_id
-	)
-AS subquery
-WHERE id = edge_id;
-
-\o add_road_population3.txt
-
-SELECT population FROM roads_ways WHERE id = 441;
-
-\o exercise_20.txt
+\o population_served.txt
 
 WITH
 subquery AS (
   SELECT source, target
   FROM pgr_drivingDistance(
-    'edges',
+    'SELECT * FROM roads_net',
     (
-      SELECT closest_vertex(poly_geom)
-      FROM buildings.buildings_ways
+      SELECT vid
+      FROM buildings
       WHERE tag_id = '318'
     ), 10, FALSE
   )
   AS results
-  JOIN roads.roads_ways AS r ON (edge = id)
+  JOIN roads_net AS r ON (edge = id)
 ),
 connected_edges AS (
   SELECT DISTINCT id, population
-  FROM subquery AS s JOIN roads.roads_ways AS r
+  FROM subquery AS s JOIN roads_net AS r
   ON (
     (s.source = r.source OR s.source = r.target) OR
     (s.target = r.source OR s.target = r.target)
   )
 )
 SELECT SUM(population) FROM connected_edges;
-
-\o
