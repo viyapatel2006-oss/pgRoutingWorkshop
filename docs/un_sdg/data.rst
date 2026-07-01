@@ -59,8 +59,8 @@ After connecting to the database, first step is to create ``EXTENSION`` to enabl
 pgRouting and PostGIS in the database. Then add the ``SCHEMA`` for each table.
 
 .. literalinclude:: ../scripts/get_data/setup_mumbai.sh
-  :start-after: -- setup_mumbai from-here
-  :end-before:  -- setup_mumbai to-here
+  :start-after: setup_mumbai from-here
+  :end-before:  setup_mumbai to-here
   :language: postgresql
   :linenos:
 
@@ -92,9 +92,9 @@ OpenStreetMap data changes on a day to day basis, therefore if this data is used
 the results might change and some queries might need adjustments.
 The command was used to take the snapshot of the data on June 2021.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/get_mumbai.sh
-    :start-after: get_mumbai from-here
-    :end-before:  get_mumbai to-here
+.. literalinclude:: ../scripts/get_data/get_all_data.sh
+    :start-after: mumbai data from-here
+    :end-before:  mumbai data to-here
     :language: bash
     :linenos:
 
@@ -124,19 +124,18 @@ Importing Mumbai Roads
 The following ``osm2pgrouting`` command will be used to import the Roads
 from OpenStreetMaps file to pgRouting database which we will use for further exercises.
 
-
-.. literalinclude:: ../scripts/un_sdg/sdg3/import_mumbai_roads.sh
-    :start-after: from-here
-    :end-before: to-here
+.. literalinclude:: ../scripts/get_data/setup_mumbai.sh
+    :start-after: import_roads from-here
+    :end-before: import_roads to-here
     :language: bash
-    :linenos:
 
 .. note:: Depending on the osm2pgrouting version `-W password` is needed
 
 .. rubric:: Output:
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/import_mumbai_roads.txt
-    :linenos:
+.. literalinclude:: ../scripts/get_data/setup_mumbai.txt
+   :start-after: import_roads from-here
+   :end-before: import_roads to-here
 
 
 Importing Mumbai Buildings
@@ -146,19 +145,18 @@ Similar to Roads, ``osm2pgrouting`` command will be used to import the Buildings
 from OpenStreetMaps file to pgRouting database which we will use for further exercises.
 
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/import_mumbai_buildings.sh
-    :start-after: from-here
-    :end-before:  to-here
+.. literalinclude:: ../scripts/get_data/setup_mumbai.sh
+    :start-after: import_buildings from-here
+    :end-before: import_buildings to-here
     :language: bash
-    :linenos:
 
 .. note:: Depending on the osm2pgrouting version `-W password` is needed
 
 .. rubric:: Output:
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/import_mumbai_buildings.txt
-    :language: bash
-    :linenos:
+.. literalinclude:: ../scripts/get_data/setup_mumbai.txt
+   :start-after: import_buildings from-here
+   :end-before: import_buildings to-here
 
 To connect to the database, type the following in the terminal.
 

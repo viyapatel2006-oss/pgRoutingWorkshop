@@ -1,48 +1,6 @@
 add_custom_target(un_sdg3_scripts)
 
-#---------------------
-# Files
-#---------------------
-set(PGR_WORKSHOP_FILES
-  get_mumbai.sh
-  import_mumbai_roads.sh
-  import_mumbai_buildings.sh
-  sdg3.sql
-)
-
-
-#---------------------------------------------
-# Adding the documentation files
-#---------------------------------------------
-
-foreach (f ${PGR_WORKSHOP_FILES})
-    if (PGR_WORKSHOP_VERBOSE_DEBUG)
-        message(STATUS "    Adding file ${f}")
-    endif()
-    configure_file(${f} ${f})
-endforeach()
-
-
-execute_process(
-  OUTPUT_FILE created_mumbai.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/create_mumbai.sh > created_mumbai.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/create_mumbai.sh
-  )
-
-execute_process(
-  OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.sh > ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.sh
-  )
-
-execute_process(
-  OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.sh > ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.sh
-  )
+configure_file(sdg3.sql sdg3.sql)
 
 add_custom_command(
   TARGET un_sdg3_scripts
