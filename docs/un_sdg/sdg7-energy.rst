@@ -172,7 +172,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. collapse:: Query Results
 
-  .. literalinclude:: ../scripts/un_sdg/sdg3/only_connected7.txt
+  .. literalinclude:: ../scripts/un_sdg/sdg7/only_connected7.txt
 
 .. rubric:: Delete vertices not belonging to the most connected component.
 
@@ -183,7 +183,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. collapse:: Query Results
 
-  .. literalinclude:: ../scripts/un_sdg/sdg3/only_connected8.txt
+  .. literalinclude:: ../scripts/un_sdg/sdg7/only_connected8.txt
 
 
 pgr_kruskalDFS
