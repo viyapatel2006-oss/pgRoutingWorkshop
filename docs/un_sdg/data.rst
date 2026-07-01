@@ -58,9 +58,9 @@ To connect to the database do the following
 After connecting to the database, first step is to create ``EXTENSION`` to enable
 pgRouting and PostGIS in the database. Then add the ``SCHEMA`` for each table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/create_mumbai.sh
-  :start-after: -- Commands inside the database
-  :end-before:  -- create_mumbai to-here
+.. literalinclude:: ../scripts/get_data/setup_mumbai.sh
+  :start-after: -- setup_mumbai from-here
+  :end-before:  -- setup_mumbai to-here
   :language: postgresql
   :linenos:
 
@@ -192,7 +192,7 @@ To connect to the database do the following
 After connecting to the database, first step is to create ``EXTENSION`` to enable
 pgRouting and PostGIS in the database. Then add the ``SCHEMA`` for each table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/create_bangladesh.sh
+.. literalinclude:: ../scripts/get_data/setup_bangladesh.sh
   :start-after: -- Commands inside the database
   :end-before:  -- create_bangladesh to-here
   :language: postgresql
@@ -280,7 +280,7 @@ Appendix
 Configuration information for Buildings
 -------------------------------------------------------------------------------
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/buildings.xml
+.. literalinclude:: ../scripts/get_data/buildings.xml
     :language: xml
     :linenos:
 
@@ -288,6 +288,6 @@ Configuration information for Buildings
 Configuration information for Waterways
 -------------------------------------------------------------------------------
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/waterways.xml
+.. literalinclude:: ../scripts/get_data/waterways.xml
     :language: xml
     :linenos:

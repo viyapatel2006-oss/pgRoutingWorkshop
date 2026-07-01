@@ -1,21 +1,3 @@
-#---------------------
-# Files
-#---------------------
-set(PGR_WORKSHOP_FILES
-buildings.xml
-waterways.xml
-)
-foreach (f ${PGR_WORKSHOP_FILES})
-    if (PGR_WORKSHOP_VERBOSE_DEBUG)
-        message(STATUS "    Adding file ${f}")
-    endif()
-    configure_file(${f} sdg3/${f})
-    configure_file(${f} sdg7/${f})
-    configure_file(${f} sdg11/${f})
-endforeach()
-
-
-
 add_custom_target(un_sdg_scripts ALL)
 
 set(PGR_WORKSHOP_SUBDIRS

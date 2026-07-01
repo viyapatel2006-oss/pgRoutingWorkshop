@@ -5,7 +5,6 @@ add_custom_target(un_sdg11_scripts)
 #---------------------
 set(PGR_WORKSHOP_FILES
   get_bangladesh.sh
-  create_bangladesh.sh
   import_bangladesh_waterways.sh
   all_exercises_sdg11.sql
 )

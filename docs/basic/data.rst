@@ -34,7 +34,7 @@ Create a pgRouting compatible database
 
 Create ``city_routing`` database that will be used on the workshop.
 
-.. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
+.. literalinclude:: ../scripts/get_data/setup_city_routing.sh
    :start-after: create city_routing
    :end-before: connect city_routing
    :language: bash
@@ -48,7 +48,7 @@ Connect to the database
 Install pgRouting and its requirements. (otpionally check the version that is
 being used)
 
-.. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
+.. literalinclude:: ../scripts/get_data/setup_city_routing.sh
    :start-after: << EOF
    :end-before: EOF
    :language: bash
@@ -115,7 +115,7 @@ From a terminal window :code:`ctrl-alt-t`.
 Run the osm2pgrouting converter
 -------------------------------------------------------------------------------
 
-.. literalinclude:: ../scripts/get_data/process_osgeolive_data.sh
+.. literalinclude:: ../scripts/get_data/setup_city_routing.sh
    :start-after: import city from-here
    :end-before:  import city to-here
    :language: bash
@@ -124,7 +124,7 @@ Run the osm2pgrouting converter
 
 .. collapse:: Output:
 
-  .. literalinclude:: ../scripts/get_data/process_osgeolive_data.txt
+  .. literalinclude:: ../scripts/get_data/setup_city_routing.txt
      :start-after: import city from-here
      :end-before:  import city to-here
 
