@@ -9,6 +9,8 @@ jobs:
 
     strategy:
       fail-fast: false
+      matrix:
+        osm2pgrouting: [apt, source]
 
     steps:
       - uses: actions/checkout@v6
@@ -35,17 +37,28 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential cmake libpq-dev libpqxx-dev libexpat1-dev \
-            libboost-program-options-dev \
+          sudo apt-get install -y \
             postgresql-${PGVER}-postgis-${PGIS} \
             postgresql-${PGVER}-postgis-${PGIS}-scripts \
             postgresql-${PGVER}-pgrouting
+
+          if [ "${{ matrix.osm2pgrouting }}" = "apt" ]; then
+            sudo apt-get install -y osm2pgrouting
+          fi
 
           python -m pip install --upgrade pip
           pip install -r REQUIREMENTS.txt
           pip list
 
+      - name: Install build dependencies
+        if: matrix.osm2pgrouting == 'source'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake libpq-dev libpqxx-dev libexpat1-dev \
+            libboost-program-options-dev
+
       - name: Build osm2pgrouting from source
+        if: matrix.osm2pgrouting == 'source'
         run: |
           wget -q https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v3.0.0.tar.gz
           tar xzf v3.0.0.tar.gz
