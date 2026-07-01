@@ -7,7 +7,7 @@ set(PGR_WORKSHOP_FILES
   get_mumbai.sh
   import_mumbai_roads.sh
   import_mumbai_buildings.sh
-  all_exercises_sdg3.sql
+  sdg3.sql
 )
 
 
@@ -64,6 +64,6 @@ add_custom_command(
     exercise_18.txt
     exercise_19.txt
     exercise_20.txt
-  COMMAND psql -d mumbai -f all_exercises_sdg3.sql
+  COMMAND psql -d mumbai -f sdg3.sql
   COMMENT "running chapter sdg3 scripts"
 )

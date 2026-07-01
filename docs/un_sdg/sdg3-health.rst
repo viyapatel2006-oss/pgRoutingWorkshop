@@ -69,7 +69,7 @@ Exercise 1: Inspecting schemas
 Inspect the schemas by displaying all the present schemas using the following
 command
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: show_schemas.txt
    :end-before:  show_path1.txt
 
@@ -85,7 +85,7 @@ Exercise 2: Inspecting the search path
 
 Display the current search path using the following query.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: show_path1.txt
    :end-before:  set_path.txt
    :language: sql
@@ -103,7 +103,7 @@ Exercise 3: Fixing the search path
 In this case, the search path needs to include ``roads`` and
 ``buildings`` schemas. The following query is used to adjust the search path.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: set_path.txt
    :end-before: show_path2.txt
 
@@ -113,7 +113,7 @@ In this case, the search path needs to include ``roads`` and
 
 Checking the search path again
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: show_path2.txt
     :end-before: enumerate_tables.txt
 
@@ -127,7 +127,7 @@ Exercise 4: Enumerating tables
 
 With ``\dt`` the tables are listed showing the schema and the owner
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: enumerate_tables.txt
    :end-before: count1.txt
 
@@ -155,7 +155,7 @@ the same data is used and consequently the results are same.
 Also, some of the rows can be seen to understand the structure of the table and
 how the data is stored in it.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: count1.txt
    :end-before: count2.txt
    :language: sql
@@ -164,7 +164,7 @@ how the data is stored in it.
 
   .. literalinclude:: ../scripts/un_sdg/sdg3/count1.txt
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: count2.txt
    :end-before: clean_buildings.txt
    :language: sql
@@ -193,7 +193,7 @@ Columns can be deleted from a table. In this case instead of creating a view,
 columns that are not related to a **buidling** concept are dropped from
 ``buildings_ways``.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: clean_buildings.txt
    :end-before: exercise_6.txt
    :language: sql
@@ -209,7 +209,7 @@ Exercise 7: Add a spatial column to the table
 Add a spatial column named ``poly_geom`` to the table ``buildings_ways`` to store
 the Polygon Geometry
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: exercise_6.txt
    :end-before:  buildings_description.txt
    :language: sql
@@ -220,7 +220,7 @@ the Polygon Geometry
 
 Inspecting the table:
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: buildings_description.txt
    :end-before: exercise_7.txt
 
@@ -236,7 +236,7 @@ with less than 3 points/vertices are not considered valid polygons in PostgreSQL
 Hence, the buildings having less than 3 vertices need to be cleaned up. Follow
 the steps given below to complete this task.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: exercise_7.txt
    :end-before: exercise_8.txt
    :language: sql
@@ -251,7 +251,7 @@ Exercise 9: Creating the polygons
 ``ST_MakePolygons`` is used to make the polygons. This step stores the geometry of
 polygons in the ``poly_geom`` column which was created earlier.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
    :start-after: exercise_8.txt
    :end-before: add_area_col.txt
    :language: sql
@@ -269,7 +269,7 @@ Follow the steps given below to complete this task.
 
 1. Adding a column for storing the area
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: add_area_col.txt
     :end-before: get_area.txt
     :language: sql
@@ -279,7 +279,7 @@ Follow the steps given below to complete this task.
 ``ST_Area`` is used to calculate area of polygons. Area is stored in the
 new column
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: get_area.txt
     :end-before: kind_of_buildings.txt
     :language: sql
@@ -297,7 +297,7 @@ kind of use the building gets.
 
 Buildings of OpenStreetMap data are classified into various categories.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: kind_of_buildings.txt
     :end-before: population_function.txt
     :language: sql
@@ -356,7 +356,7 @@ the population. Follow the steps given below to complete this task.
 
 1. Create a function to find population using class-specific factor and area.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: population_function.txt
     :end-before: add_population_col.txt
     :language: sql
@@ -373,7 +373,7 @@ the population. Follow the steps given below to complete this task.
 
 2. Add a column for storing the population in the ``buildings_ways``
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after:  add_population_col.txt
     :end-before: get_population.txt
     :language: sql
@@ -385,7 +385,7 @@ the population. Follow the steps given below to complete this task.
 3. Use the ``population`` function to store the population in the new column created
 in the ``building_ways``.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: get_population.txt
     :end-before: only_connected1.txt
     :language: sql
@@ -423,7 +423,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Create a vertices table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected1.txt
     :end-before: only_connected2.txt
     :language: sql
@@ -434,7 +434,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Fill up the ``x``, ``y`` and ``geom`` columns.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected2.txt
     :end-before: only_connected3.txt
     :language: sql
@@ -445,7 +445,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Add a ``component`` column on the edges and vertices tables.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected3.txt
     :end-before: only_connected4.txt
     :language: sql
@@ -456,7 +456,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Fill up the ``component`` column on the vertices table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected4.txt
     :end-before: only_connected5.txt
     :language: sql
@@ -467,7 +467,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Fill up the ``component`` column on the edges table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected5.txt
     :end-before: only_connected6.txt
     :language: sql
@@ -478,7 +478,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Get the component number with the most number of edges.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected6.txt
     :end-before: only_connected7.txt
     :language: sql
@@ -489,7 +489,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Delete edges not belonging to the most connected component.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected7.txt
     :end-before: only_connected8.txt
     :language: sql
@@ -500,7 +500,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Delete vertices not belonging to the most connected component.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: only_connected8.txt
     :end-before: nearest_vertex1.txt
     :language: sql
@@ -552,7 +552,7 @@ comparing ``geom`` of both the tables.
 
 The following query creates a function to find the closest road vertex.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: nearest_vertex1.txt
     :end-before:  nearest_vertex2.txt
     :language: sql
@@ -564,7 +564,7 @@ The following query creates a function to find the closest road vertex.
 
 Testing the function
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: nearest_vertex2.txt
     :end-before: prepare_edges.txt
     :language: sql
@@ -592,7 +592,7 @@ m/s``, by using ``pgrdrivingDistance`` function from pgRouting extension.
 
 Preparing a query
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: prepare_edges.txt
     :end-before:  exercise_16.txt
     :language: sql
@@ -615,7 +615,7 @@ For the following query,
 
 - ``10`` for 10 minutes, which is a threshold for ``agg_cost``
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: exercise_15.txt
     :end-before:  exercise_16.txt
     :language: sql
@@ -646,7 +646,7 @@ from previous section as a ``subquery`` and selects all the edges from ``roads_w
 that have the same ``source`` and ``target`` to that of ``subquery`` (Line 14).
 
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: exercise_16.txt
     :end-before: closest_edge1.txt
     :language: sql
@@ -681,7 +681,7 @@ is to be found. Follow the steps given below to complete this task.
 
 1. Create Function for finding the closest edge.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: closest_edge1.txt
     :end-before: closest_edge2.txt
     :linenos:
@@ -692,7 +692,7 @@ is to be found. Follow the steps given below to complete this task.
 
 2. Add a column in ``buildings_ways`` for storing the id of closest edge
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: closest_edge2.txt
     :end-before:  closest_edge3.txt
     :language: sql
@@ -704,7 +704,7 @@ is to be found. Follow the steps given below to complete this task.
 
 3. Store the edge id of the closest edge in the new column of ``buildings_ways``
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: closest_edge3.txt
     :end-before: add_road_population1.txt
     :language: sql
@@ -729,7 +729,7 @@ Follow the steps given below to complete this task.
 
 1. Add a column in ``roads_ways`` for storing population
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: add_road_population1.txt
     :end-before: add_road_population2.txt
     :language: sql
@@ -740,7 +740,7 @@ Follow the steps given below to complete this task.
 
 2. Update the roads with the sum of population of buildings closest to it
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: add_road_population2.txt
     :end-before: add_road_population3.txt
     :language: sql
@@ -752,7 +752,7 @@ Follow the steps given below to complete this task.
 
 3. Verify is the population is stored using the following query.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: add_road_population3.txt
     :end-before: exercise_20.txt
     :language: sql
@@ -768,7 +768,7 @@ Exercise 18: Find total population served by the hospital
 Final step is to find the total population served by the hospital based on
 travel time.
 
-.. literalinclude:: ../scripts/un_sdg/sdg3/all_exercises_sdg3.sql
+.. literalinclude:: ../scripts/un_sdg/sdg3/sdg3.sql
     :start-after: exercise_20.txt
     :end-before: \o
     :language: sql

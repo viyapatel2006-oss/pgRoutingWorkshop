@@ -4,7 +4,7 @@ add_custom_target(un_sdg7_scripts)
 # Files
 #---------------------
 set(PGR_WORKSHOP_FILES
-  all_exercises_sdg7.sql
+  sdg7.sql
 )
 
 
@@ -31,6 +31,6 @@ add_custom_command(
     exercise_10.txt
     exercise_11.txt
     exercise_12.txt
-  COMMAND psql -d mumbai -f all_exercises_sdg7.sql
+  COMMAND psql -d mumbai -f sdg7.sql
   COMMENT "running chapter sdg7 scripts"
 )

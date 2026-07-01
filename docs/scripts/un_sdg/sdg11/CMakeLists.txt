@@ -6,7 +6,7 @@ add_custom_target(un_sdg11_scripts)
 set(PGR_WORKSHOP_FILES
   get_bangladesh.sh
   import_bangladesh_waterways.sh
-  all_exercises_sdg11.sql
+  sdg11.sql
 )
 
 #---------------------------------------------
@@ -48,6 +48,6 @@ add_custom_command(
     exercise_8.txt
     exercise_9.txt
     exercise_10.txt
-  COMMAND psql -d bangladesh -f all_exercises_sdg11.sql
+  COMMAND psql -d bangladesh -f sdg11.sql
   COMMENT "running sdg11 scripts"
 )
