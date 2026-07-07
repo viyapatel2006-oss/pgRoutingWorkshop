@@ -187,7 +187,7 @@ SELECT tag_id, tag_key, tag_value FROM configuration ORDER BY tag_id;
 DROP VIEW IF EXISTS info_2 ; CREATE VIEW info_2 AS 
 
 
-SELECT distinct tag_id, tag_key, tag_value
+SELECT DISTINCT tag_id, tag_key, tag_value
 FROM ways JOIN configuration USING (tag_id)
 ORDER BY tag_id;
 

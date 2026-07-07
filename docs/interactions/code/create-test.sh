@@ -1,3 +1,4 @@
+#!/bin/bash
 
 cat \
     ../solutions/shortest_problems.sql \

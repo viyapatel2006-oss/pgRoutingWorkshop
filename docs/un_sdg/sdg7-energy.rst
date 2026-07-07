@@ -69,7 +69,7 @@ Exercise 1: Set the seach path
 In this case, search path of roads table is search path to ``roads`` and
 ``buildings`` schemas. Following query is used to adjust the search path.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
    :start-after: set_path.txt
    :end-before: show_path2.txt
 
@@ -79,7 +79,7 @@ In this case, search path of roads table is search path to ``roads`` and
 
 Checking the search path again
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: show_path2.txt
     :end-before: revert_changes.txt
 
@@ -99,7 +99,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Create a vertices table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected1.txt
     :end-before: only_connected2.txt
     :language: sql
@@ -110,7 +110,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Fill up the ``x``, ``y`` and ``geom`` columns.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected2.txt
     :end-before: only_connected3.txt
     :language: sql
@@ -121,7 +121,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Add a ``component`` column on the edges and vertices tables.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected3.txt
     :end-before: only_connected4.txt
     :language: sql
@@ -132,7 +132,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Fill up the ``component`` column on the vertices table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected4.txt
     :end-before: only_connected5.txt
     :language: sql
@@ -143,7 +143,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Fill up the ``component`` column on the edges table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected5.txt
     :end-before: only_connected6.txt
     :language: sql
@@ -154,7 +154,7 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Get the component number with the most number of edges.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected6.txt
     :end-before: only_connected7.txt
     :language: sql
@@ -165,25 +165,25 @@ pgRouting functions, discussed on :doc:`../basic/graphs`, will be used:
 
 .. rubric:: Delete edges not belonging to the most connected component.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected7.txt
     :end-before: only_connected8.txt
     :language: sql
 
 .. collapse:: Query Results
 
-  .. literalinclude:: ../scripts/un_sdg/sdg3/only_connected7.txt
+  .. literalinclude:: ../scripts/un_sdg/sdg7/only_connected7.txt
 
 .. rubric:: Delete vertices not belonging to the most connected component.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: only_connected8.txt
     :end-before: exercise_10-1.txt
     :language: sql
 
 .. collapse:: Query Results
 
-  .. literalinclude:: ../scripts/un_sdg/sdg3/only_connected8.txt
+  .. literalinclude:: ../scripts/un_sdg/sdg7/only_connected8.txt
 
 
 pgr_kruskalDFS
@@ -216,7 +216,7 @@ optimal network of electricity distribution components.
 
 To complete this task, execute the query below.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: exercise_10-1.txt
     :end-before:  exercise_10-2.txt
     :language: sql
@@ -228,7 +228,7 @@ To complete this task, execute the query below.
 The following query will give the results with the source vertex, target vertex,
 edge id, aggregate cost.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: exercise_10-2.txt
     :end-before:  exercise_11.txt
     :language: sql
@@ -249,7 +249,7 @@ Exercise 4: Compute total length of material required in km
 Compute the total length of the minimum spanning tree which is an estimate of the
 total length of material required.
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: exercise_11.txt
     :end-before:  exercise_12.txt
     :language: sql
@@ -264,7 +264,7 @@ Exercise 5: Compute total length of roads
 
 Compute the total length of the road network of the given area..
 
-.. literalinclude:: ../scripts/un_sdg/sdg7/all_exercises_sdg7.sql
+.. literalinclude:: ../scripts/un_sdg/sdg7/sdg7.sql
     :start-after: exercise_12.txt
     :end-before:  \o
     :language: sql

@@ -83,22 +83,22 @@ set(PLACE_4 "Grand Prince Hotel Hiroshima")
 set(PLACE_5 "RCC Bunka Center")
 
 
-set(CH7_PLACE_1 ${PLACE_5})
-set(CH7_ID_1 ${OSMID_5})
+set(CH7_PLACE_1 ${PLACE_2})
+set(CH7_ID_1 ${OSMID_2})
 set(CH7_PLACE_2 ${PLACE_1})
 set(CH7_ID_2 ${OSMID_1})
 
-set(POINT1_LAT "-36.850329")
-set(POINT1_LON "174.763094")
+set(POINT1_LAT "34.399086")
+set(POINT1_LON "132.453875")
 
-set(POINT2_LAT "-36.853675")
-set(POINT2_LON "174.764448")
+set(POINT2_LAT "34.391111")
+set(POINT2_LON "132.451490")
 
 #---------------------------------------------
 # minimum versions
 #---------------------------------------------
 set(SPHINX_MINIMUM_VERSION "4.0.0")
-set(Osm2pgrouting_FIND_VERSION "3.0.0")
+set(Osm2pgrouting_FIND_VERSION "2.3.1")
 
 
 #---------------------------------------------

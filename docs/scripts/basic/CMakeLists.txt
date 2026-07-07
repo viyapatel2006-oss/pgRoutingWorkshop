@@ -20,9 +20,10 @@ foreach (d ${PGR_WORKSHOP_DIR})
     add_dependencies(basic_scripts basic_${d}_scripts)
 endforeach()
 
-add_dependencies(basic_graphs_scripts basic_data_scripts)
+# data
+# graphs → vehicles → sql_function → withPoints
+#        ↘ pedestrian
 add_dependencies(basic_pedestrian_scripts basic_graphs_scripts)
 add_dependencies(basic_vehicles_scripts basic_graphs_scripts)
-add_dependencies(basic_sql_function_scripts basic_graphs_scripts)
 add_dependencies(basic_sql_function_scripts basic_vehicles_scripts)
 add_dependencies(basic_withPoints_scripts basic_sql_function_scripts)

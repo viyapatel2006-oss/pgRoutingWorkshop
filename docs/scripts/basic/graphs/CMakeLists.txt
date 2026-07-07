@@ -1,13 +1,6 @@
-#---------------------
-# Files
-#---------------------
-add_custom_target(basic_graphs_scripts)
+add_custom_target(basic_graphs_scripts DEPENDS graphs.sql)
 
 configure_file(graphs.sql graphs.sql)
-
-#----------------------------------------------
-# Generating the results files
-#---------------------------------------------
 
 add_custom_command(
   TARGET basic_graphs_scripts
@@ -47,5 +40,4 @@ add_custom_command(
     graphs_end.txt
 
   COMMAND psql -d city_routing -f graphs.sql
-  COMMENT "running chapter graphs scripts"
-  DEPENDS graphs.sql)
+  COMMENT "running chapter graphs scripts")

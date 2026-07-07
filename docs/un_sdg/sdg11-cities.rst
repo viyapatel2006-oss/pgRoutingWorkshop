@@ -65,7 +65,7 @@ Exercise 1: Create a point for the city
 
 .. rubric:: Create a table for the cities
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: create_city1.txt
     :end-before:  create_city2.txt
     :language: sql
@@ -76,7 +76,7 @@ Exercise 1: Create a point for the city
 
 .. rubric:: Insert Munshigang
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: create_city2.txt
     :end-before:  create_city3.txt
     :language: sql
@@ -87,7 +87,7 @@ Exercise 1: Create a point for the city
 
 .. rubric:: Simulate the city region with a buffer
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: create_city3.txt
     :end-before:  create_city4.txt
     :language: sql
@@ -98,7 +98,7 @@ Exercise 1: Create a point for the city
 
 .. rubric:: See description of the table
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: create_city4.txt
     :end-before:  set_path.txt
 
@@ -126,7 +126,7 @@ First step in pre processing is to set the search path for ``Waterways``
 data. Search path is a list of schemas that helps the system determine how a
 particular table is to be imported.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: set_path.txt
     :end-before:  get_extensions.txt
     :language: sql
@@ -143,7 +143,7 @@ As part of the every project tasks: inspect the database structure.
 
 .. rubric:: Get the extensions that are installed
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: get_extensions.txt
     :end-before:  get_tables.txt
 
@@ -153,7 +153,7 @@ As part of the every project tasks: inspect the database structure.
 
 .. rubric:: List installed tables
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: get_tables.txt
     :end-before: exercise_6.txt
 
@@ -169,7 +169,7 @@ the same data is used and consequently the results are same.
 Also, some of the rows can be seen to understand the structure of the table and
 how the data is stored in it.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: exercise_6.txt
     :end-before:  delete1.txt
     :language: sql
@@ -195,11 +195,11 @@ Exercise 5: Remove waterways not for the problem
 
 This exercise focusses only the areas in the mainland, where if it rains the city is
 affected. Hence, the rivers which are there in the swamp area wich is in a lower
-altitude of the city, are to be removed from the ``waterways_ways`` table.
+altitude of the city, are to be removed from the ``waterways.ways`` table.
 
 .. rubric:: Remove swamp rivers
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: delete1.txt
     :end-before: delete2.txt
     :language: sql
@@ -213,7 +213,7 @@ altitude of the city, are to be removed from the ``waterways_ways`` table.
 
 .. rubric:: Also delete a boundary tagged as waterway
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: delete2.txt
     :end-before: only_connected1.txt
     :language: sql
@@ -229,7 +229,7 @@ Exercise 6: Get the Connected Components of Waterways
 
 As the rivers in the data are not having single edges, i.e, multiple edges make up
 a river, it is important to find out the connected edges and store the information
-in the ``waterways_ways`` table. This will help us to identify which edges belong to
+in the ``waterways.ways`` table. This will help us to identify which edges belong to
 a river. First, the connected components are found and then stored in a new column
 named ``component``.
 
@@ -238,13 +238,13 @@ and its explaind with more detail in :doc:`../basic/graphs`.
 
 A sub-query is created to find out all the connected components. After that,
 the ``component`` column is updated using the results obtained from the sub-query.
-This helps in storing the component id in the ``waterways_ways_vertices_pgr`` table.
-Next query uses this output and stores the component id in the waterways_ways
+This helps in storing the component id in the ``waterways.waterway_vertices`` table.
+Next query uses this output and stores the component id in the waterways.ways
 (edges) table. Follow the steps given below to complete this task.
 
 .. rubric:: Create a vertices table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: only_connected1.txt
     :end-before: only_connected2.txt
     :language: sql
@@ -255,7 +255,7 @@ Next query uses this output and stores the component id in the waterways_ways
 
 .. rubric:: Fill up the ``x``, ``y`` and ``geom`` columns.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: only_connected2.txt
     :end-before: only_connected3.txt
     :language: sql
@@ -266,7 +266,7 @@ Next query uses this output and stores the component id in the waterways_ways
 
 .. rubric:: Add a ``component`` column on the edges and vertices tables.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: only_connected3.txt
     :end-before: only_connected4.txt
     :language: sql
@@ -277,7 +277,7 @@ Next query uses this output and stores the component id in the waterways_ways
 
 .. rubric:: Fill up the ``component`` column on the vertices table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: only_connected4.txt
     :end-before: only_connected5.txt
     :language: sql
@@ -288,7 +288,7 @@ Next query uses this output and stores the component id in the waterways_ways
 
 .. rubric:: Fill up the ``component`` column on the edges table.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: only_connected5.txt
     :end-before: exercise_10.txt
     :language: sql
@@ -299,7 +299,7 @@ Exercise 7: Creating a function that gets the city buffer
 A function can be created for the same task. This will be help when the table
 has more than one city.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
    :start-after:  exercise_10.txt
    :end-before:   exercise_11.txt
    :language: sql
@@ -318,7 +318,7 @@ the city. These are the waterways which will affect the city when it rains aroun
 them. This is done using ``ST_Intersects``. Note that ``get_city_buffer`` function
 is used in the query below.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: exercise_11.txt
     :end-before: get_rain_zone1.txt
     :language: sql
@@ -340,7 +340,7 @@ city would be affected, is calculated. This area is called ``rain zone`` in the 
 
 Create a Buffer around the river components.
 
-- Add columns named ``rain_zone`` in waterways_ways
+- Add columns named ``rain_zone`` in waterways.ways
 
   - To store buffer geometry of the rain zones.
 
@@ -349,7 +349,7 @@ Create a Buffer around the river components.
 
 .. rubric:: Adding column to store Buffer geometry
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: get_rain_zone1.txt
     :end-before: get_rain_zone2.txt
     :language: sql
@@ -360,7 +360,7 @@ Create a Buffer around the river components.
 
 .. rubric:: Storing Buffer geometry
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: get_rain_zone2.txt
     :end-before:  exercise_13.txt
     :language: sql
@@ -382,7 +382,7 @@ will give a single polygon as the output.
 
 When it rains in the vicinity, the city will get affected by the rain.
 
-.. literalinclude:: ../scripts/un_sdg/sdg11/all_exercises_sdg11.sql
+.. literalinclude:: ../scripts/un_sdg/sdg11/sdg11.sql
     :start-after: exercise_13.txt
     :end-before:  \o
     :language: sql

@@ -29,38 +29,38 @@ SHOW search_path;
 \dt
 \o exercise_6.txt
 
-SELECT count(*) FROM waterways_ways;
+SELECT count(*) FROM ways;
 
 \o delete1.txt
 
-DELETE FROM waterways_ways
+DELETE FROM ways
 WHERE osm_id
 IN (721133202, 908102930, 749173392, 652172284, 126774195, 720395312);
 
 \o delete2.txt
 
-DELETE FROM waterways_ways WHERE osm_id = 815893446;
+DELETE FROM ways WHERE osm_id = 815893446;
 
 \o only_connected1.txt
 
 SELECT * INTO waterways.waterways_vertices
 FROM pgr_extractVertices(
   'SELECT id, source, target
-  FROM waterways.waterways_ways ORDER BY id');
+  FROM waterways.ways ORDER BY id');
 
 \o only_connected2.txt
 
 UPDATE waterways_vertices v SET geom = ST_startPoint(w.geom)
-FROM waterways_ways w WHERE source = v.id;
+FROM ways w WHERE source = v.id;
 
 UPDATE waterways_vertices v SET geom = ST_endPoint(w.geom)
-FROM waterways_ways w WHERE v.geom IS NULL AND target = v.id;
+FROM ways w WHERE v.geom IS NULL AND target = v.id;
 
 UPDATE waterways_vertices set (x,y) = (ST_X(geom), ST_Y(geom));
 
 \o only_connected3.txt
 
-ALTER TABLE waterways_ways ADD COLUMN component BIGINT;
+ALTER TABLE ways ADD COLUMN component BIGINT;
 ALTER TABLE waterways_vertices ADD COLUMN component BIGINT;
 
 \o only_connected4.txt
@@ -68,13 +68,13 @@ ALTER TABLE waterways_vertices ADD COLUMN component BIGINT;
 UPDATE waterways_vertices SET component = c.component
 FROM (
   SELECT * FROM pgr_connectedComponents(
-  'SELECT id, source, target, cost, reverse_cost FROM waterways_ways')
+  'SELECT id, source, target, cost, reverse_cost FROM ways')
 ) AS c
 WHERE id = node;
 
 \o only_connected5.txt
 
-UPDATE waterways_ways SET component = v.component
+UPDATE ways SET component = v.component
 FROM (SELECT id, component FROM waterways_vertices) AS v
 WHERE source = v.id;
 
@@ -90,22 +90,22 @@ LANGUAGE SQL;
 \o exercise_11.txt
 
 SELECT DISTINCT component
-FROM bangladesh JOIN waterways.waterways_ways w
+FROM bangladesh JOIN waterways.ways w
 ON (ST_Intersects(w.geom, get_city_buffer(5)));
 
 \o get_rain_zone1.txt
 
-ALTER TABLE waterways_ways
+ALTER TABLE ways
 ADD COLUMN rain_zone geometry;
 
 \o get_rain_zone2.txt
 
-UPDATE waterways.waterways_ways
+UPDATE waterways.ways
 SET rain_zone = ST_Buffer((geom),0.005)
 WHERE ST_Intersects(geom, get_city_buffer(5));
 \o exercise_13.txt
 -- Combining mutliple rain zones
 SELECT ST_Union(rain_zone) AS Combined_Rain_Zone
-FROM waterways_ways;
+FROM ways;
 \o
 

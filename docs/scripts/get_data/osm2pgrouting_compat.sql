@@ -1,0 +1,2 @@
+ALTER TABLE ways RENAME COLUMN gid TO id;
+ALTER TABLE ways RENAME COLUMN the_geom TO geom;

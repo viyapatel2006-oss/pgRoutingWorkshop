@@ -1,70 +1,39 @@
-add_custom_target(un_sdg3_scripts)
+add_custom_target(un_sdg3_scripts DEPENDS sdg3.sql)
 
-#---------------------
-# Files
-#---------------------
-set(PGR_WORKSHOP_FILES
-  create_mumbai.sh
-  get_mumbai.sh
-  import_mumbai_roads.sh
-  import_mumbai_buildings.sh
-  all_exercises_sdg3.sql
-)
-
-
-#---------------------------------------------
-# Adding the documentation files
-#---------------------------------------------
-
-foreach (f ${PGR_WORKSHOP_FILES})
-    if (PGR_WORKSHOP_VERBOSE_DEBUG)
-        message(STATUS "    Adding file ${f}")
-    endif()
-    configure_file(${f} ${f})
-endforeach()
-
-
-execute_process(
-  OUTPUT_FILE created_mumbai.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/create_mumbai.sh > created_mumbai.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/create_mumbai.sh
-  )
-
-execute_process(
-  OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.sh > ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_buildings.sh
-  )
-
-execute_process(
-  OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.txt
-  COMMAND bash ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.sh > ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.txt
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  INPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/import_mumbai_roads.sh
-  )
+configure_file(sdg3.sql sdg3.sql)
 
 add_custom_command(
   TARGET un_sdg3_scripts
   PRE_BUILD
   BYPRODUCTS
-    exercise_5.txt
-    exercise_6.txt
-    exercise_7.txt
-    exercise_8.txt
-    exercise_9.txt
-    exercise_10.txt
-    exercise_11.txt
-    exercise_12.txt
-    exercise_13.txt
-    exercise_14.txt
-    exercise_15.txt
-    exercise_16.txt
-    exercise_17.txt
-    exercise_18.txt
-    exercise_19.txt
-    exercise_20.txt
-  COMMAND psql -d mumbai -f all_exercises_sdg3.sql
+    kind_of_buildings.txt
+    population_function.txt
+    show_population_100.txt
+    show_population_300.txt
+    show_schemas.txt
+    show_path1.txt
+    set_path.txt
+    show_path2.txt
+    enumerate_tables.txt
+    count1.txt
+    count2.txt
+    skip1.txt
+    only_connected0.txt
+    only_connected1.txt
+    only_connected2.txt
+    only_connected3.txt
+    only_connected4.txt
+    only_connected5.txt
+    only_connected6.txt
+    building_road.txt
+    test_building_road.txt
+    nearest_vertex.txt
+    test_nearest_vertex.txt
+    clean_buildings.txt
+    roads_population.txt
+    served_roads.txt
+    adjacent_roads.txt
+    population_served.txt
+  COMMAND psql -d mumbai -f sdg3.sql
   COMMENT "running chapter sdg3 scripts"
 )

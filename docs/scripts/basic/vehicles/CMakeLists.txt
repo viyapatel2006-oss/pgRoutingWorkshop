@@ -1,13 +1,6 @@
-add_custom_target(basic_vehicles_scripts)
+add_custom_target(basic_vehicles_scripts DEPENDS vehicles.sql)
 
-#---------------------
-# Files
-#---------------------
 configure_file(vehicles.sql vehicles.sql)
-
-#----------------------------------------------
-# Generating the results files
-#---------------------------------------------
 
 add_custom_command(
   TARGET basic_vehicles_scripts
@@ -19,14 +12,14 @@ add_custom_command(
     route_coming.txt
     time_is_money.txt
     add_penalty.txt
+    create_penalized_view.txt
     use_penalty.txt
+    same_result_as_comming.txt
     update_penalty.txt
+    show_penalties.txt
     get_penalized_route.txt
     time_in_secs.txt
-    penalized_view.txt
-    using_view.txt
     vehicles_end.txt
 
   COMMAND psql -d city_routing -f vehicles.sql
-  COMMENT "running vehicles scripts"
-  DEPENDS vehicles.sql)
+  COMMENT "running vehicles scripts")

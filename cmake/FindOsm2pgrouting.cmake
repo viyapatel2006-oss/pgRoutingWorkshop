@@ -41,13 +41,11 @@ execute_process(
 string(REGEX MATCH "[0-9]+\\.[0-9]+\\.[0-9]+" Osm2pgrouting_V ${Osm2pgrouting_V})
 set(Osm2pgrouting_VERSION ${Osm2pgrouting_V} CACHE STRING "Osm2pgrouting VERSION")
 
-if (false)
 if (Osm2pgrouting_FIND_VERSION)
   # Check if version found is >= required version
   if ("${Osm2pgrouting_VERSION}" VERSION_LESS "${Osm2pgrouting_FIND_VERSION}")
     message(FATAL_ERROR  "Found osm2pgrouting version ${Osm2pgrouting_VERSION} which is less than requested version ${Osm2pgrouting_FIND_VERSION}")
   endif()
-endif()
 endif()
 
 if(Osm2pgrouting_FIND_COMPONENTS)

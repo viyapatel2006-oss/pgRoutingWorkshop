@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Workshop FOSS4G Hiroshima 3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 21:50+0000\n"
+"POT-Creation-Date: 2026-07-01 17:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,9 +145,33 @@ msgid "Depending on the osm2pgrouting version `-W password` is needed"
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:132
-msgid "Tables on the database"
+msgid "Compatibility with older osm2pgrouting versions"
 msgstr ""
 
 #: ../../build/docs/basic/data.rst:134
+msgid "Check the installed version:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:140
+msgid "If you are using version 2.x, the column names differ from those used in this workshop:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:143
+msgid "``gid`` instead of ``id``"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:144
+msgid "``the_geom`` instead of ``geom``"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:146
+msgid "Run the following script to rename them:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:154
+msgid "Tables on the database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:156
 msgid "To inspect the tables that were created during this process:"
 msgstr ""
