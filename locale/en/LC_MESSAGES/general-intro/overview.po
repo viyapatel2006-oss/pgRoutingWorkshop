@@ -1,0 +1,207 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2024 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G
+# Belém package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-25 21:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../build/docs/general-intro/overview.rst:6
+msgid "Software and Data Source Overview"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:13
+msgid "pgRouting is a community project of OSGeo."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:15
+msgid ""
+"This workshop uses several free and open source softwares for geospatial "
+"tools. Most of these softwares are related to other open source software "
+"projects. Here we mention the most important ones."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:19
+msgid "Chapter Contents"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:22
+msgid "pgRouting Overview"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:28
+msgid ""
+"pgRouting extends the PostGIS / PostgreSQL geospatial database to provide "
+"geospatial routing functionality."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:31
+msgid "Advantages of the database routing approach are:"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:33
+msgid ""
+"Data and attributes are stored on a PostreSQL database and as such they can "
+"be modified can be modified by many clients."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:35
+msgid ""
+"Data changes can be reflected instantaneously through the routing engine. "
+"There is no need for pre-calculation."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:37
+msgid ""
+"The “cost” parameter can be dynamically calculated through SQL and its value "
+"can come from multiple fields or tables."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:40
+msgid "Some of the pgRouting library core features are:"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:42
+msgid ""
+"`Functions based on Dijkstra Algorithm <https://docs.pgrouting.org/latest/en/"
+"dijkstra-family.html>`__"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:43
+msgid ""
+"`Functions based on `A* Search Algorithm <https://docs.pgrouting.org/latest/"
+"en/aStar-family.html>`__"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:44
+msgid ""
+"`Graph commponent functions <https://docs.pgrouting.org/latest/en/components-"
+"family.html>`__"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:45
+msgid ""
+"`and many more <https://docs.pgrouting.org/latest/en/routingFunctions.html>`_"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:47
+msgid ""
+"pgRouting is an open source software available under the GPLv2 license and "
+"is supported and maintained by the pgRouting community."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:50
+msgid ""
+"`pgRouting <https://pgrouting.org>`_ is part of `OSGeo Community Projects "
+"<https://wiki.osgeo.org/wiki/OSGeo_Community_Projects>`__ under `OSGeo "
+"Foundation <https://www.osgeo.org>`__. It is included on `OSGeoLive <https://"
+"live.osgeo.org/en/overview/pgrouting_overview.html>`__."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst
+msgid "Check it out on OSGeoLive"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:55
+msgid "https://live.osgeo.org/en/overview/pgrouting_overview.html"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:59
+msgid "osm2pgrouting Overview"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:66
+msgid ""
+"osm2pgrouting is a command line tool that imports OpenStreetMap data into a "
+"pgRouting database. It builds the routing network topology automatically and "
+"creates tables for feature types and road classes. osm2pgrouting was "
+"primarily written by Daniel Wendt and is now hosted on the pgRouting project "
+"site."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:71
+msgid "osm2pgrouting is available under the GPLv2 license."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst
+msgid "Wiki"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:73
+msgid "https://github.com/pgRouting/osm2pgrouting/wiki"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:77
+msgid "OpenStreetMap Overview"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:83
+msgid ""
+"OpenStreetMap is an incredible data source for pgRouting because it has no "
+"technical restrictions in terms of processing the data. Data availability "
+"still varies from country to country, but the worldwide coverage is "
+"improving day by day. In its own words:"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:88
+msgid ""
+"OpenStreetMap (OSM) is dedicated to creating and providing geographic data, "
+"such as street maps, worldwide, for free."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:91
+msgid ""
+"Most maps considered 'free' actually have legal or technical restrictions on "
+"their use. These restrictions hold back anyone from using them in creative, "
+"productive or unexpected ways, and make every map a silo of data and effort."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:95
+msgid "`Source: OSM Press Wiki <https://wiki.openstreetmap.org/wiki/Press>`_"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:97
+msgid "OpenStreetMap uses a topological data structure:"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:99
+msgid "Nodes are points with a geographic position."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:100
+msgid "Ways are lists of nodes, representing a polyline or polygon."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:101
+msgid ""
+"Relations are groups of nodes, ways and other relations which can be "
+"assigned certain properties."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:103
+msgid ""
+"Properties can be assigned to nodes, ways or relations and consist of :code:"
+"`name = value` pairs."
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst
+msgid "Website"
+msgstr ""
+
+#: ../../build/docs/general-intro/overview.rst:106
+msgid "https://www.openstreetmap.org"
+msgstr ""

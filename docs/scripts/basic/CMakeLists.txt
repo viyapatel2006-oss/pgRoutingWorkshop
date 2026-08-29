@@ -1,0 +1,29 @@
+add_custom_target(basic_scripts ALL)
+
+#---------------------
+# Directories
+#---------------------
+SET(PGR_WORKSHOP_DIR
+  data
+  graphs
+  pedestrian
+  vehicles
+  sql_function
+  withPoints
+)
+
+foreach (d ${PGR_WORKSHOP_DIR})
+    if (PGR_WORKSHOP_VERBOSE_DEBUG)
+        message(STATUS "    Processing directory ${d}")
+    endif()
+    add_subdirectory("${d}")
+    add_dependencies(basic_scripts basic_${d}_scripts)
+endforeach()
+
+# data
+# graphs → vehicles → sql_function → withPoints
+#        ↘ pedestrian
+add_dependencies(basic_pedestrian_scripts basic_graphs_scripts)
+add_dependencies(basic_vehicles_scripts basic_graphs_scripts)
+add_dependencies(basic_sql_function_scripts basic_vehicles_scripts)
+add_dependencies(basic_withPoints_scripts basic_sql_function_scripts)

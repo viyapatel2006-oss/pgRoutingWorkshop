@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API">
+    <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+    <meta osm_base="2016-03-31T22:37:01Z"/>
+    ...	
+    <node id="2702022" lat="50.7654175" lon="7.1376180" version="11"
+        timestamp="2011-10-30T18:29:52Z"
+        changeset="9696743" uid="116044" user="berndw"/>
+    <node id="2702027" lat="50.7704923" lon="7.1432462" version="5"
+        timestamp="2014-12-09T18:47:47Z"
+        changeset="27362963" uid="1751908" user="Blues Brothers"/>
+    <node id="2703359" lat="50.7548501" lon="7.0964640" version="10"
+        timestamp="2013-10-19T22:50:43Z"
+        changeset="18442764" uid="45243" user="odna">
+        <tag k="TMC:cid_58:tabcd_1:Class" v="Point"/>
+        <tag k="TMC:cid_58:tabcd_1:Direction" v="positive"/>
+        <tag k="TMC:cid_58:tabcd_1:LCLversion" v="9.00"/>
+        <tag k="TMC:cid_58:tabcd_1:LocationCode" v="39278"/>
+        <tag k="TMC:cid_58:tabcd_1:NextLocationCode" v="11766"/>
+        <tag k="TMC:cid_58:tabcd_1:PrevLocationCode" v="11765"/>
+    </node>
+    ...	
+    <way id="4372665" version="14"
+        timestamp="2012-07-03T10:29:34Z"
+        changeset="12098548" uid="133419" user="dachefte">
+        <tag k="footway:right:smoothness" v="good"/>
+        <tag k="footway:right:surface" v="paving_stones"/>
+        <tag k="footway:right:width" v="3"/>
+        <tag k="highway" v="unclassified"/>
+    </way>
+    ...	
+    <relation id="399785" version="2"
+        timestamp="2012-08-08T18:27:05Z"
+        changeset="12660262" uid="55687" user="dschuwa">
+        <member type="way" ref="32285676" role="street"/>
+        <member type="way" ref="17129333" role="street"/>
+        <member type="way" ref="49305040" role="street"/>
+        <member type="way" ref="49305039" role="street"/>
+        <member type="way" ref="32286326" role="street"/>
+        <member type="way" ref="32286325" role="street"/>
+        <member type="way" ref="32286327" role="street"/>
+
+        ...	
+        <tag k="name" v="Brieger Weg"/>
+        <tag k="type" v="associatedStreet"/>
+    </relation>
+    ...	
+</osm>

@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2025 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G Hiroshima package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Workshop FOSS4G Hiroshima 3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-25 21:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../build/docs/general-intro/introduction.rst:6
+msgid "Introduction"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:8
+msgid "|pgrouting-web| adds routing functionality to |postgis-web|."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:10
+msgid "Please see the :doc:`contents <../index>` for full content of FOSS4G Hiroshima workshop. This workshop covers two levels for using pgRouting: `Basic`_ and `Advanced`_."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:15
+msgid "Basic"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:17
+msgid "This level will demonstrate the routing functionality by providing examples using |osm-web| road network data from Hiroshima. Covering topics from how to prepare the data, making routing queries, understanding the results, up to writing a custom 'plpgsql' function that can be integrated with other FOSS tools."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:23
+msgid "Installing pgRouting."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:24
+msgid "Creating a routing topology."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:25
+msgid "Importing |osm-web| road network data."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:26
+msgid "Using pgRouting algorithms."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:27
+msgid "Writing queries."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:28
+msgid "Writing a custom PostgreSQL stored function."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:31
+#: ../../build/docs/general-intro/introduction.rst:43
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:32
+msgid "Previous knowledge: PostgreSQL, PostGIS"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:33
+#: ../../build/docs/general-intro/introduction.rst:45
+msgid "Equipments: `OSGeoLive <https://live.osgeo.org>`__ (17)"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:36
+msgid "Advanced"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:38
+msgid "pgRouting is an extendible open-source library that provides a variety of tools for graph algorithms, this is not limited to routing vehicles. The advanced section covers several graph problems that can be solved using pgRouting."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:44
+msgid "Previous knowledge: PostgreSQL, PostGIS, pgRouting basic level."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:48
+msgid "Aknowledments"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:51
+msgid "Sponsored by"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:52
+msgid "Paragon Corporation"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:57
+msgid "Erosion freelancers"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:63
+msgid "Developers & presenters of FOSS4G Hiroshima workshop:"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:64
+msgid "*Vicky Vergara* is a freelance developer from Mexico. She is the core developer of the pgRouting project and a GSoC Mentor. She also serves as an OSGeo Charter member."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:68
+msgid "Past and present tutors and developers:"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:69
+msgid "Daniel Kastl, Iosefa Persival, José Ríos, Ko Nagase, Stephen Woodbridge, Swapnil Joshi, Rajat Shinde, Ramón Ríos, Rohith Reddy, Vicky Vergara"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:81
+msgid "Past and present supporters:"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:82
+msgid "erosion Georepublic, Paragon Corporation"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:87
+msgid "License"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:88
+msgid "This work is licensed under a `Creative Commons Attribution-Share Alike 3.0 License <https://creativecommons.org/licenses/by-sa/3.0/>`_."
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:94
+msgid "Become a sponsor"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:96
+msgid "The Linux Foundation"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:101
+msgid "Open Collective"
+msgstr ""
+
+#: ../../build/docs/general-intro/introduction.rst:106
+msgid "OSGeo Foundation"
+msgstr ""

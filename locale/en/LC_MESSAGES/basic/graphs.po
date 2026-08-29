@@ -1,0 +1,759 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2024 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G
+# Belém package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-25 21:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../build/docs/basic/graphs.rst:7
+msgid "Graphs"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:13
+msgid "Chapter Contents"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:15
+msgid ""
+"Different applications require different graphs. This chapter covers how to "
+"discard disconnected segments and different approaches to create graphs."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:18
+msgid "pgRouting functions in this chapter"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:20
+msgid "`pgr_extractVertices`_"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:21
+msgid "`pgr_connectedComponents`_"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:22
+msgid "`pgr_dijkstraCostMatrix`_"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:25
+msgid "The graph requirements"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:27
+msgid ""
+"This chapter requires the creation of three distinct routing graphs derived "
+"from ``ways``. These consist of two vehicle-specific graphs and one "
+"pedestrian graph, all of which utilize the standard ``source`` and "
+"``target`` to determine routing paths."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:32
+msgid "The description of the graphs:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:34
+msgid "Particular vehicle:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:36
+msgid "Circulate on the whole Hiroshima area."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:38 ../../build/docs/basic/graphs.rst:47
+msgid "Do not use `pedestrian`, `steps`, `footway`, `path`, `cycleway`"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:40
+msgid "Speed is the default speed from OSM information."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:42
+msgid "Taxi vehicle:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:44
+msgid "Circulate on a smaller area:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:46
+msgid "Bounding box: ``(132.439,34.38, 132.46,34.40)``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:49
+#, python-format
+msgid "Speed is 10% slower than that of the particular vehicles."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:51
+msgid "Pedestrians:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:53
+msgid "Walk on the whole Hiroshima area."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:54
+msgid "Can only use pedestrian-only ways:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:56
+msgid "`pedestrian`, `steps`, `footway`, `path`, `cycleway`, `residential`"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:58 ../../build/docs/basic/graphs.rst:493
+msgid "The walking speed is ``2 mts/sec``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:61
+msgid "Configuration from osm2pgrouting"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:63
+msgid ""
+"When dealing with data, being aware of what kind of data is being used can "
+"improve results."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:66
+msgid "Vehicles cannot circulate on pedestrian ways"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:73
+msgid ""
+"When converting data from OSM format using the `osm2pgrouting` tool, there "
+"is an additional table: ``configuration``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:77
+msgid ""
+"The ``configuration`` table structure can be obtained with the following "
+"command."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:86
+msgid "In the image above, there is a detail of the ``tag_id`` of the roads."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:90
+msgid ""
+"The `OSM highway <https://wiki.openstreetmap.org/wiki/Key:highway>`__ types:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:100
+msgid ""
+"Also, on the ``ways`` table, there is a column that can be used to ``JOIN`` "
+"with the ``configuration`` table."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:103
+msgid "The configuration types in the Hiroshima data"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:113
+msgid "pgr_extractVertices"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:115
+msgid ""
+"``pgr_extractVertices`` extracting the vertex information of the set of "
+"edges of a graph."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:119 ../../build/docs/basic/graphs.rst:263
+#: ../../build/docs/basic/graphs.rst:625
+msgid "Signature summary"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:127
+msgid ""
+"Description of the function can be found in `pgr_extractVertices <https://"
+"docs.pgrouting.org/latest/en/pgr_extractVertices.html>`__"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:131
+msgid "Exercise 1: Create a vertices table"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:134 ../../build/docs/basic/graphs.rst:183
+#: ../../build/docs/basic/graphs.rst:279 ../../build/docs/basic/graphs.rst:342
+#: ../../build/docs/basic/graphs.rst:417 ../../build/docs/basic/graphs.rst:488
+#: ../../build/docs/basic/graphs.rst:567 ../../build/docs/basic/graphs.rst:643
+#: ../../build/docs/basic/graphs.rst:725
+msgid "Problem"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:135
+msgid "Create the vertices table corresponding to the edges in ``ways``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:138 ../../build/docs/basic/graphs.rst:187
+#: ../../build/docs/basic/graphs.rst:283 ../../build/docs/basic/graphs.rst:351
+#: ../../build/docs/basic/graphs.rst:433 ../../build/docs/basic/graphs.rst:509
+#: ../../build/docs/basic/graphs.rst:577 ../../build/docs/basic/graphs.rst:660
+#: ../../build/docs/basic/graphs.rst:733
+msgid "Solution"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:139
+msgid "A graph consists of a set of vertices and a set of edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:140
+msgid "In this case, the ``ways`` table is a set of edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:141
+msgid ""
+"In order to make use of all the graph functions from pgRouting, it is "
+"required have the set of vertices defined."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:143
+msgid ""
+"From the requirements, a fully connected graph is needed, therefore adding a "
+"``component`` column."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:157
+msgid "Reviewing the description of the vertices table"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:167
+msgid "Inspecting the information on the vertices table"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:180
+msgid "Exercise 2: Fill up other columns in the vertices table"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:184
+msgid "Fill up geometry information on the vertices table."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:188
+msgid "Count the number of rows that need to be filled up."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:199
+msgid "Update the ``geom`` and ``osm_id`` columns"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:200
+msgid ""
+"The update based on the ``source`` column from ``ways`` table and the ``id`` "
+"column of the vertices table."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:202
+msgid ""
+"To update ``geom`` column, use the start point of the geometry on the "
+"``ways`` table."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:204
+msgid "Use the ``source_osm`` value to fill up ``osm_id`` column."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:212 ../../build/docs/basic/graphs.rst:459
+msgid "Verification"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:222
+msgid "Exercise 3: Use QGIS to view the work"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:224
+msgid "QGIS is a powerfull tool"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:226
+msgid "If you are using OSGeoLive, then you can find QGIS here:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:233
+msgid "Open it and add the Postgres credentials to access city_routing"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:240
+msgid "Choose the vertices table and move it to the layers"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:247
+msgid "You will see on the canvas something similar to:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:256
+msgid "pgr_connectedComponents"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:258
+msgid ""
+"``pgr_connectedComponents`` compute the connected components of an "
+"undirected graph using a Depth First Search approach. A connected component "
+"of an undirected graph is a set of vertices that are all reachable from each "
+"other."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:271
+msgid ""
+"Description of the function can be found in `pgr_connectedComponents "
+"<https://docs.pgrouting.org/latest/en/pgr_connectedComponents.html>`__"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:276
+msgid "Exercise 4: Set components on edges and vertices tables"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:280
+msgid "Get the information about the graph components."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:284
+msgid "Create additional columns on the edges tables."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:296
+msgid "Use the ``pgr_connectedComponents`` to fill up the vertices table."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:297
+msgid "Use the results to store the component numbers on the vertices table."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:316
+msgid ""
+"This is not a QGIS workshop, so the details about how to display layers are "
+"not written in this workshop"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:320
+msgid "Update the edges table with based on the component number of the vertex"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:339
+msgid "Exercise 5: Inspect the components"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:343
+msgid "Answer the following questions:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:345
+msgid "How many components are in the vertices table?"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:346
+msgid "How many components are in the edges table?"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:347
+msgid "List the 10 components with more edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:348
+msgid "Get the component with the maximum number of edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:353
+msgid "1. How many components are in the vertices table?"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:354 ../../build/docs/basic/graphs.rst:367
+msgid "Count the distinct components."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:366
+msgid "2. How many components are in the edges table?"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:379
+msgid "3. List the 10 components with more edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:380
+msgid "Count number of rows grouped by component. (**line 1**)"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:381
+msgid "Inverse order to display the top 10. (**line 2**)"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:393
+msgid "4. Get the component with the maximum number of edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:394
+msgid "Use the query from last question to get the maximum count"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:395
+msgid "Get the component that matches the maximum value."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:407
+msgid "Preparing the graphs"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:410
+msgid "Exercise 6: Creating a view for routing vehicles"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:412
+msgid "View of roads for vehicles"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:418
+msgid ""
+"Create a view with minimal amount of information for processing the "
+"particular vehicles."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:419
+msgid ""
+"Routing ``cost`` and ``reverse_cost`` in terms of seconds for routing "
+"calculations."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:420
+msgid ""
+"Exclude ``pedestrian``, ``steps``, ``footway``, ``path``, ``cycleway`` "
+"segments."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:421 ../../build/docs/basic/graphs.rst:497
+msgid "Data needed in the view for further processing."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:423 ../../build/docs/basic/graphs.rst:499
+msgid "``id`` of the segment."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:424 ../../build/docs/basic/graphs.rst:500
+msgid "``source`` and ``target`` of the segment."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:425 ../../build/docs/basic/graphs.rst:501
+msgid "``name`` The name of the segment."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:426 ../../build/docs/basic/graphs.rst:502
+msgid "``length`` The length in meters rename from ``length_m``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:427 ../../build/docs/basic/graphs.rst:503
+msgid "``geom`` The geometry."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:428 ../../build/docs/basic/graphs.rst:504
+msgid "``tag_id`` The kind of road."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:430 ../../build/docs/basic/graphs.rst:506
+msgid "Verify the number of edges was reduced."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:434 ../../build/docs/basic/graphs.rst:510
+#: ../../build/docs/basic/graphs.rst:578
+msgid "Creating the view:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:436 ../../build/docs/basic/graphs.rst:512
+msgid ""
+"If you need to reconstruct the view, first drop it using the command on line "
+"1."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:438 ../../build/docs/basic/graphs.rst:514
+msgid "Get the component with maximum number of edges."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:439
+msgid ""
+"Select the required columns. - The ``cost`` and ``reverse_cost`` are in "
+"terms of seconds. - The ``length_m`` is renamed."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:443 ../../build/docs/basic/graphs.rst:521
+msgid "``JOIN`` with the `configuration`:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:445
+msgid "Exclude ``pedestrian``, ``steps``, ``footway``, ``path``, ``cycleway``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:460
+msgid "Count the rows on the original ``ways`` and on ``vehicle_net``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:470
+msgid "Get the description of the view"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:481
+msgid "Exercise 7: Creating a materialized view for routing pedestrians"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:483
+msgid "View of roads for pedestrians"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:489
+msgid ""
+"Create a materialized view with minimal amount of information for processing "
+"pedestrian routing."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:491
+msgid ""
+"Routing ``cost`` and ``reverse_cost`` will be in seconds for routing "
+"calculations."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:495
+msgid ""
+"Include the pedestrian roads: ``pedestrian``, ``steps``, ``footway``, "
+"``path``, ``cycleway`` and ``residential`` roads."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:515
+msgid "Select the required columns."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:517
+msgid ""
+"The ``cost`` and ``reverse_cost`` are in terms of seconds with speed of ``2 "
+"mts/sec``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:519
+msgid "The ``length_m`` is renamed."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:523
+msgid ""
+"Include ``residential``, ``pedestrian``, ``steps``, ``footway``, ``path``, "
+"``cycleway``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:538
+msgid "Count the rows on the view ``walk_net``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:549 ../../build/docs/basic/graphs.rst:608
+msgid "Get the description."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:560
+msgid "Exercise 8: Limiting the road network within an area"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:562
+msgid "View of smaller set of roads for vehicles"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:568
+msgid "Create a view ``taxi_net`` for the `taxi`:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:570
+msgid ""
+"The taxi can only circulate inside this Bounding Box: ``(132.439,34.38, "
+"132.46,34.40)``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:571
+#, python-format
+msgid "The taxi speed is 10% slower than the particular vehicle."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:572
+msgid "Base the view on ``vehicle_net``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:574
+msgid "Verify the reduced number of road segments."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:580
+#, python-format
+msgid ""
+"Adjust the taxi's ``cost`` and ``reverse_cost`` to be 10% slower than of the "
+"particular vehicle."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:582
+msgid "The graph for the taxi is a subset of the ``vehicle_net`` graph."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:583
+msgid ""
+"Can only circulate inside the bounding box: ``(132.439,34.38, "
+"132.46,34.40)``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:597
+msgid "Count the rows on ``taxi_net``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:620
+msgid "pgr_dijkstraCostMatrix"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:622
+msgid ""
+"``pgr_dijkstraCostMatrix`` Calculates a cost matrix using Dijkstra algorithm."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:633
+msgid ""
+"Description of the function can be found in `pgr_dijkstraCostMatrix <https://"
+"docs.pgrouting.org/latest/en/pgr_dijkstraCostMatrix.html>`__"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:637
+msgid "Exercise 9: Testing the views"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:644
+msgid "Test the created views"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:646
+msgid "In particular:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:648
+msgid ""
+"Get a traveling cost matrix in seconds from the all follwoing ``id`` to all "
+"the ``id``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:651 ../../build/docs/basic/graphs.rst:663
+msgid "|id_1|, |id_2|, |id_3|, |id_4| and |id_5|."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:653
+msgid "the views to be tested are:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:655
+msgid "``vehicle_net``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:656
+msgid "``taxi_net``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:657
+msgid "``walk_net``"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:661
+msgid "The locations are:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:664
+msgid "Passed as an array to the function."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:666
+msgid "For ``vehicle_net``:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:668
+msgid "``vehicle_net`` is used."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:669
+msgid "Selection of the columns with the corresponding names."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:670
+msgid "The view is prepared with the column names that pgRouting use."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:672
+msgid "There is no need to rename columns."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:685
+msgid "For ``taxi_net``:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:687
+msgid "Similar as the previous one but with ``taxi_net``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:688
+msgid ""
+"The results give the same route as with ``vehicle_net`` but ``cost`` is "
+"higher."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:690
+msgid "Not all the locations are in the area, so not all are calculated."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:703
+msgid "For ``walk_net``:"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:705
+msgid "Similar as the previous ones but with ``walk_net``."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:719
+msgid "Exercise 10: Visualize on QGIS the ``pgr_costMatrix`` result"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:726
+msgid ""
+"Based on the query from `Exercise 9: Testing the views`_, create a view to "
+"be able to use on QGIS. (like the one above)"
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:729
+msgid "The results when using ``vehile_net`` is the example."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:730
+msgid "The other results are left to the reader."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:734
+msgid "QGIS needs a unique identifier, the identifier will be the row number."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:735
+msgid "``JOIN`` with ``vertices`` table to get the geometry of the points."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:736
+msgid "Build a ``LINESTRING`` joining the 2 points."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:737
+msgid ""
+"The name of the line consists of the values of the result of the function."
+msgstr ""
+
+#: ../../build/docs/basic/graphs.rst:746
+msgid ""
+"Enter QGIS, refresh the database and move the view to the layers. Format "
+"adding the name to the lines."
+msgstr ""

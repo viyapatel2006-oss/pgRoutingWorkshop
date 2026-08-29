@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2010-2024 pgRouting Developers
+# This file is distributed under the same license as the Workshop FOSS4G
+# Belém package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Workshop FOSS4G Belém 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-01 17:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../build/docs/basic/data.rst:7
+msgid "Prepare Data"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:12
+msgid "To be able to use pgRouting, data has to be imported into a database."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:15
+msgid "Chapter Contents"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:18
+msgid "Prepare the database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:20
+msgid "pgRouting is installed as extension. This requires:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:22
+msgid "PostgreSQL"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:23
+msgid "PostGIS"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:25
+msgid ""
+"These requirements are met on OSGeoLive. When the required software is "
+"installed, open a terminal window by pressing :code:`ctrl-alt-t` and follow "
+"the instructions."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:29
+msgid ""
+"Information about installing OSGeoLive can be found on :doc:`../appendix/"
+"osgeolive`."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:33
+msgid "Create a pgRouting compatible database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:35
+msgid "Create ``city_routing`` database that will be used on the workshop."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:42
+msgid "Connect to the database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:48
+msgid ""
+"Install pgRouting and its requirements. (otpionally check the version that "
+"is being used)"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:56
+msgid "Exit the database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:63
+msgid "Get the Workshop Data"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:65
+msgid ""
+"This workshop will use the ``Hiroshima`` city data and is a snapshot of Jun "
+"2026."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:69
+msgid "Get the data"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:72
+msgid "Download data form pgRouting download"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:74
+msgid "The exact same data can be found on the OSGeoLive download page."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:82
+msgid "Option 3) Download using Overpass XAPI"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:84
+msgid ""
+"The following downloads the latest OSM data on using the same area. Using "
+"this data in the workshop can generate variations in the results, due to "
+"changes since Jun 2026."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:94
+msgid ""
+"More information about how to download OpenStreetMap data can be found `here "
+"<https://wiki.openstreetmap.org/wiki/Downloading_data>`_."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:97
+msgid ""
+"An alternative for very large areas is to use the download services of "
+"`Geofabrik <https://download.geofabrik.de>`_."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:101
+msgid "Upload data to the database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:103
+msgid ""
+"The next step is to run ``osm2pgrouting`` converter, which is a command line "
+"tool that inserts the data in the database, \"ready\" to be used with "
+"pgRouting. Additional information about ``osm2pgrouting`` can be found at "
+"the :doc:`../appendix/appendix-3`"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:107
+msgid "For this step:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:109
+msgid "the osm2pgrouting default ``mapconfig.xml`` configuration file is used"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:110
+msgid "and the ``~/Desktop/workshop/HIROSHIMA_JP.osm`` data"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:111
+msgid "with the ``city_routing`` database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:113
+msgid "From a terminal window :code:`ctrl-alt-t`."
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:116
+msgid "Run the osm2pgrouting converter"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:123
+msgid "Depending on the osm2pgrouting version `-W password` is needed"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:132
+msgid "Compatibility with older osm2pgrouting versions"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:134
+msgid "Check the installed version:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:140
+msgid ""
+"If you are using version 2.x, the column names differ from those used in "
+"this workshop:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:143
+msgid "``gid`` instead of ``id``"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:144
+msgid "``the_geom`` instead of ``geom``"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:146
+msgid "Run the following script to rename them:"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:154
+msgid "Tables on the database"
+msgstr ""
+
+#: ../../build/docs/basic/data.rst:156
+msgid "To inspect the tables that were created during this process:"
+msgstr ""

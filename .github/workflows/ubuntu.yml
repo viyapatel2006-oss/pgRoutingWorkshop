@@ -1,0 +1,94 @@
+name: Build workshop
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        osm2pgrouting: [apt, source]
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Get postgres version
+        run: |
+          sudo service postgresql start
+          pgver=$(psql --version | grep -Po '(?<=psql \(PostgreSQL\) )[^;]+(?=\.\d+ \()')
+          echo "PGVER=${pgver}" >> $GITHUB_ENV
+          echo "PGIS=3" >> $GITHUB_ENV
+
+      - name: Add PostgreSQL APT repository
+        run: |
+          sudo apt-get install curl ca-certificates gnupg
+          curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+          sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ \
+            $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+      - name: Install python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            postgresql-${PGVER}-postgis-${PGIS} \
+            postgresql-${PGVER}-postgis-${PGIS}-scripts \
+            postgresql-${PGVER}-pgrouting
+
+          if [ "${{ matrix.osm2pgrouting }}" = "apt" ]; then
+            sudo apt-get install -y osm2pgrouting
+          fi
+
+          python -m pip install --upgrade pip
+          pip install -r REQUIREMENTS.txt
+          pip list
+
+      - name: Install build dependencies
+        if: matrix.osm2pgrouting == 'source'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake libpq-dev libpqxx-dev libexpat1-dev \
+            libboost-program-options-dev
+
+      - name: Build osm2pgrouting from source
+        if: matrix.osm2pgrouting == 'source'
+        run: |
+          wget -q https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v3.0.0.tar.gz
+          tar xzf v3.0.0.tar.gz
+          python3 -c "import re; c=open('osm2pgrouting-3.0.0/CMakeLists.txt').read(); c=c.replace('if (PQXX_VERSION VERSION_GREATER_EQUAL \"7.0.0\")','if (PQXX_VERSION VERSION_GREATER_EQUAL \"8.0.0\")'); c=c.replace('  set(CMAKE_CXX_STANDARD 17)','  set(CMAKE_CXX_STANDARD 20)\nelseif (PQXX_VERSION VERSION_GREATER_EQUAL \"7.0.0\")\n  set(CMAKE_CXX_STANDARD 17)',1); open('osm2pgrouting-3.0.0/CMakeLists.txt','w').write(c)"
+          cmake -S osm2pgrouting-3.0.0 -B osm2pgrouting-3.0.0/build \
+            -DCMAKE_BUILD_TYPE=Release
+          sudo cmake --build osm2pgrouting-3.0.0/build --target install
+          sudo ldconfig
+
+      - name: Configure
+        run: |
+          sudo service postgresql start
+          service postgresql status
+          sudo -u postgres createdb -p ${POSTGRES_PORT}  setup
+          sudo -u postgres psql -c 'CREATE ROLE "runner" SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN PASSWORD $$runner$$;' -d setup
+          echo :5432:*:runner:runner >> .pgpass
+          sudo -u postgres psql -c 'CREATE ROLE "user" SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN PASSWORD $$user$$;' -d setup
+          echo :5432:*:user:user >> .pgpass
+          mkdir build
+          cd build
+          cmake -DPGR_WORKSHOP_DEBUG=ON ..
+          psql -l
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: setup
+
+      - name: Build
+        run: |
+          cd build
+          make html

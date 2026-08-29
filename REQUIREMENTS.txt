@@ -1,0 +1,5 @@
+Sphinx>4.0.0
+sphinx_bootstrap_theme>=0.4
+sphinx-intl
+sphinx-collapse
+sphinx-copybutton

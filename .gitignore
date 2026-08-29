@@ -1,0 +1,10 @@
+build/
+_build/
+data/*
+.vagrant
+sphinx/*
+*.mo
+.doctrees
+.directory
+*.swp
+*.osm
