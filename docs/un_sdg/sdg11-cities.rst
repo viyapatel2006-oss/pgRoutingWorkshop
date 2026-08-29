@@ -27,7 +27,7 @@ Problem: City getting affected by rain or not
 
 **Problem Statement**
 
-To determine the areas where if it rains will affect a city/town
+To determine the areas where rainfall would affect a city/town
 
 .. image:: images/sdg11/sdg11_output.png
   :align: center
@@ -35,7 +35,7 @@ To determine the areas where if it rains will affect a city/town
 
 **Core Idea**
 
-If it rains in vicinity of a river connecting the city, the city will get
+If it rains in the vicinity of a river connecting the city, the city will get
 affected by the rains.
 
 **Approach**
@@ -44,8 +44,8 @@ affected by the rains.
 * Get the Rivers (Edges)
 * Create river components
 * Create a Buffer around the city
-* Finding the components intersecting the buffer
-* Finding the rain zones
+* Find the components intersecting the buffer
+* Find the rain zones
 
 
 

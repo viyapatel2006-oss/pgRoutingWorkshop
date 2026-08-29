@@ -18,7 +18,7 @@ It also aims to achieve universal health coverage, and provide access to safe an
 effective medicines and vaccines for all. Supporting research and development for
 vaccines is an essential part of this process as well as expanding access to
 affordable medicines. Hospitals are a very important part of a well functioning
-health infrastructure. An appropriate planning is required for optimal distribution
+health infrastructure. Appropriate planning is required for optimal distribution
 of the population of an area to its hospitals. Hence, it is very important to estimate
 the number of dependent people living near the hospital for better planning which
 would ultimately help in achieving universal coverage of health services. This chapter
@@ -35,8 +35,8 @@ Determine the population served by a hospital based on walking travel time.
 
 **Core Idea**
 
-Population residing along the roads which reach to a hospital within a particular
-time is dependent on that hospital.
+Population residing along the roads which lead to a hospital within a particular
+time are dependent on that hospital.
 
 **Approach**
 
@@ -54,7 +54,7 @@ time is dependent on that hospital.
 
 * Estimate the population living on the roads.
 * Calculate the walking travel time from a road to a hospital.
-* Calculate the population within 10 minutes waking to a location.
+* Calculate the population within a 10-minute walk to a location.
 
 First step is to prepare the data obtained from :doc:`data`.
 
