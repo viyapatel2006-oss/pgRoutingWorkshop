@@ -12,8 +12,8 @@ Software and Data Source Overview
 
 pgRouting is a community project of OSGeo.
 
-This workshop uses several free and open source softwares for geospatial tools.
-Most of these softwares are related to other open source software projects. Here
+This workshop uses several free and open source software for geospatial tools.
+Most of these software are related to other open source software projects. Here
 we mention the most important ones.
 
 .. contents:: Chapter Contents
@@ -41,7 +41,7 @@ Some of the pgRouting library core features are:
 
 * `Functions based on Dijkstra Algorithm <https://docs.pgrouting.org/latest/en/dijkstra-family.html>`__
 * `Functions based on `A* Search Algorithm <https://docs.pgrouting.org/latest/en/aStar-family.html>`__
-* `Graph commponent functions <https://docs.pgrouting.org/latest/en/components-family.html>`__
+* `Graph component functions <https://docs.pgrouting.org/latest/en/components-family.html>`__
 * `and many more <https://docs.pgrouting.org/latest/en/routingFunctions.html>`_
 
 pgRouting is an open source software available under the GPLv2 license and is
